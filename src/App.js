@@ -4,12 +4,14 @@ import Tile from "./common/Tile";
 
 export const App = () => {
   return (
+    <>
+    <GlobalStyle />
       <Container>
-
         <Tile>
           test
         </Tile>
       </Container>
+      </>
   );
 }
 
