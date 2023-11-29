@@ -4,14 +4,16 @@ import Container from "./common/Container";
 import Header from "./common/Header"
 import Tile from "./common/Tile";
 import Footer from "./common/Footer";
+import Navigation from "./Navigation/Navigation";
 
 export const App = () => {
   return (
     <>
     <Theme>
     <GlobalStyle />
+    <Navigation/>
     <Header />
-      <Container>
+      <Container>    
         <Tile>
           test
         </Tile>
