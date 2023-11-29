@@ -2,7 +2,7 @@
   "name": "movie-browser",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://github.com/MateuszBryczek/Movie-Browser.git",
+  "homepage": "https://mateuszbryczek.github.io/Movie-Browser/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
