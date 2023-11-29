@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MateuszBryczek/Movie-Browser.git/static/css/main.e6c13ad2.css",
-    "main.js": "/MateuszBryczek/Movie-Browser.git/static/js/main.1d45078f.js",
-    "static/js/787.9ba826ac.chunk.js": "/MateuszBryczek/Movie-Browser.git/static/js/787.9ba826ac.chunk.js",
-    "index.html": "/MateuszBryczek/Movie-Browser.git/index.html",
-    "main.e6c13ad2.css.map": "/MateuszBryczek/Movie-Browser.git/static/css/main.e6c13ad2.css.map",
-    "main.1d45078f.js.map": "/MateuszBryczek/Movie-Browser.git/static/js/main.1d45078f.js.map",
-    "787.9ba826ac.chunk.js.map": "/MateuszBryczek/Movie-Browser.git/static/js/787.9ba826ac.chunk.js.map"
+    "main.css": "/Movie-Browser/static/css/main.e6c13ad2.css",
+    "main.js": "/Movie-Browser/static/js/main.e2b2bce4.js",
+    "static/js/787.9ba826ac.chunk.js": "/Movie-Browser/static/js/787.9ba826ac.chunk.js",
+    "index.html": "/Movie-Browser/index.html",
+    "main.e6c13ad2.css.map": "/Movie-Browser/static/css/main.e6c13ad2.css.map",
+    "main.e2b2bce4.js.map": "/Movie-Browser/static/js/main.e2b2bce4.js.map",
+    "787.9ba826ac.chunk.js.map": "/Movie-Browser/static/js/787.9ba826ac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.1d45078f.js"
+    "static/js/main.e2b2bce4.js"
   ]
 }
