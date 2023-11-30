@@ -13,10 +13,13 @@ export const App = () => {
     <Theme>
     <GlobalStyle />
     <Container> 
+
     <Navigation/>
-    <Header />
-        <MovieList/>
+
+      <p>trololo test</p>
       </Container>
+        <MovieList/>
+      {/* </Container> */}
       <Footer />
       </Theme>
     </>

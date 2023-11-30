@@ -1,7 +1,10 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-    max-width: 1368px;
-    margin: 0 auto;
-
+  margin: 0 auto;
+  width:100%;
+  height:100%;
+  background-color: ${({ theme }) => theme.colors.background};
+  //na razie zmieniam to tak,
+  //żeby container byl na totalnie wszystko
 `;
