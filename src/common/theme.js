@@ -16,9 +16,6 @@ export const GlobalTheme ={
     breakpoints:{
         mediumDevices: 768,
         largeDevices: 992,
-    },
-
-
 
     colors: {
         background: colorNames.Whisper,
@@ -41,17 +38,11 @@ export const GlobalTheme ={
             secondary: colorNames.Mystic,
             star: colorNames.Candlelight,
         },
-        footer: {
-            textPrimary: colorNames.Woodsmoke,
+        pager: {
             textSecondary: colorNames.Waterloo,
-        },
-        footerButton: {
-            textPrimary: colorNames.Woodsmoke,
-            textSecondary: colorNames.MineShaft,
-            primary: colorNames.Waterloo,
-            secondary: colorNames.PattensBlue,
-            iconPrimary: colorNames.MineShaft,
-            iconSecondary: colorNames.ScienceBlue,
+            leftBar: colorNames.Whisper,
+            rightBar: colorNames.PattensBlue,
+            rightVector: colorNames.ScienceBlue,
         },
     },
 };
