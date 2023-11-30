@@ -1,16 +1,20 @@
-import { Wrapper } from "./styled";
-import Tile from "../common/Tile"; 
+import { Wrapper, TilesWrapper, StyledTitle } from "./styled";
+import Tile from "../common/Tile";
 
+const MovieList = ({}) => (
+  <Wrapper>
+    <StyledTitle>Popular movies</StyledTitle>
+    <TilesWrapper>
+    <Tile>miejsce na film</Tile>
+    <Tile>miejsce na film</Tile>
+    <Tile>miejsce na film</Tile>
+    <Tile>miejsce na film</Tile>
+    <Tile>miejsce na film</Tile>
+    <Tile>miejsce na film</Tile>
+    <Tile>miejsce na film</Tile>
+    <Tile>miejsce na film</Tile>
+    </TilesWrapper>
+  </Wrapper>
+);
 
-const MovieList= ({})=>
-
-
-    (<Wrapper>
-        <Tile></Tile>
-
-
-    </Wrapper>
-
-    );
-
-    export default MovieList;
+export default MovieList;
