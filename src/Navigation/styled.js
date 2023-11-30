@@ -7,45 +7,49 @@ export const Wrapper = styled.div`
   color: ${({ theme }) => theme.colors.header.textPrimary};
   display: grid;
   grid-gap: 15px;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 600px auto;
   justify-content: space-between;
   align-items: center;
   padding: 0px 250px 0px;
 `;
-export const Title = styled.p`
-  color: ${({ theme }) => theme.colors.White};
-  font-weight: bold;
-  /* padding: 0px 20px 0px 100px; */
-`;
 
 export const ButtonsWrapper = styled.div`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-template-columns: 1fr 1fr;
 `;
 export const TitleWrapper = styled.div`
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 200px 200px;
+  justify-content: space-between;
 `;
 
 export const Button = styled.button`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  padding: 15px 15px;
+  font-size: 15px;
+  width: fit-content;
+  padding: 15px 20px;
   background-color: transparent;
-  border-color: ${({ theme }) => theme.colors.header.textPrimary};
-  border-style: solid 3px;
+  border-color: transparent;
+  border-style: solid 1px;
   color: ${({ theme }) => theme.colors.header.textPrimary};
-  border-radius: 30%;
+  border-radius: 999px;
+
+  &:active: {
+    border-color: ${({ theme }) => theme.colors.header.textPrimary};
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.header.textPrimary};
+  }
 `;
 
 export const Search = styled.input`
   color: ${({ theme }) => theme.colors.White};
-  width: 250px;
+  width: 350px;
   height: 50px;
-  border-radius: 30%;
+  border-radius: 999px;
   margin-right: 200px;
 `;
