@@ -5,18 +5,17 @@ import Header from "./common/Header"
 import Tile from "./common/Tile";
 import Footer from "./common/Footer";
 import Navigation from "./Navigation";
+import MovieList from "./MovieList";
 
 export const App = () => {
   return (
     <>
     <Theme>
     <GlobalStyle />
+    <Container> 
     <Navigation/>
     <Header />
-      <Container>    
-        <Tile>
-          
-        </Tile>
+        <MovieList/>
       </Container>
       <Footer />
       </Theme>
