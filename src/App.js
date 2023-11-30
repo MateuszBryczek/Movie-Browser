@@ -16,7 +16,6 @@ export const App = () => {
           <Navigation />
           <MovieList />
         </Container>
-        {/* </Container> */}
         <Footer />
       </Theme>
     </>
