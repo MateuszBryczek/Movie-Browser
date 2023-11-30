@@ -6,11 +6,13 @@ import {
   ButtonsWrapper,
   TitleWrapper,
 } from "./styled";
+import {ReactComponent as Camera} from "../camera.svg";
+
 
 const Navigation = ({}) => (
   <Wrapper>
     <TitleWrapper>
-      <Title>Movies Browser</Title>
+      <Camera/>
       <ButtonsWrapper>
         <Button>MOVIES</Button>
         <Button>PEOPLE</Button>
