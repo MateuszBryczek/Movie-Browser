@@ -13,6 +13,13 @@ const colorNames = {
 };
 
 export const GlobalTheme ={
+    breakpoints:{
+        mediumDevices: 768,
+        largeDevices: 992,
+    },
+
+
+
     colors: {
         background: colorNames.Whisper,
         primary: colorNames.White,

@@ -4,19 +4,24 @@ import {
   Search,
   ButtonsWrapper,
   TitleWrapper,
+  LogoWrapper,
+  SearchWrapper,
 } from "./styled";
 import { ReactComponent as Camera } from "../camera.svg";
 
 const Navigation = ({}) => (
   <Wrapper>
     <TitleWrapper>
-      <Camera />
+      <LogoWrapper>
+        <Camera />
+      </LogoWrapper>
       <ButtonsWrapper>
         <Button>MOVIES</Button>
         <Button>PEOPLE</Button>
       </ButtonsWrapper>
     </TitleWrapper>
-    <Search placeholder="         Search for movies..." />
+    <SearchWrapper><Search placeholder="         Search for movies..." /></SearchWrapper>
+    
   </Wrapper>
 );
 export default Navigation;
