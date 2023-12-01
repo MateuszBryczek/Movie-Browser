@@ -19,7 +19,6 @@ export const GlobalTheme ={
     },
 
 
-
     colors: {
         background: colorNames.Whisper,
         primary: colorNames.White,

@@ -14,6 +14,7 @@ export const App = () => {
         <GlobalStyle />
         <Container>
           <Navigation />
+          <Header title="Popular movies" />
           <MovieList />
         </Container>
         <Footer />
