@@ -7,14 +7,15 @@ import Footer from "./common/Footer";
 import Navigation from "./Navigation";
 import Pagination from "./common/Pagination";
 
-
 export const App = () => {
   return (
+    <>
       <Theme>
         <GlobalStyle />
-        <Header />
         <Container>
-          <Tile>test</Tile>
+          <Navigation />
+          <Header title="Popular movies" />
+          <MovieList />
           <Pagination />
         </Container>
       </Theme>
