@@ -4,7 +4,7 @@ import Container from "./common/Container";
 import Header from "./common/Header";
 import Navigation from "./Navigation";
 import Pagination from "./common/Pagination";
-import MovieList from "./MovieList";
+import MovieList from "./features/MovieList/MovieList";
 
 export const App = () => {
   return (
@@ -14,7 +14,7 @@ export const App = () => {
         <Container>
           <Navigation />
           <Header title="Popular movies" />
-          <MovieList />
+            <MovieList />
           <Pagination />
         </Container>
       </Theme>
