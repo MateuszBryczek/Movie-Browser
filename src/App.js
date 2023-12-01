@@ -2,9 +2,9 @@ import { GlobalStyle } from "./common/GlobalStyle";
 import Theme from "./common/theme";
 import Container from "./common/Container";
 import Header from "./common/Header";
-import Navigation from "./Navigation";
+import Navigation from "./common/Navigation";
 import Pagination from "./common/Pagination";
-import MovieList from "./MovieList";
+import MovieList from "./features/MovieList";
 
 export const App = () => {
   return (
