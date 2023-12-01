@@ -9,7 +9,7 @@ import {
 } from "./styled";
 import { ReactComponent as Camera } from "../camera.svg";
 
-const Navigation = ({}) => (
+const Navigation = () => (
   <Wrapper>
     <TitleWrapper>
       <LogoWrapper>

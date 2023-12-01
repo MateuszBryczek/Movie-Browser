@@ -1,7 +1,7 @@
-import { Wrapper, TilesWrapper } from "./styled";
+import { TilesWrapper } from "./styled";
 import Tile from "../common/Tile";
 
-const MovieList = ({}) => (
+const MovieList = () => (
     <TilesWrapper>
     <Tile>miejsce na film</Tile>
     <Tile>miejsce na film</Tile>
