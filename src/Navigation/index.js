@@ -1,3 +1,5 @@
+import { HashRouter, Link, Switch, Route, Redirect } from "react-router-dom";
+
 import {
   Wrapper,
   Button,
