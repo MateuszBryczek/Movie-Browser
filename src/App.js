@@ -5,7 +5,7 @@ import Header from "./common/Header";
 import Tile from "./common/Tile";
 import Footer from "./common/Footer";
 import Navigation from "./Navigation";
-import MovieList from "./MovieList";
+import Pagination from "./common/Pagination";
 
 export const App = () => {
   return (
@@ -16,8 +16,8 @@ export const App = () => {
           <Navigation />
           <Header title="Popular movies" />
           <MovieList />
+          <Pagination />
         </Container>
-        <Footer />
       </Theme>
     </>
   );
