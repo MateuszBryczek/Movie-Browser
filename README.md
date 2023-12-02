@@ -1,7 +1,7 @@
 This is Movie Browser App.
 It enables browsing movies, checking people related to movies and movies with chosen actors or another content creators. 
 
-
+"This Movie Browser Application uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB."
 
 # Getting Started with Create React App
 
