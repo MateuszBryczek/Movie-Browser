@@ -1,17 +1,18 @@
-import { HashRouter, Link, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
+import PeopleList from "../../features/PeopleList";
 import MovieList from "../../features/MovieList";
-import PeopleList from "../../PeopleList";
 
 import {
+  StyledNavLink,
   Wrapper,
-  Button,
   Search,
-  ButtonsWrapper,
+  // ButtonsWrapper,
   TitleWrapper,
   LogoWrapper,
   SearchWrapper,
+  NavList,
 } from "./styled";
-import { ReactComponent as Camera } from "../camera.svg";
+import { ReactComponent as Camera } from "../../images/camera.svg";
 
 const Navigation = ({}) => (
   <HashRouter>
@@ -21,23 +22,22 @@ const Navigation = ({}) => (
           <Camera />
         </LogoWrapper>
         <nav>
-          <ButtonsWrapper>
-            <Link to="/movielist">
-              <Button>MOVIES</Button>
-            </Link>
-            <Button>PEOPLE</Button>
-          </ButtonsWrapper>
-          <Switch>
+          <NavList>
+            <li>
+              <StyledNavLink to="/movielist">MOVIES</StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/peoplelist">PEOPLE</StyledNavLink>
+            </li>
+          </NavList>
+          {/* <Switch>
             <Route path="/peoplelist">
               <PeopleList />
             </Route>
             <Route path="/movielist">
               <MovieList />
-            </Route>
-            <Route path="/">
-              <Redirect to="/movielist" />
-            </Route>
-          </Switch>
+            </Route>            
+          </Switch> */}
         </nav>
       </TitleWrapper>
       <SearchWrapper>

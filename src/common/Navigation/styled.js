@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Wrapper = styled.div`
   max-width: 1920px;
@@ -35,13 +36,13 @@ export const TitleWrapper = styled.div`
   }
 `;
 
-export const ButtonsWrapper = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr;
-  /* @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-  } */
-`;
+// export const ButtonsWrapper = styled.div`
+//   display: grid;
+//   grid-gap: 10px;
+//   grid-template-columns: 1fr 1fr;
+//   /* @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+//   } */
+// `;
 
 export const LogoWrapper = styled.div`
   justify-items: center;
@@ -52,7 +53,54 @@ export const LogoWrapper = styled.div`
   }
 `;
 
-export const Button = styled.button`
+// export const Button = styled.button`
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 15px;
+//   width: fit-content;
+//   padding: 15px 20px;
+//   background-color: transparent;
+//   border-color: transparent;
+//   border-style: solid 1px;
+//   color: ${({ theme }) => theme.colors.header.textPrimary};
+//   border-radius: 999px;
+
+//   &:active {
+//     border-color: ${({ theme }) => theme.colors.header.textPrimary};
+//   }
+//   &:hover {
+//     border-color: ${({ theme }) => theme.colors.header.textPrimary};
+//   }
+
+//   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+//     margin: 0px;
+//     padding: 0px;
+//   }
+// `;
+
+export const SearchWrapper = styled.div`
+  width: 350px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    max-width: 330px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const Search = styled.input`
+  color: ${({ theme }) => theme.colors.White};
+  width: 350px;
+  height: 50px;
+  border-radius: 999px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    max-width: 300px;
+  }
+`;
+
+export const StyledNavLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -78,23 +126,15 @@ export const Button = styled.button`
   }
 `;
 
-export const SearchWrapper = styled.div`
-  width: 350px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    max-width: 330px;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-`;
-
-export const Search = styled.input`
-  color: ${({ theme }) => theme.colors.White};
-  width: 350px;
-  height: 50px;
-  border-radius: 999px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    max-width: 300px;
-  }
+export const NavList = styled.ul`
+  list-style: none;
+  text-decoration: none;
+  /* padding: 15px; */
+  /* background-color: ${({ theme }) => theme.colors.sindbad}; */
+  display: flex;
+  justify-content: center;
+  /* font-size: 20px; */
+  /* font-weight: 300; */
+  /* font-family: "Montserrat", sans-serif; */
+  /* margin:0 auto; */
 `;
