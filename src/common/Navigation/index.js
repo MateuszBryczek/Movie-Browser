@@ -7,7 +7,6 @@ import {
   StyledNavLink,
   Wrapper,
   Search,
-  // ButtonsWrapper,
   TitleWrapper,
   LogoWrapper,
   SearchWrapper,
@@ -31,7 +30,7 @@ const Navigation = ({}) => (
               <StyledNavLink to="/peoplelist">PEOPLE</StyledNavLink>
             </li>
           </NavList>
-          {/* <Switch>
+          <Switch>
             <Route path="/peoplelist">
               <PeopleList />
             </Route>
@@ -41,7 +40,7 @@ const Navigation = ({}) => (
                       <Route path="/">
               <ErrorPage />
             </Route>
-          </Switch> */}
+          </Switch>
         </nav>
       </TitleWrapper>
       <SearchWrapper>

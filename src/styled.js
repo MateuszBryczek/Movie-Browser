@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-const activeClassName = "link-active";
-
 export const Wrapper = styled.div`
   max-width: 1920px;
   height: 94px;
@@ -115,13 +113,16 @@ export const StyledNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.header.textPrimary};
   border-radius: 999px;
 
+  &:active {
+    border-color: ${({ theme }) => theme.colors.header.textPrimary};
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.header.textPrimary};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     margin: 0px;
     padding: 0px;
-  }
-
-  &.active {
-    border-color: ${({ theme }) => theme.colors.header.textPrimary};
   }
 `;
 
