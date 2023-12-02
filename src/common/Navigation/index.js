@@ -1,6 +1,7 @@
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import PeopleList from "../../features/PeopleList";
 import MovieList from "../../features/MovieList";
+import ErrorPage from "../ErrorPage";
 
 import {
   StyledNavLink,
@@ -36,7 +37,10 @@ const Navigation = ({}) => (
             </Route>
             <Route path="/movielist">
               <MovieList />
-            </Route>            
+            </Route> 
+                      <Route path="/">
+              <ErrorPage />
+            </Route>
           </Switch> */}
         </nav>
       </TitleWrapper>
