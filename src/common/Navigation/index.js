@@ -36,9 +36,6 @@ const Navigation = ({}) => (
             </Route>
             <Route path="/movielist">
               <MovieList />
-            </Route> 
-                      <Route path="/">
-              <ErrorPage />
             </Route>
           </Switch>
         </nav>
