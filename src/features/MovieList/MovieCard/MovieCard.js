@@ -1,5 +1,5 @@
-import { Poster, Title, Date, Tags, Rating, Votes, Description, } from "./styled";
-import { IMG_URL_500 } from "../config";
+import { Poster, Title, Date, Tags, Rating, Votes, Description, } from "../styled";
+import { IMG_URL_500 } from "../../config";
 
 const MovieCard = ({ original_title, release_date, genres, vote_average, vote_count, poster_path }) => {
     return (

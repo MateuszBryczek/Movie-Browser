@@ -1,5 +1,9 @@
 import { takeEvery, call, put } from "@redux-saga/core/effects";
-import { fetchMovies, fetchMoviesSucces, fetchMoviesError } from "./movieSlice";
+import {
+  fetchMovies,
+  fetchMoviesSucces,
+  fetchMoviesError,
+} from "./movieSlice";
 import { getMovies } from "./getMovies";
 
 function* fetchMoviesHandler({ payload: movieId }) {
