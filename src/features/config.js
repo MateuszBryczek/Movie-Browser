@@ -10,5 +10,4 @@ export default axios.create({
     params: {
         api_key: "5436c11ec3f3706d8f349dbc68c7265e"
 },
-
-})
+});
