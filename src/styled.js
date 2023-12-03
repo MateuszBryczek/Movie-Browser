@@ -42,10 +42,10 @@ export const SearchWrapper = styled.div`
   border-radius: 999px;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.White};
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  justify-items:center;
+  justify-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     max-width: 330px;
@@ -59,8 +59,6 @@ export const Search = styled.input`
   max-height: 50px;
   padding-left: 50px;
   border: 0px;
-  
-  
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     max-width: 200px;
@@ -97,38 +95,6 @@ export const StyledNavLink = styled(NavLink)`
 export const NavList = styled.ul`
   list-style: none;
   text-decoration: none;
-  /* padding: 15px; */
-  /* background-color: ${({ theme }) => theme.colors.sindbad}; */
   display: flex;
   justify-content: center;
-  /* font-size: 20px; */
-  /* font-weight: 300; */
-  /* font-family: "Montserrat", sans-serif; */
-  /* margin:0 auto; */
 `;
-
-// export const Button = styled.button`
-//   text-align: center;
-//   text-decoration: none;
-//   display: inline-block;
-//   font-size: 15px;
-//   width: fit-content;
-//   padding: 15px 20px;
-//   background-color: transparent;
-//   border-color: transparent;
-//   border-style: solid 1px;
-//   color: ${({ theme }) => theme.colors.header.textPrimary};
-//   border-radius: 999px;
-
-//   &:active {
-//     border-color: ${({ theme }) => theme.colors.header.textPrimary};
-//   }
-//   &:hover {
-//     border-color: ${({ theme }) => theme.colors.header.textPrimary};
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-//     margin: 0px;
-//     padding: 0px;
-//   }
-// `;

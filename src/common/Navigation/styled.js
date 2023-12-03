@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-const activeClassName = "link-active";
-
 export const Wrapper = styled.div`
   max-width: 1920px;
   height: 94px;
@@ -14,7 +12,6 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   align-content: center;
-
   padding: 0px 120px 0px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     width: 100%;

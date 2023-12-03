@@ -1,7 +1,6 @@
 import { GlobalStyle } from "./common/GlobalStyle";
 import Theme from "./common/theme";
 import Container from "./common/Container";
-// import Header from "./common/Header";
 import Navigation from "./common/Navigation";
 import Pagination from "./common/Pagination";
 import MovieList from "./features/MovieList";
@@ -48,7 +47,6 @@ export const App = () => {
                 </Switch>
               </nav>
             </TitleWrapper>
-            {/* <TestDiv/> */}
             <SearchWrapper>
               <Search placeholder="Search for movies..." />
             </SearchWrapper>
