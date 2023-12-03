@@ -1,7 +1,7 @@
 import config from "../config";
 
 export const getPeople = async () => {
-    const { data } = await config.get("person");
+    const { data } = await config.get("person/popular");
 
     console.log(data);
         if (!data.ok) {
