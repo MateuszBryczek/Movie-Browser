@@ -1,9 +1,8 @@
 import { GlobalStyle } from "./common/GlobalStyle";
 import Theme from "./common/theme";
 import Container from "./common/Container";
-import Navigation from "./common/Navigation";
 import Pagination from "./common/Pagination";
-import MovieList from "./features/MovieList";
+import MovieList from "./features/MovieList/MovieList";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import ErrorPage from "./common/ErrorPage";
 import {
