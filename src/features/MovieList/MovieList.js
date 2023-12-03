@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMoviesX, selectError, selectMovies } from "./movieSlice";
 import MovieCard from "./MovieCard";
@@ -6,13 +6,13 @@ import Tile from "../../common/Tile";
 import { TilesWrapper } from "./styled";
 
 const MovieList = () => {
-  const movies = useSelector(selectMovies)
-  const error = useSelector(selectError)
+  const movies = useSelector(selectMovies);
+  const error = useSelector(selectError);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMoviesX())
+    dispatch(fetchMoviesX());
   }, [dispatch]);
 
   return (

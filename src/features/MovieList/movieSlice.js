@@ -10,7 +10,6 @@ const movieSlice = createSlice({
     fetchMoviesX: () => {},
     fetchMoviesSucces: (state, { payload: movies }) => {
       state.movies = movies.results.slice(0, 8);
-
     },
     fetchMoviesError: (state, { payload: error }) => {
       state.error = true;
@@ -22,6 +21,6 @@ const movieSlice = createSlice({
 export const { fetchMoviesX, fetchMoviesSucces, fetchMoviesError } =
   movieSlice.actions;
 const selectMoviesState = state => state.movies;
-export const selectMovies = state => selectMoviesState(state).movies
-export const selectError = state => selectMoviesState(state).Error
+export const selectMovies = state => selectMoviesState(state).movies;
+export const selectError = state => selectMoviesState(state).Error;
 export default movieSlice.reducer;
