@@ -10,10 +10,8 @@ import {
   Wrapper,
   Search,
   TitleWrapper,
-  LogoWrapper,
   SearchWrapper,
   NavList,
-  TestDiv
 } from "./styled";
 import { ReactComponent as Camera } from "./images/camera.svg";
 import PeopleList from "./features/PeopleList";
@@ -24,10 +22,10 @@ export const App = () => {
       <Theme>
         <GlobalStyle />
         <HashRouter>
-          <Wrapper>
-            <TitleWrapper>
+          <nav>
+            <Wrapper>
+              <TitleWrapper>
                 <Camera />
-              <nav>
                 <NavList>
                   <li>
                     <StyledNavLink to="/movielist">MOVIES</StyledNavLink>
@@ -36,20 +34,20 @@ export const App = () => {
                     <StyledNavLink to="/peoplelist">PEOPLE</StyledNavLink>
                   </li>
                 </NavList>
-                <Switch>
-                  <Route path="/peoplelist">
-                    <PeopleList />
-                  </Route>
-                  <Route path="/movielist">
-                    <MovieList />
-                  </Route>
-                </Switch>
-              </nav>
-            </TitleWrapper>
-            <SearchWrapper>
-              <Search placeholder="Search for movies..." />
-            </SearchWrapper>
-          </Wrapper>
+              </TitleWrapper>
+              <SearchWrapper>
+                <Search placeholder="Search for movies..." />
+              </SearchWrapper>
+            </Wrapper>
+          </nav>
+          <Switch>
+            <Route path="/peoplelist">
+              <PeopleList />
+            </Route>
+            <Route path="/movielist">
+              <MovieList />
+            </Route>
+          </Switch>
         </HashRouter>
       </Theme>
     </>
