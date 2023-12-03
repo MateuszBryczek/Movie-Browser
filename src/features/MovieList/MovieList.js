@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, selectError, selectMovies } from "./movieSlice";
-import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCard/MovieCard";
 import Tile from "../../common/Tile";
 import { TilesWrapper } from "./styled";
 
