@@ -1,6 +1,6 @@
 import { takeEvery, call, put } from "@redux-saga/core/effects";
 import {
-  fetchMoviesX,
+  fetchMovies,
   fetchMoviesSucces,
   fetchMoviesError,
 } from "./movieSlice";
@@ -16,5 +16,5 @@ function* fetchMoviesHandler({ payload: movieId }) {
 }
 
 export function* watchFetchMovies() {
-  yield takeEvery(fetchMoviesX.type, fetchMoviesHandler);
+  yield takeEvery(fetchMovies.type, fetchMoviesHandler);
 }
