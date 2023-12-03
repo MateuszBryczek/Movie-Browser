@@ -7,7 +7,7 @@ const movieSlice = createSlice({
     error: false,
   },
   reducers: {
-    fetchMoviesX: () => {},
+    fetchMovies: () => {},
     fetchMoviesSucces: (state, { payload: movies }) => {
       state.movies = movies.results.slice(0, 8);
     },
@@ -18,7 +18,7 @@ const movieSlice = createSlice({
   },
 });
 
-export const { fetchMoviesX, fetchMoviesSucces, fetchMoviesError } =
+export const { fetchMovies, fetchMoviesSucces, fetchMoviesError } =
   movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
