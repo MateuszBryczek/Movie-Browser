@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Wrapper = styled.div`
   max-width: 1920px;
@@ -11,7 +12,6 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   align-content: center;
-
   padding: 0px 120px 0px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     width: 100%;
@@ -27,6 +27,7 @@ export const TitleWrapper = styled.div`
   grid-template-columns: 100px auto;
   justify-content: space-between;
   justify-items: center;
+  align-items: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     margin: 0;
     padding: 0px;
@@ -35,24 +36,36 @@ export const TitleWrapper = styled.div`
   }
 `;
 
-export const ButtonsWrapper = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr;
-  /* @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-  } */
-`;
-
-export const LogoWrapper = styled.div`
+export const SearchWrapper = styled.div`
+  width: 300px;
+  height: 50px;
+  border-radius: 999px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.White};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   justify-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    margin: 0;
-    padding: 0px;
+    max-width: 330px;
+    display: grid;
   }
 `;
 
-export const Button = styled.button`
+export const Search = styled.input`
+  color: ${({ theme }) => theme.colors.primary};
+  max-width: 200px;
+  max-height: 50px;
+  padding-left: 50px;
+  border: 0px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    max-width: 200px;
+  }
+`;
+
+export const StyledNavLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -65,36 +78,23 @@ export const Button = styled.button`
   color: ${({ theme }) => theme.colors.header.textPrimary};
   border-radius: 999px;
 
-  &:active {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  &.active,
+  &.visited {
     border-color: ${({ theme }) => theme.colors.header.textPrimary};
   }
   &:hover {
     border-color: ${({ theme }) => theme.colors.header.textPrimary};
   }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    margin: 0px;
-    padding: 0px;
-  }
 `;
 
-export const SearchWrapper = styled.div`
-  width: 350px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    max-width: 330px;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-`;
-
-export const Search = styled.input`
-  color: ${({ theme }) => theme.colors.White};
-  width: 350px;
-  height: 50px;
-  border-radius: 999px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    max-width: 300px;
-  }
+export const NavList = styled.ul`
+  list-style: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
 `;

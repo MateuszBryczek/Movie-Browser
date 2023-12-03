@@ -7,9 +7,7 @@ export const StyledHeader = styled.header`
   max-height: 45px;
   margin-left: 276px;
   margin-top: 56px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px){
-    margin-left:50px;
-  }
-
-
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    margin-left: 50px;
+  };
 `;
