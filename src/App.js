@@ -47,6 +47,10 @@ export const App = () => {
             <Route path="/movielist">
               <MovieList />
             </Route>
+            <Route path="/">
+              <Redirect to="/movielist" />
+              <MovieList />
+            </Route>
           </Switch>
         </HashRouter>
       </Theme>
