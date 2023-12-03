@@ -3,6 +3,8 @@ It enables browsing movies, checking people related to movies and movies with ch
 
 "This Movie Browser Application uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB."
 
+demo: https://mateuszbryczek.github.io/Movie-Browser/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
