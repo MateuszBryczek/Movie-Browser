@@ -1,35 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMoviesX, selectError, selectMovies } from "./movieSlice";
 import MovieCard from "./MovieCard";
 import Tile from "../../common/Tile";
-import config from "../config";
 import { TilesWrapper } from "./styled";
 
-const MovieList = ({ isPlaceholder = false }) => {
-  const [movies, setMovies] = useState([]);
+const MovieList = () => {
+  const movies = useSelector(selectMovies)
+  const error = useSelector(selectError)
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const { data } = await config.get("movie/popular");
-      setMovies(data.results.slice(0, 8));
-    };
-
-    if (!isPlaceholder) {
-      fetchMovies();
-    }
-  }, [isPlaceholder]);
+    dispatch(fetchMoviesX())
+  }, [dispatch]);
 
   return (
-    <TilesWrapper>
-      {isPlaceholder
-        ? Array.from({ length: 8 }).map((_, index) => (
-            <Tile key={index}>miejsce na film</Tile>
-          ))
-        : movies.map((movie, index) => (
-            <Tile key={index}>
-              <MovieCard {...movie} />
-            </Tile>
-          ))}
-    </TilesWrapper>
+    <>
+      <TilesWrapper>
+        {error
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <Tile key={index}>miejsce na film</Tile>
+            ))
+          : movies.map((movie, index) => (
+              <Tile key={index}>
+                <MovieCard {...movie} />
+              </Tile>
+            ))}
+      </TilesWrapper>
+    </>
   );
 };
 
