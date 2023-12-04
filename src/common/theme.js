@@ -15,7 +15,7 @@ const colorNames = {
 export const GlobalTheme ={
     breakpoints:{
         mediumDevices: 768,
-        largeDevices: 992,
+        largeDevices: 1024,
     },
 
     colors: {
@@ -25,7 +25,7 @@ export const GlobalTheme ={
         header: {
             textPrimary: colorNames.White,
             primary: colorNames.Woodsmoke,
-            secondary: colorNames.White,
+            secondary: colorNames.Waterloo,
         },
         searchBar: {
             textPrimary: colorNames.Waterloo,
