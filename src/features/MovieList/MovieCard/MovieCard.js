@@ -8,7 +8,7 @@ import {
   Description,
   StyledCard,
   RateWrapper,
-  TagsWrapper
+  TagsWrapper,
 } from "./styled";
 import { IMG_URL_500 } from "../../config";
 import { ReactComponent as Star } from "../../../images/starVector.svg";
@@ -30,7 +30,7 @@ const MovieCard = ({
           <Date>{release_date}</Date>
         </Description>
         <TagsWrapper>
-        <Tags>{genres}</Tags>
+          <Tags>{genres}</Tags>
         </TagsWrapper>
         <RateWrapper>
           <Star />
