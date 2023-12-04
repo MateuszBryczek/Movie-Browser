@@ -1,18 +1,17 @@
 {
   "files": {
     "main.css": "/Movie-Browser/static/css/main.e1413983.css",
-    "main.js": "/Movie-Browser/static/js/main.94509dea.js",
+    "main.js": "/Movie-Browser/static/js/main.3505ab05.js",
     "static/js/787.9ba826ac.chunk.js": "/Movie-Browser/static/js/787.9ba826ac.chunk.js",
-    "static/media/camera.svg": "/Movie-Browser/static/media/camera.386bc4c9e91b9a1fb4a264a474ddd479.svg",
     "index.html": "/Movie-Browser/index.html",
-    "static/media/rightVector.svg": "/Movie-Browser/static/media/rightVector.c22fe6c9cd43f5eac2cf6e458c5b9f38.svg",
-    "static/media/leftVector.svg": "/Movie-Browser/static/media/leftVector.99798cae29ce9ad8582f7ab91a3c109c.svg",
+    "static/media/logo.svg": "/Movie-Browser/static/media/logo.a3c5c809d3dcf913ce5ced168f4e9614.svg",
+    "static/media/search.svg": "/Movie-Browser/static/media/search.ed3f24f20cda9bb4e005406a3f864acb.svg",
     "main.e1413983.css.map": "/Movie-Browser/static/css/main.e1413983.css.map",
-    "main.94509dea.js.map": "/Movie-Browser/static/js/main.94509dea.js.map",
+    "main.3505ab05.js.map": "/Movie-Browser/static/js/main.3505ab05.js.map",
     "787.9ba826ac.chunk.js.map": "/Movie-Browser/static/js/787.9ba826ac.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e1413983.css",
-    "static/js/main.94509dea.js"
+    "static/js/main.3505ab05.js"
   ]
 }
