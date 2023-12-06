@@ -23,8 +23,8 @@ const MovieCard = ({
   poster_path,
 }) => {
 
-  const relaseDate = new Date(release_date);
-  const year = relaseDate.getFullYear();
+  const releaseDate = new Date(release_date);
+  const year = releaseDate.getFullYear();
 
   return (
     <>
