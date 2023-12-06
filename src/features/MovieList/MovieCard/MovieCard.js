@@ -35,7 +35,7 @@ const MovieCard = ({
           <Year>{year}</Year>
         </Description>
         <TagsWrapper>
-           <Tags><GenreList genreIds={genre_ids} /></Tags>
+          <GenreList genreIds={genre_ids} />
         </TagsWrapper>
         <RateWrapper>
           <Star />
