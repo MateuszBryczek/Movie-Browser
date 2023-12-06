@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const TilesWrapper = styled.div`
   max-width: 1368px;
   height: 1391px;

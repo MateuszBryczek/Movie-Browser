@@ -29,7 +29,7 @@ export const Title = styled.p`
   margin: 15px 0px 5px;
 `;
 
-export const Date = styled.p`
+export const Year = styled.p`
   color: ${({ theme }) => theme.colors.tile.textSecondary};
   font-size: 16px;
   font-weight: 500;
@@ -38,12 +38,11 @@ export const Date = styled.p`
 `;
 
 export const Tags = styled.div`
-  width: 77px;
+  width: auto;
   height: 36px;
   display: flex;
   padding: 8px 16px;
   align-items: center;
-  gap: 10px;
   color: ${({ theme }) => theme.colors.tile.textPrimary};
   background-color: ${({ theme }) => theme.colors.tile.secondary};
   margin: 0px 0px 20px;
@@ -51,6 +50,9 @@ export const Tags = styled.div`
 
 export const TagsWrapper = styled.div`
   padding: 10px 0px 20px;
+  display: flex;
+  flex-direction: row;
+  gap:10px;
 `;
 
 export const Rating = styled.a`

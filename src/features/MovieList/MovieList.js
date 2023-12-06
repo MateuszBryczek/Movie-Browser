@@ -20,7 +20,7 @@ const MovieList = () => {
       <TilesWrapper>
         {error
           ? Array.from({ length: 8 }).map((_, index) => (
-              <Tile key={index}>miejsce na film</Tile>
+              <Tile key={index}></Tile>
             ))
           : movies.map((movie, index) => (
               <Tile key={index}>

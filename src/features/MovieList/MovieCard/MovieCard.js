@@ -1,8 +1,7 @@
 import {
   Poster,
   Title,
-  Date,
-  Tags,
+  Year,
   Rating,
   Votes,
   Description,
@@ -11,26 +10,31 @@ import {
   TagsWrapper,
 } from "./styled";
 import { IMG_URL_500 } from "../../config";
+import GenreList from "../Genras/GenresList";
 import { ReactComponent as Star } from "../../../images/starVector.svg";
 
 const MovieCard = ({
   original_title,
   release_date,
-  genres,
+  genre_ids,
   vote_average,
   vote_count,
   poster_path,
 }) => {
+
+  const releaseDate = new Date(release_date);
+  const year = releaseDate.getFullYear();
+
   return (
     <>
       <StyledCard>
         <Poster src={IMG_URL_500 + poster_path}></Poster>
         <Description>
           <Title>{original_title}</Title>
-          <Date>{release_date}</Date>
+          <Year>{year}</Year>
         </Description>
         <TagsWrapper>
-          <Tags>{genres}</Tags>
+          <GenreList genreIds={genre_ids} />
         </TagsWrapper>
         <RateWrapper>
           <Star />
