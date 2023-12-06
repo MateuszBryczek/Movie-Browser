@@ -12,6 +12,13 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Poppins', sans-serif;
         color: ${({ theme }) => theme.colors.textPrimary};
-        background: ${({ theme }) => theme.colors.background};
+        background: ${({ theme }) => theme.colors.background};       
+
+        @media (max-width: ${({ theme }) =>theme.breakpoints.mediumDevices}px) {
+    width: 100%;    
+    margin: 0px;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;  }
     }
 `;

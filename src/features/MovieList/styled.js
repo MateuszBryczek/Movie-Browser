@@ -12,9 +12,8 @@ export const TilesWrapper = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     width: 100%;
-    height: 142px;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    margin: 0 auto;
     justify-content: center;
     justify-items: center;
   }
