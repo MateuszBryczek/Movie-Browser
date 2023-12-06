@@ -2,7 +2,6 @@ import {
   Poster,
   Title,
   Year,
-  Tags,
   Rating,
   Votes,
   Description,
