@@ -18,9 +18,22 @@ const movieSlice = createSlice({
   },
 });
 
+
 export const { fetchMovies, fetchMoviesSucces, fetchMoviesError } =
   movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
-export const selectError = state => selectMoviesState(state).Error;
+export const selectError = state => selectMoviesState(state).error;
 export default movieSlice.reducer;
+
+export const selectMovieByQuery = (state, query) => {
+  const movies = selectMovies(state);
+
+  if (!query || query.trim() === "") {
+    return movies;
+  }
+
+  return movies.filter(({ original_title }) =>
+    original_title.toUpperCase().includes(query.trim().toUpperCase())
+  );
+};
