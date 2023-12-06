@@ -29,7 +29,7 @@ export const Title = styled.p`
   margin: 15px 0px 5px;
 `;
 
-export const Date = styled.p`
+export const Year = styled.p`
   color: ${({ theme }) => theme.colors.tile.textSecondary};
   font-size: 16px;
   font-weight: 500;

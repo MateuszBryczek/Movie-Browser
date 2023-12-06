@@ -1,7 +1,7 @@
 import {
   Poster,
   Title,
-  Date,
+  Year,
   Tags,
   Rating,
   Votes,
@@ -17,18 +17,22 @@ import { ReactComponent as Star } from "../../../images/starVector.svg";
 const MovieCard = ({
   original_title,
   release_date,
-  genres,
+  genre_ids,
   vote_average,
   vote_count,
   poster_path,
 }) => {
+
+  const relaseDate = new Date(release_date);
+  const year = relaseDate.getFullYear();
+
   return (
     <>
       <StyledCard>
         <Poster src={IMG_URL_500 + poster_path}></Poster>
         <Description>
           <Title>{original_title}</Title>
-          <Date>{release_date}</Date>
+          <Year>{year}</Year>
         </Description>
         <TagsWrapper>
            <Tags><GenreList genreIds={genre_ids} /></Tags>
