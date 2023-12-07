@@ -9,7 +9,8 @@ import {
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import Tile from "../../common/Tile";
-import { TilesWrapper } from "./styled";
+import { TilesWrapper, IconSpiner, IconWraper } from "./styled";
+import iconSpiner from "./../../images/icon-spinner.svg";
 import { useQueryParameter } from "../queryParameter";
 import searchQueryParamName from "../searchQueryParamName";
 
@@ -30,7 +31,9 @@ const MovieList = () => {
   return (
     <>
       {isLoading ? (
-        ""
+        <IconWraper>
+        <IconSpiner src={iconSpiner} alt="loading" />
+        </IconWraper>
       ) : (
         <TilesWrapper>
           {error

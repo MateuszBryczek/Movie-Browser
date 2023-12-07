@@ -19,3 +19,18 @@ export const TilesWrapper = styled.div`
     justify-items: center;
   }
 `;
+
+export const IconSpiner = styled.img`
+  width: 91px;
+  height: 91px;
+`;
+
+export const IconWraper = styled.div`
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 100px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    margin: 18px;
+  }
+`;
