@@ -11,9 +11,10 @@ import MovieCard from "./MovieCard/MovieCard";
 import Tile from "../../common/Tile";
 import { TilesWrapper } from "./styled";
 import { useQueryParameter } from "../queryParameter";
+import searchQueryParamName from "../searchQueryParamName";
 
 const MovieList = () => {
-  const query = useQueryParameter("query");
+  const query = useQueryParameter(searchQueryParamName);
   const isLoading = useSelector(selectIsLoading);
 
   const searchValue = useSelector(selectSearchValue);

@@ -8,10 +8,11 @@ import {
 import { changeSearchValue } from "../../../features/MovieList/movieSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import searchQueryParamName from "../../../features/searchQueryParamName";
 
 const SearchBar = () => {
   const replaceQueryParameter = useReplaceQueryParameter();
-  const query = useQueryParameter("query");
+  const query = useQueryParameter(searchQueryParamName);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -20,7 +21,7 @@ const SearchBar = () => {
   }, [dispatch, location, query]);
 
   const oninputChange = ({ target }) => {
-    replaceQueryParameter({ key: "query", value: target });
+    replaceQueryParameter({ key: searchQueryParamName, value: target });
   };
 
   return (
