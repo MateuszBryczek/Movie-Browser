@@ -6,6 +6,8 @@ import Tile from "../../common/Tile";
 import { TilesWrapper } from "./styled";
 import Header from "../../common/Header";
 import Container from "../../common/Container";
+import Pagination from "../../common/Pagination";
+
 const MovieList = () => {
   const movies = useSelector(selectMovies);
   const error = useSelector(selectError);
@@ -32,6 +34,7 @@ const MovieList = () => {
                 </Tile>
               ))}
         </TilesWrapper>
+        <Pagination />
       </Container>
     </>
   );

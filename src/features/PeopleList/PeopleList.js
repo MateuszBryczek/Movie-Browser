@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-const PeopleList () => {
+const PeopleList = () => {
     const people = useSelector(selectPeople);
     const error = useSelector(selectError);
 
@@ -10,8 +10,7 @@ const PeopleList () => {
         dispatch(fetchPeople());
       }, [dispatch]);
 
-      return (
-        
+      return (        
       );
 };
 

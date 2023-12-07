@@ -8,7 +8,6 @@ export const StyledCard = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     width:100%;
-    /* margin: 20px 20px; */
   }
 `;
 
