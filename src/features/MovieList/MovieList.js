@@ -1,16 +1,22 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectError, selectMovieByQuery } from "./movieSlice";
+import {
+  fetchMovies,
+  selectError,
+  selectIsLoading,
+  selectMovieByQuery,
+  selectSearchValue,
+} from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import Tile from "../../common/Tile";
 import { TilesWrapper } from "./styled";
+import { useQueryParameter } from "../queryParameter";
 
 const MovieList = () => {
-  const location = useLocation();
-  const query = new URLSearchParams(location.search).get("query");
+  const query = useQueryParameter("query");
+  const isLoading = useSelector(selectIsLoading);
 
-
+  const searchValue = useSelector(selectSearchValue);
   const movies = useSelector(state => selectMovieByQuery(state, query));
   const error = useSelector(selectError);
 
@@ -18,21 +24,25 @@ const MovieList = () => {
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [dispatch]);
+  }, [dispatch, searchValue]);
 
   return (
     <>
-      <TilesWrapper>
-        {error
-          ? Array.from({ length: 8 }).map((_, index) => (
-              <Tile key={index}>miejsce na film</Tile>
-            ))
-          : movies.map((movie, index) => (
-              <Tile key={index}>
-                <MovieCard {...movie} />
-              </Tile>
-            ))}
-      </TilesWrapper>
+      {isLoading ? (
+        ""
+      ) : (
+        <TilesWrapper>
+          {error
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <Tile key={index}>miejsce na film</Tile>
+              ))
+            : movies.map((movie, index) => (
+                <Tile key={index}>
+                  <MovieCard {...movie} />
+                </Tile>
+              ))}
+        </TilesWrapper>
+      )}
     </>
   );
 };
