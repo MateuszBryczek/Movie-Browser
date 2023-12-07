@@ -1,8 +1,10 @@
+import { Image, Name } from "./styled";
+
 const PeopleCard = ({ poster_path, name }) => {
     return (
         <>
-            <img src={poster_path}></img>
-            <a>{name}</a>
+            <Image src={poster_path}></Image>
+            <Name>{name}</Name>
         </>
     );
 };
