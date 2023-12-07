@@ -10,6 +10,7 @@ export const StyledContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     max-width: 288px;
+    margin: 0 16px;
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;

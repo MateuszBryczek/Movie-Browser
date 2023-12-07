@@ -8,8 +8,9 @@ export const TilesWrapper = styled.div`
   gap: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    max-width:256px;
     grid-template-columns: 1fr;
     justify-content: center;
-    justify-items: center;
+    margin:50px 16px;
   }
 `;
