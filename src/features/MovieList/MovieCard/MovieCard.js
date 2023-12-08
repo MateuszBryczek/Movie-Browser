@@ -15,7 +15,7 @@ import { ReactComponent as Star } from "../../../images/starVector.svg";
 
 const MovieCard = ({
   id,
-  original_title,
+  title,
   release_date,
   genre_ids,
   vote_average,
@@ -31,7 +31,7 @@ const MovieCard = ({
       <StyledCard>
         <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
         <Description>
-          <Title>{original_title}</Title>
+          <Title>{title}</Title>
           <Year>{year}</Year>
         </Description>
         <TagsWrapper>
