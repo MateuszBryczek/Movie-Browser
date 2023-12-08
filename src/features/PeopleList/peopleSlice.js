@@ -35,15 +35,3 @@ export const selectPeopleError = state => selectPeopleState(state).error;
 export const selectSearchPeopleValue = state => selectPeopleState(state).searchPeopleValue;
 export const selectPeopleIsLoading = state => selectPeopleState(state).isLoading;
 export default peopleSlice.reducer;
-
-export const selectPeopleByQuery = (state, query) => {
-  const people = selectPeople(state);
-
-  if (!query || query.trim() === "") {
-    return people;
-  }
-
-  return people.filter(({ name }) =>
-    name.toUpperCase().includes(query.trim().toUpperCase())
-  );
-};

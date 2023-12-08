@@ -14,7 +14,7 @@ import GenreList from "../Genras/GenresList";
 import { ReactComponent as Star } from "../../../images/starVector.svg";
 
 const MovieCard = ({
-  original_title,
+  title,
   release_date,
   genre_ids,
   vote_average,
@@ -30,7 +30,7 @@ const MovieCard = ({
       <StyledCard>
         <Poster src={IMG_URL_500 + poster_path}></Poster>
         <Description>
-          <Title>{original_title}</Title>
+          <Title>{title}</Title>
           <Year>{year}</Year>
         </Description>
         <TagsWrapper>

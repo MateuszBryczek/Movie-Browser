@@ -39,13 +39,3 @@ export const selectMoviesError = state => selectMoviesState(state).error;
 export const selectSearchMoviesValue = state => selectMoviesState(state).searchMoviesValue;
 export const selectMoviesIsLoading = state => selectMoviesState(state).isLoading;
 export default movieSlice.reducer;
-
-export const selectMovieByQuery = (state, query) => {
-  const movies = selectMovies(state);
-
-  if (!query || query.trim() === "") {
-    return movies;
-  }
-
-  return movies
-};

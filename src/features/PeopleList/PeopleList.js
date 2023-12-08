@@ -3,21 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPeople,
   selectPeopleError,
-  selectPeopleByQuery,
+  selectPeople,
   selectSearchPeopleValue,
   selectPeopleIsLoading,
 } from "./peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper } from "./styled";
-import { useQueryParameter } from "../queryParameter";
-import searchQueryParamName from "../searchQueryParamName";
 
 const PeopleList = () => {
-  const query = useQueryParameter(searchQueryParamName);
   const searchValue = useSelector(selectSearchPeopleValue);
   const isLoading = useSelector(selectPeopleIsLoading);
 
-  const people = useSelector(state => selectPeopleByQuery(state, query));
+  const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
 
   const dispatch = useDispatch();

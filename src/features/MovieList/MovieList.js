@@ -4,22 +4,19 @@ import {
   fetchMovies,
   selectMoviesError,
   selectMoviesIsLoading,
-  selectMovieByQuery,
+  selectMovies,
   selectSearchMoviesValue,
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import Tile from "../../common/Tile";
 import { TilesWrapper, IconSpiner, IconWraper } from "./styled";
 import iconSpiner from "./../../images/icon-spinner.svg";
-import { useQueryParameter } from "../queryParameter";
-import searchQueryParamName from "../searchQueryParamName";
 
 const MovieList = () => {
-  const query = useQueryParameter(searchQueryParamName);
   const isLoading = useSelector(selectMoviesIsLoading);
 
   const searchValue = useSelector(selectSearchMoviesValue);
-  const movies = useSelector(state => selectMovieByQuery(state, query));
+  const movies = useSelector(selectMovies);
   const error = useSelector(selectMoviesError);
 
   const dispatch = useDispatch();
