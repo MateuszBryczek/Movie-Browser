@@ -1,35 +1,43 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPeople, selectPeople, selectError } from "./peopleSlice";
+import {
+  fetchPeople,
+  selectPeople,
+  selectError,
+  selectPeopleByQuery,
+} from "./peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper } from "./styled";
+import { useQueryParameter } from "../queryParameter";
+import searchQueryParamName from "../searchQueryParamName";
 
 const PeopleList = () => {
-    const people = useSelector(selectPeople);
-    const error = useSelector(selectError);
+  const query = useQueryParameter(searchQueryParamName);
 
-    const dispatch = useDispatch();
+  const people = useSelector(state => selectPeopleByQuery(state, query));
+  const error = useSelector(selectError);
 
-    useEffect(() => {
-        dispatch(fetchPeople());
-      }, [dispatch]);
+  const dispatch = useDispatch();
 
-      return (
-        <>
-          <TilesWrapper>
-            {error
-              ? Array.from({ length: 24 }).map((_, index) => (
-                  <PeopleTile key={index}></PeopleTile>
-                ))
-              : people.map((people, index) => (
-                  <PeopleTile key={index}>
-                    <PeopleCard {...people} />
-                  </PeopleTile>
-                ))}
-          </TilesWrapper>
-        </>
-        
-      );
+  useEffect(() => {
+    dispatch(fetchPeople());
+  }, [dispatch]);
+
+  return (
+    <>
+      <TilesWrapper>
+        {error
+          ? Array.from({ length: 24 }).map((_, index) => (
+              <PeopleTile key={index}></PeopleTile>
+            ))
+          : people.map((people, index) => (
+              <PeopleTile key={index}>
+                <PeopleCard {...people} />
+              </PeopleTile>
+            ))}
+      </TilesWrapper>
+    </>
+  );
 };
 
 export default PeopleList;

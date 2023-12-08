@@ -20,7 +20,7 @@ const movieSlice = createSlice({
       state.error = true;
       console.error(error);
     },
-    changeSearchValue: (state, { payload: searchValue }) => {
+    changeSearchMoviesValue: (state, { payload: searchValue }) => {
       state.isLoading = true;
       state.searchValue = searchValue;
     },
@@ -31,7 +31,7 @@ export const {
   fetchMovies,
   fetchMoviesSucces,
   fetchMoviesError,
-  changeSearchValue,
+  changeSearchMoviesValue,
 } = movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
