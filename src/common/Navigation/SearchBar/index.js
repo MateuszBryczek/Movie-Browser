@@ -23,12 +23,16 @@ const SearchBar = () => {
   const oninputChange = ({ target }) => {
     replaceQueryParameter({ key: searchQueryParamName, value: target });
   };
-
+  
   return (
     <SearchWrapper>
       <SearchImg src={search} alt="" />
       <Search
-        placeholder="Search for movies..."
+        placeholder={
+          location.pathname === "/peoplelist"
+            ? "Search for people..."
+            : "Search for movies..."
+        }
         value={query || ""}
         onChange={oninputChange}
       />
