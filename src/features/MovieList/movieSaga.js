@@ -1,20 +1,28 @@
-import { takeEvery, call, put } from "@redux-saga/core/effects";
+import { takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
 import {
   fetchMovies,
   fetchMoviesSucces,
   fetchMoviesError,
+  selectSearchValue,
 } from "./movieSlice";
-import { getMovies } from "./getMovies";
+import { getMovies, getSearchedMovies } from "./getMovies";
 
 function* fetchMoviesHandler({ payload: movieId }) {
+  const searchValue = yield select(selectSearchValue);
   try {
-    const movie = yield call(getMovies, movieId);
-    yield put(fetchMoviesSucces(movie));
+    yield delay(2000);
+    if (!searchValue) {
+      const movie = yield call(getMovies, movieId);
+      yield put(fetchMoviesSucces(movie));
+    } else {
+      const movie = yield call(getSearchedMovies, searchValue, movieId);
+      yield put(fetchMoviesSucces(movie));
+    }
   } catch (error) {
     yield put(fetchMoviesError(error));
   }
 }
 
 export function* watchFetchMovies() {
-  yield takeEvery(fetchMovies.type, fetchMoviesHandler);
+  yield takeLatest(fetchMovies.type, fetchMoviesHandler);
 }
