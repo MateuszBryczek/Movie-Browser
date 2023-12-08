@@ -5,7 +5,7 @@ const peopleSlice = createSlice({
   initialState: {
     people: [],
     error: false,
-    searchValue: "",
+    searchPeopleValue: "",
     isLoading: false,
   },
   reducers: {
@@ -20,9 +20,9 @@ const peopleSlice = createSlice({
       state.error = true;
       console.error(error);
     },
-    changeSearchPeopleValue: (state, { payload: searchValue }) => {
+    changeSearchPeopleValue: (state, { payload: searchPeopleValue }) => {
       state.isLoading = true;
-      state.searchValue = searchValue;
+      state.searchPeopleValue = searchPeopleValue;
     },
   },
 });
@@ -31,9 +31,9 @@ export const { fetchPeople, fetchPeopleSucces, fetchPeopleError, changeSearchPeo
   peopleSlice.actions;
 const selectPeopleState = state => state.people;
 export const selectPeople = state => selectPeopleState(state).people;
-export const selectError = state => selectPeopleState(state).error;
-export const selectSearchValue = state => selectPeopleState(state).searchValue;
-export const selectIsLoading = state => selectPeopleState(state).isLoading;
+export const selectPeopleError = state => selectPeopleState(state).error;
+export const selectSearchPeopleValue = state => selectPeopleState(state).searchPeopleValue;
+export const selectPeopleIsLoading = state => selectPeopleState(state).isLoading;
 export default peopleSlice.reducer;
 
 export const selectPeopleByQuery = (state, query) => {

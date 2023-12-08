@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMovies,
-  selectError,
-  selectIsLoading,
+  selectMoviesError,
+  selectMoviesIsLoading,
   selectMovieByQuery,
-  selectSearchValue,
+  selectSearchMoviesValue,
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import Tile from "../../common/Tile";
@@ -16,11 +16,11 @@ import searchQueryParamName from "../searchQueryParamName";
 
 const MovieList = () => {
   const query = useQueryParameter(searchQueryParamName);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectMoviesIsLoading);
 
-  const searchValue = useSelector(selectSearchValue);
+  const searchValue = useSelector(selectSearchMoviesValue);
   const movies = useSelector(state => selectMovieByQuery(state, query));
-  const error = useSelector(selectError);
+  const error = useSelector(selectMoviesError);
 
   const dispatch = useDispatch();
 

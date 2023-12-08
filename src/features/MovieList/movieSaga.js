@@ -3,12 +3,12 @@ import {
   fetchMovies,
   fetchMoviesSucces,
   fetchMoviesError,
-  selectSearchValue,
+  selectSearchMoviesValue,
 } from "./movieSlice";
 import { getMovies, getSearchedMovies } from "./getMovies";
 
 function* fetchMoviesHandler({ payload: movieId }) {
-  const searchValue = yield select(selectSearchValue);
+  const searchValue = yield select(selectSearchMoviesValue);
   try {
     yield delay(2000);
     if (!searchValue) {
