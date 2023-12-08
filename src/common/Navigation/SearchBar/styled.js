@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const SearchWrapper = styled.div`
   padding: 0px 16px 0px 24px;
-  height: 50px;
+  height: 48px;
+  width: 432px;
+  flex-basis: 432px;
   border-radius: 90px;
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.White};
