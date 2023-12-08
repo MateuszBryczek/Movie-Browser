@@ -16,7 +16,6 @@ function* fetchMoviesHandler({ payload: movieId }) {
       yield put(fetchMoviesSucces(movie));
     } else {
       const movie = yield call(getSearchedMovies, searchValue, movieId);
-      console.log(movie);
       yield put(fetchMoviesSucces(movie));
     }
   } catch (error) {

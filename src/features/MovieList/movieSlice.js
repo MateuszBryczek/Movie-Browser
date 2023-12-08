@@ -23,7 +23,6 @@ const movieSlice = createSlice({
     changeSearchValue: (state, { payload: searchValue }) => {
       state.isLoading = true;
       state.searchValue = searchValue;
-      console.log(searchValue);
     },
   },
 });
