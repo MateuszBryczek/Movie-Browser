@@ -47,7 +47,5 @@ export const selectMovieByQuery = (state, query) => {
     return movies;
   }
 
-  return movies.filter(({ original_title }) =>
-    original_title.toUpperCase().includes(query.trim().toUpperCase())
-  );
+  return movies
 };
