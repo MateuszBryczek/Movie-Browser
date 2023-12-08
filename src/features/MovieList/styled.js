@@ -21,6 +21,15 @@ export const TilesWrapper = styled.div`
 `;
 
 export const IconSpiner = styled.img`
+  animation: rotation 2s linear infinite;
+  @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
   width: 91px;
   height: 91px;
 `;
