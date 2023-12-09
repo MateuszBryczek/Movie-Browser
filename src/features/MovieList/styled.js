@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const TilesWrapper = styled.div`
-  max-width: 1300px;;
+  max-width: 1300px;
   margin: 50px 16px 0px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    max-width:256px;
+    max-width: 256px;
     grid-template-columns: 1fr;
     justify-content: center;
-    margin:50px 16px;
+    margin: 50px 16px;
   }
 `;

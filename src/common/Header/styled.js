@@ -6,7 +6,6 @@ export const StyledHeader = styled.h1`
   line-height: 43.2 px;
   max-height: 45px;
   text-align: left;
-  /* justify-self: start; */
   padding:56px 0 16px;
   margin: auto 16px;
 

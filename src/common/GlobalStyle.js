@@ -14,10 +14,5 @@ export const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.textPrimary};
         background: ${({ theme }) => theme.colors.background};     
         margin:0 auto;          
-    display:flex;
-    justify-content:center;
-    flex-direction:column;  }
-
-        
-    
-`;
+      }     
+    `;
