@@ -1,18 +1,15 @@
 import {
   StyledNavLink,
   Wrapper,
-  Search,
   TitleWrapper,
-  SearchWrapper,
   NavList,
   StyledListItem,
-  SearchImg,
   StyledLogo,
   Logo,
   LogoName,
 } from "./styled";
 import logo from "../../images/logo.svg";
-import search from "./../../images/search.svg";
+import SearchBar from "./SearchBar";
 
 const Navigation = () => (
   <Wrapper>
@@ -30,10 +27,7 @@ const Navigation = () => (
         </StyledListItem>
       </NavList>
     </TitleWrapper>
-    <SearchWrapper>
-      <SearchImg src={search} alt="" />
-      <Search placeholder="Search for movies..." />
-    </SearchWrapper>
+    <SearchBar />
   </Wrapper>
 );
 

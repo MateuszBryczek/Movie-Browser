@@ -1,40 +1,52 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectError, selectMovies } from "./movieSlice";
+import {
+  fetchMovies,
+  selectMoviesError,
+  selectMoviesIsLoading,
+  selectMovies,
+  selectSearchMoviesValue,
+} from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
-import Tile from "../../common/Tile";
+import { MovieTile } from "./styled";
 import { TilesWrapper } from "./styled";
 import Header from "../../common/Header";
 import Container from "../../common/Container";
 import Pagination from "../../common/Pagination";
+import IconSpiner from "../../common/IconSpinner";
 
 const MovieList = () => {
+  const isLoading = useSelector(selectMoviesIsLoading);
+
+  const searchValue = useSelector(selectSearchMoviesValue);
   const movies = useSelector(selectMovies);
-  const error = useSelector(selectError);
+  const error = useSelector(selectMoviesError);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [dispatch]);
+  }, [dispatch, searchValue]);
 
   return (
     <>
       <Container>
         <Header>Popular movies</Header>
-
-        <TilesWrapper>
-          {error
-            ? Array.from({ length: 8 }).map((_, index) => (
-                <Tile key={index}>miejsce na film</Tile>
-              ))
-            : movies.map((movie, index) => (
-                <Tile key={index}>
+        {isLoading ? (
+          <IconSpiner />
+        ) : (
+          <>
+            {" "}
+            <TilesWrapper>
+              {movies.map((movie, index) => (
+                <MovieTile key={index}>
                   <MovieCard {...movie} />
-                </Tile>
+                </MovieTile>
               ))}
-        </TilesWrapper>
-        <Pagination />
+            </TilesWrapper>
+            <Pagination />
+          </>
+        )}
       </Container>
     </>
   );

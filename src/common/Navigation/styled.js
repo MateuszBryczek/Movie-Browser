@@ -6,14 +6,14 @@ export const Wrapper = styled.nav`
   height: 94px;
   background-color: ${({ theme }) => theme.colors.textPrimary};
   color: ${({ theme }) => theme.colors.header.textPrimary};
-  display: grid;
+  display: flex;
 
-  grid-template-columns: auto 300px;
   justify-content: space-between;
   align-items: center;
   align-content: center;
   padding: 0px 120px 0px;
   @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
+    display: grid;
     width: 100%;
     height: 142px;
     padding: 0px 60px 0px;
@@ -25,8 +25,8 @@ export const Wrapper = styled.nav`
 `;
 export const TitleWrapper = styled.div`
   display: grid;
-  width: 100%;
-  grid-gap: 15px;
+  width: auto;
+  grid-column-gap: 15px;
   grid-template-columns: auto auto;
   justify-content: space-between;
   justify-items: center;
@@ -72,6 +72,7 @@ export const LogoName = styled.p`
   color: ${({ theme }) => theme.colors.header.textPrimary};
   margin: 0;
   letter-spacing: -1.5px;
+  transition: 0.2s;
 
   
   &:hover {
@@ -110,6 +111,7 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 600;
   width: fit-content;
   background-color: transparent;
+  transition: 0.2s;
 
   padding: 8px 24px;
   border-radius: 24px;
@@ -131,48 +133,5 @@ export const StyledNavLink = styled(NavLink)`
     padding: 8px 12px;
     font-size: 12px;
     line-height: 18px;
-  }
-`;
-
-export const SearchWrapper = styled.div`
-  padding: 0px 16px 0px 24px;
-  height: 50px;
-  border-radius: 90px;
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.White};
-  display: flex;
-  align-items: center;
-  justify-items: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
-    width: 100%;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    height: 44px;
-  }
-`;
-
-export const SearchImg = styled.img`
-  height: 24px;
-  width: 24px;
-  margin-right: 8px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    height: 16px;
-    width: 16px;
-  }
-`;
-
-export const Search = styled.input`
-  color: ${({ theme }) => theme.colors.searchBar.textPrimary};
-  width: 100%;
-  max-height: 50px;
-  font-size: 16px;
-  line-height: 24px;
-  border: 0px;
-  outline: none;
-  font-weight: 400;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    font-size: 13px;
-    line-height: 16.9px;
   }
 `;
