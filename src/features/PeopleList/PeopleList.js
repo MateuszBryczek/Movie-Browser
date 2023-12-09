@@ -9,6 +9,7 @@ import {
 } from "./peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper } from "./styled";
+import IconSpiner from "../../common/IconSpinner";
 
 const PeopleList = () => {
   const searchValue = useSelector(selectSearchPeopleValue);
@@ -26,18 +27,14 @@ const PeopleList = () => {
   return (
     <>
       {isLoading ? (
-        ""
+        <IconSpiner />
       ) : (
         <TilesWrapper>
-          {error
-            ? Array.from({ length: 24 }).map((_, index) => (
-                <PeopleTile key={index}></PeopleTile>
-              ))
-            : people.map((people, index) => (
-                <PeopleTile key={index}>
-                  <PeopleCard {...people} />
-                </PeopleTile>
-              ))}
+          {people.map((people, index) => (
+            <PeopleTile key={index}>
+              <PeopleCard {...people} />
+            </PeopleTile>
+          ))}
         </TilesWrapper>
       )}
     </>

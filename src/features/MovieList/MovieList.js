@@ -10,8 +10,6 @@ import {
 import MovieCard from "./MovieCard/MovieCard";
 import { MovieTile } from "./styled";
 import { TilesWrapper } from "./styled";
-import { useQueryParameter } from "../queryParameter";
-import searchQueryParamName from "../searchQueryParamName";
 import IconSpiner from "../../common/IconSpinner";
 
 const MovieList = () => {
@@ -33,15 +31,11 @@ const MovieList = () => {
         <IconSpiner />
       ) : (
         <TilesWrapper>
-          {error
-            ? Array.from({ length: 8 }).map((_, index) => (
-                <MovieTile key={index}></MovieTile>
-              ))
-            : movies.map((movie, index) => (
-                <MovieTile key={index}>
-                  <MovieCard {...movie} />
-                </MovieTile>
-              ))}
+          {movies.map((movie, index) => (
+            <MovieTile key={index}>
+              <MovieCard {...movie} />
+            </MovieTile>
+          ))}
         </TilesWrapper>
       )}
     </>
