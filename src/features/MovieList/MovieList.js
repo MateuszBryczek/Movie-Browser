@@ -21,7 +21,7 @@ const MovieList = () => {
   return (
     <>
       <Container>
-        <Header title="Popular movies"></Header>
+        <Header>Popular movies</Header>
 
         <TilesWrapper>
           {error
