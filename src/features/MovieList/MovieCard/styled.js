@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 export const StyledCard = styled.div`
   display: flex;
@@ -73,4 +74,8 @@ export const RateWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 12px;
+`;
+
+export const MovieDetailsLink = styled(Link)`
+  text-decoration: none;
 `;

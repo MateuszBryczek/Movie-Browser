@@ -8,6 +8,7 @@ import {
   StyledCard,
   RateWrapper,
   TagsWrapper,
+  MovieDetailsLink
 } from "./styled";
 import { POSTER_URL_SMALL } from "../../config";
 import GenreList from "../Genras/GenresList";
@@ -28,7 +29,8 @@ const MovieCard = ({
 
   return (
     <>
-      <StyledCard>
+      <StyledCard>{id}
+      <MovieDetailsLink to ={`moviedetails/${id}`}>
         <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
         <Description>
           <Title>{title}</Title>
@@ -42,7 +44,9 @@ const MovieCard = ({
           <Rating>{vote_average.toFixed(1)}</Rating>
           <Votes>{vote_count} votes</Votes>
         </RateWrapper>
+      </MovieDetailsLink>
       </StyledCard>
+      
     </>
   );
 };
