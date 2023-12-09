@@ -8,7 +8,7 @@ import {
   selectSearchValue,
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
-import Tile from "../../common/Tile";
+import { MovieTile } from "./styled";
 import { TilesWrapper } from "./styled";
 import { useQueryParameter } from "../queryParameter";
 import searchQueryParamName from "../searchQueryParamName";
@@ -36,12 +36,12 @@ const MovieList = () => {
         <TilesWrapper>
           {error
             ? Array.from({ length: 8 }).map((_, index) => (
-                <Tile key={index}></Tile>
+                <MovieTile key={index}></MovieTile>
               ))
             : movies.map((movie, index) => (
-                <Tile key={index}>
+                <MovieTile key={index}>
                   <MovieCard {...movie} />
-                </Tile>
+                </MovieTile>
               ))}
         </TilesWrapper>
       )}
