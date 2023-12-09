@@ -5,7 +5,7 @@ const movieSlice = createSlice({
   initialState: {
     movies: [],
     error: false,
-    searchValue: "",
+    searchMoviesValue: "",
     isLoading: false,
   },
   reducers: {
@@ -20,9 +20,9 @@ const movieSlice = createSlice({
       state.error = true;
       console.error(error);
     },
-    changeSearchValue: (state, { payload: searchValue }) => {
+    changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {
       state.isLoading = true;
-      state.searchValue = searchValue;
+      state.searchMoviesValue = searchMoviesValue;
     },
   },
 });
@@ -31,23 +31,11 @@ export const {
   fetchMovies,
   fetchMoviesSucces,
   fetchMoviesError,
-  changeSearchValue,
+  changeSearchMoviesValue,
 } = movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
-export const selectError = state => selectMoviesState(state).error;
-export const selectSearchValue = state => selectMoviesState(state).searchValue;
-export const selectIsLoading = state => selectMoviesState(state).isLoading;
+export const selectMoviesError = state => selectMoviesState(state).error;
+export const selectSearchMoviesValue = state => selectMoviesState(state).searchMoviesValue;
+export const selectMoviesIsLoading = state => selectMoviesState(state).isLoading;
 export default movieSlice.reducer;
-
-export const selectMovieByQuery = (state, query) => {
-  const movies = selectMovies(state);
-
-  if (!query || query.trim() === "") {
-    return movies;
-  }
-
-  return movies.filter(({ original_title }) =>
-    original_title.toUpperCase().includes(query.trim().toUpperCase())
-  );
-};
