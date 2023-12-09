@@ -14,6 +14,7 @@ export const App = () => {
         <HashRouter>
           <Navigation/>
           <Switch>
+            <Route path="/moviedetails/:id" component={useMovieDetails} />
             <Route path="/peoplelist">
               <PeopleList />
             </Route>
@@ -24,7 +25,6 @@ export const App = () => {
               <Redirect to="/movielist" />
               <MovieList />
             </Route>
-            <Route path="/moviedetails/:id" component={useMovieDetails} />
           </Switch>
         </HashRouter>
       </Theme>
