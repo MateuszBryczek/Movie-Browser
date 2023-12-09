@@ -10,6 +10,9 @@ import {
 import MovieCard from "./MovieCard/MovieCard";
 import { MovieTile } from "./styled";
 import { TilesWrapper } from "./styled";
+import Header from "../../common/Header";
+import Container from "../../common/Container";
+import Pagination from "../../common/Pagination";
 import IconSpiner from "../../common/IconSpinner";
 
 const MovieList = () => {
@@ -27,17 +30,24 @@ const MovieList = () => {
 
   return (
     <>
-      {isLoading ? (
-        <IconSpiner />
-      ) : (
-        <TilesWrapper>
-          {movies.map((movie, index) => (
-            <MovieTile key={index}>
-              <MovieCard {...movie} />
-            </MovieTile>
-          ))}
-        </TilesWrapper>
-      )}
+      <Container>
+        <Header>Popular movies</Header>
+        {isLoading ? (
+          <IconSpiner />
+        ) : (
+          <>
+            {" "}
+            <TilesWrapper>
+              {movies.map((movie, index) => (
+                <MovieTile key={index}>
+                  <MovieCard {...movie} />
+                </MovieTile>
+              ))}
+            </TilesWrapper>
+            <Pagination />
+          </>
+        )}
+      </Container>
     </>
   );
 };

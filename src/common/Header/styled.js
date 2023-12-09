@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.h1`
   font-size: 36px;
   font-weight: 600;
   line-height: 43.2 px;
   max-height: 45px;
-  margin-left: 276px;
-  margin-top: 56px;
+  text-align: left;
+  padding: 56px 0 16px;
+  margin: auto 16px 20px;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    margin-left: 50px;
-  };
+    font-size: 22px;
+    text-align: left;
+  }
 `;

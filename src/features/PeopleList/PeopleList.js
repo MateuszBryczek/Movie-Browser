@@ -10,6 +10,9 @@ import {
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper } from "./styled";
 import IconSpiner from "../../common/IconSpinner";
+import Pagination from "../../common/Pagination";
+import Header from "../../common/Header";
+import Container from "../../common/Container";
 
 const PeopleList = () => {
   const searchValue = useSelector(selectSearchPeopleValue);
@@ -26,17 +29,24 @@ const PeopleList = () => {
 
   return (
     <>
-      {isLoading ? (
-        <IconSpiner />
-      ) : (
-        <TilesWrapper>
-          {people.map((people, index) => (
-            <PeopleTile key={index}>
-              <PeopleCard {...people} />
-            </PeopleTile>
-          ))}
-        </TilesWrapper>
-      )}
+      <Container>
+        <Header>Popular people</Header>
+        {isLoading ? (
+          <IconSpiner />
+        ) : (
+          <>
+            {" "}
+            <TilesWrapper>
+              {people.map((people, index) => (
+                <PeopleTile key={index}>
+                  <PeopleCard {...people} />
+                </PeopleTile>
+              ))}
+            </TilesWrapper>
+            <Pagination />
+          </>
+        )}
+      </Container>
     </>
   );
 };

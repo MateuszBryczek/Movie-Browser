@@ -5,6 +5,10 @@ export const StyledCard = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 15px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    width:100%;
+  }
 `;
 
 export const Poster = styled.img`
