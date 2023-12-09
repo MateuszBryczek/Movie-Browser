@@ -4,7 +4,7 @@ export const TilesWrapper = styled.div`
   width: 1368px;
   height: 1391px;
   margin-top: 30px;
-  margin: 50px 50px 50px 50px;
+  margin: 50px auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -20,17 +20,16 @@ export const TilesWrapper = styled.div`
   }
 `;
 
-export const IconSpiner = styled.img`
-  width: 91px;
-  height: 91px;
-`;
+export const MovieTile = styled.article`
+  max-width: 324px;
+  max-height: 650px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
+  background-color: ${({ theme }) => theme.colors.primary};
 
-export const IconWraper = styled.div`
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin: 100px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    margin: 18px;
+  &:hover {
+    transform: scale(105%);
+    transition: 0.3s;
+    cursor: pointer;
   }
 `;
