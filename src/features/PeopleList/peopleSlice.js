@@ -13,7 +13,7 @@ const peopleSlice = createSlice({
       state.isLoading = true;
     },
     fetchPeopleSucces: (state, { payload: people }) => {
-      state.people = people.results.slice(0, 24);
+      state.people = people;
       state.isLoading = false;
     },
     fetchPeopleError: (state, { payload: error }) => {
