@@ -15,11 +15,12 @@ import Header from "../../common/Header";
 import Container from "../../common/Container";
 import { useQueryParameter } from "../queryParameter";
 import searchQueryParamName from "../searchQueryParamName";
+import NoResults from "../../common/noResults";
 
 const PeopleList = () => {
   const searchValue = useSelector(selectSearchPeopleValue);
   const isLoading = useSelector(selectPeopleIsLoading);
-  const query = useQueryParameter(searchQueryParamName)
+  const query = useQueryParameter(searchQueryParamName);
 
   const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
@@ -33,16 +34,20 @@ const PeopleList = () => {
   return (
     <>
       <Container>
-      <Header>
+        <Header>
           {searchValue
-            ? `Search results for "${query}" ${
-                isLoading ? "" : `(${people.total_results})`
-              }`
+            ? people.total_results
+              ? `Search results for "${query}" ${
+                  isLoading ? "" : `(${people.total_results})`
+                }`
+              : isLoading
+              ? `Search results for "${query}"`
+              : `Sorry, there are no results for "${query}"`
             : "Popular people"}
         </Header>
         {isLoading ? (
           <IconSpiner />
-        ) : (
+        ) : people.total_results ? (
           <>
             <TilesWrapper>
               {people.results?.map((people, index) => (
@@ -53,6 +58,8 @@ const PeopleList = () => {
             </TilesWrapper>
             <Pagination />
           </>
+        ) : (
+          <NoResults />
         )}
       </Container>
     </>
