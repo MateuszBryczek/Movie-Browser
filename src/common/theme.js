@@ -14,6 +14,7 @@ const colorNames = {
 
 export const GlobalTheme ={
     breakpoints:{
+        smallDevices: 576,
         mediumDevices: 768,
         largeDevices: 1024,
     },
@@ -45,6 +46,9 @@ export const GlobalTheme ={
             rightBar: colorNames.PattensBlue,
             rightVector: colorNames.ScienceBlue,
         },
+        errorPage: {
+            link: colorNames.ScienceBlue,
+        }
     },
 };
 

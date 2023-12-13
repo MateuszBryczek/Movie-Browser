@@ -17,6 +17,7 @@ import IconSpiner from "../../common/IconSpinner";
 import { useQueryParameter } from "../queryParameter";
 import searchQueryParamName from "../searchQueryParamName";
 import NoResults from "../../common/noResults";
+import ErrorPage from "../../common/ErrorPage";
 
 const MovieList = () => {
   const isLoading = useSelector(selectMoviesIsLoading);
@@ -35,21 +36,22 @@ const MovieList = () => {
   return (
     <>
       <Container>
-        <Header>
-          {searchValue
-            ? movies.total_results
-              ? `Search results for "${query}" ${
-                  isLoading ? "" : `(${movies.total_results})`
-                }`
-              : isLoading
-              ? `Search results for "${query}"`
-              : `Sorry, there are no results for "${query}"`
-            : "Popular movies"}
-        </Header>
         {isLoading ? (
-          <IconSpiner />
+          <>
+            <Header>
+              {searchValue ? `Search results for "${query}"` : "Popular movies"}
+            </Header>
+            <IconSpiner />
+          </>
+        ) : error ? (
+          <ErrorPage />
         ) : movies.total_results ? (
           <>
+            <Header>
+              {searchValue
+                ? `Search results for "${query}" (${movies.total_results})`
+                : "Popular movies"}
+            </Header>
             <TilesWrapper>
               {movies.results?.map((movie, index) => (
                 <MovieTile key={index}>
@@ -60,7 +62,10 @@ const MovieList = () => {
             <Pagination />
           </>
         ) : (
-          <NoResults />
+          <>
+            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <NoResults />
+          </>
         )}
       </Container>
     </>

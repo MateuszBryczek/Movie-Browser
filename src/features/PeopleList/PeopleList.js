@@ -16,6 +16,7 @@ import Container from "../../common/Container";
 import { useQueryParameter } from "../queryParameter";
 import searchQueryParamName from "../searchQueryParamName";
 import NoResults from "../../common/noResults";
+import ErrorPage from "../../common/ErrorPage";
 
 const PeopleList = () => {
   const searchValue = useSelector(selectSearchPeopleValue);
@@ -34,21 +35,22 @@ const PeopleList = () => {
   return (
     <>
       <Container>
-        <Header>
-          {searchValue
-            ? people.total_results
-              ? `Search results for "${query}" ${
-                  isLoading ? "" : `(${people.total_results})`
-                }`
-              : isLoading
-              ? `Search results for "${query}"`
-              : `Sorry, there are no results for "${query}"`
-            : "Popular people"}
-        </Header>
-        {isLoading ? (
-          <IconSpiner />
+        {error ? (
+          <ErrorPage />
+        ) : isLoading ? (
+          <>
+            <Header>
+              {searchValue ? `Search results for "${query}"` : "Popular people"}
+            </Header>
+            <IconSpiner />
+          </>
         ) : people.total_results ? (
           <>
+            <Header>
+              {searchValue
+                ? `Search results for "${query}" (${people.total_results})`
+                : "Popular people"}
+            </Header>
             <TilesWrapper>
               {people.results?.map((people, index) => (
                 <PeopleTile key={index}>
@@ -59,7 +61,10 @@ const PeopleList = () => {
             <Pagination />
           </>
         ) : (
-          <NoResults />
+          <>
+            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <NoResults />
+          </>
         )}
       </Container>
     </>
