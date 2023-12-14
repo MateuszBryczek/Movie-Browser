@@ -4,7 +4,7 @@ import MovieList from "./features/MovieList/MovieList";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import PeopleList from "./features/PeopleList/PeopleList";
 import Navigation from "./common/Navigation";
-import useMovieDetails from "./features/MovieDetails/useMovieDetails";
+import MovieDetails from "./features/MovieDetails/MovieDetails";
 
 export const App = () => {
   return (
@@ -14,7 +14,7 @@ export const App = () => {
         <HashRouter>
           <Navigation/>
           <Switch>
-            <Route path="/moviedetails/:id" component={useMovieDetails} />
+            <Route path="/movieDetails/:id" element={<MovieDetails />} />
             <Route path="/peoplelist">
               <PeopleList />
             </Route>
