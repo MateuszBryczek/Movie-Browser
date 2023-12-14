@@ -19,3 +19,13 @@ export const getSearchedMovies = async searchValue => {
 
   return await { ...data };
 };
+
+export const getMovieDetails = async (movieId) => {
+    const { data } = await config.get(`movie/${movieId}`);
+    
+    if (!data.ok) {
+      throw new Error(data.statusText);
+    }
+  
+    return await { ...data };
+  };
