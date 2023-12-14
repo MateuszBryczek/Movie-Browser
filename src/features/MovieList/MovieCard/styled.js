@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 export const StyledCard = styled.div`
   display: flex;
@@ -80,6 +80,6 @@ export const RateWrapper = styled.div`
   gap: 12px;
 `;
 
-export const MovieDetailsLink = styled(Link)`
+export const MovieDetailsLink = styled(NavLink)`
   text-decoration: none;
 `;
