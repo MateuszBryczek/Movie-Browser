@@ -4,6 +4,7 @@ const movieSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
+    movieDetails: [],
     error: false,
     searchMoviesValue: "",
     isLoading: false,
@@ -24,6 +25,17 @@ const movieSlice = createSlice({
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
     },
+    fetchMovieDetails: state => {
+      state.isLoading = true;
+    },
+    fetchMovieDetailsSucces: (state, { payload: movieDetails }) => {
+      state.movieDetails = movieDetails;
+      state.isLoading = false;
+    },
+    fetchMovieDetailsError: (state, { payload: error }) => {
+      state.error = true;
+      console.error(error);
+    },
   },
 });
 
@@ -32,6 +44,9 @@ export const {
   fetchMoviesSucces,
   fetchMoviesError,
   changeSearchMoviesValue,
+  fetchMovieDetails,
+  fetchMovieDetailsSucces,
+  fetchMovieDetailsError,
 } = movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
