@@ -17,6 +17,7 @@ export const GlobalTheme ={
         smallDevices: 576,
         mediumDevices: 768,
         largeDevices: 1024,
+        deskpots: 1100,
     },
 
     colors: {
