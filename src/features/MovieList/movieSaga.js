@@ -8,7 +8,7 @@ import {
   fetchMovieDetailsSucces,
   fetchMovieDetailsError,
 } from "./movieSlice";
-import { getMovieDetails, getMovies, getSearchedMovies } from "./getMovies";
+import { getMoviesDetails, getMovies, getSearchedMovies } from "./getMovies";
 
 function* fetchMoviesHandler({ payload: movieId }) {
   const searchValue = yield select(selectSearchMoviesValue);
@@ -29,7 +29,7 @@ function* fetchMoviesHandler({ payload: movieId }) {
 function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {
     yield delay(500);
-    const movieDetails = yield call(getMovieDetails, movieId);
+    const movieDetails = yield call(getMoviesDetails, movieId);
     yield put(fetchMovieDetailsSucces(movieDetails));
   } catch (error) {
     yield put(fetchMovieDetailsError(error));
@@ -40,6 +40,6 @@ export function* watchFetchMovies() {
   yield takeLatest(fetchMovies.type, fetchMoviesHandler);
 };
 
-export function* watchfetchMovieDetails() {
+export function* watchFetchMovieDetails() {
   yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler)
 };
