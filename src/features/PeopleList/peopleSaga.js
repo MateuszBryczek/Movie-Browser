@@ -1,10 +1,13 @@
-import { takeEvery, call, put, select, delay } from "@redux-saga/core/effects";
-import { getPeople, getSearchedPeople } from "./getPeople";
+import { takeEvery, takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
+import { getPeople, getSearchedPeople, getPersonDetails } from "./getPeople";
 import {
   fetchPeople,
   fetchPeopleError,
   fetchPeopleSucces,
   selectSearchPeopleValue,
+  fetchPersonDetails,
+  fetchPersonDetailsSucces,
+  fetchPersonDetailsError,
 } from "./peopleSlice";
 
 function* fetchPeopleHandler({ payload: peopleId }) {
@@ -23,6 +26,19 @@ function* fetchPeopleHandler({ payload: peopleId }) {
   }
 }
 
+function* fetchPersonDetailsHandler({ payload: personId }) {
+  try {
+    yield delay(500);
+    const personDetails = yield call(getPersonDetails, personId);
+    yield put(fetchPersonDetailsSucces(personDetails));
+  } catch (error) {
+    yield put(fetchPersonDetailsError(error));
+  }
+};
+
 export function* watchFetchPeople() {
   yield takeEvery(fetchPeople.type, fetchPeopleHandler);
-}
+};
+export function* watchFetchPersonDetails() {
+  yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
+};

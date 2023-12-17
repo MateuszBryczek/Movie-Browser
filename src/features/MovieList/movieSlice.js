@@ -53,4 +53,5 @@ export const selectMovies = state => selectMoviesState(state).movies;
 export const selectMoviesError = state => selectMoviesState(state).error;
 export const selectSearchMoviesValue = state => selectMoviesState(state).searchMoviesValue;
 export const selectMoviesIsLoading = state => selectMoviesState(state).isLoading;
+export const selectMovieById = (state, id) => selectMoviesState(state).movies.find(movie => movie.id.toString() === id.toString());
 export default movieSlice.reducer;
