@@ -13,7 +13,6 @@ const movieSlice = createSlice({
       state.isLoading = true;
     },
     fetchMoviesSucces: (state, { payload: movies }) => {
-      console.log(movies);
       state.movies = movies;
       state.isLoading = false;
     },
@@ -25,7 +24,6 @@ const movieSlice = createSlice({
     changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
-      console.log(state.searchMoviesValue);
     },
   },
 });
