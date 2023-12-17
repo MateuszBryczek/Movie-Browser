@@ -37,9 +37,9 @@ const PeopleList = () => {
           <>
             {" "}
             <TilesWrapper>
-              {people.map((people, index) => (
-                <PeopleTile key={index}>
-                  <PeopleCard {...people} />
+              {people.map((person) => (
+                <PeopleTile key={person.id}>
+                  <PeopleCard {...person} />
                 </PeopleTile>
               ))}
             </TilesWrapper>

@@ -38,8 +38,8 @@ const MovieList = () => {
           <>
             {" "}
             <TilesWrapper>
-              {movies.map((movie, index) => (
-                <MovieTile key={index}>
+              {movies.map((movie) => (
+                <MovieTile key={movie.id}>
                   <MovieCard {...movie} />
                 </MovieTile>
               ))}
