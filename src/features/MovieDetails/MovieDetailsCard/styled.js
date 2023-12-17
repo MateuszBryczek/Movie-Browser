@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const PosterTile = styled.div`
-    width: 1920px;
-    height: 770px;
+    width: 100%;
     flex-shrink: 0px;
     background-color: ${({ theme }) => theme.colors.header.primary};
 `;
@@ -32,4 +31,14 @@ export const Votes = styled.a`
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
+`;
+
+export const MovieTile = styled.div`
+    background: ${({ theme }) => theme.colors.tile.primary};
+    color: ${({ theme }) => theme.colors.tile.textPrimary};
+    box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.50);
+    display: flex;
+    padding: 40px;
+    align-items: flex-start;
+    gap: 40px;
 `;

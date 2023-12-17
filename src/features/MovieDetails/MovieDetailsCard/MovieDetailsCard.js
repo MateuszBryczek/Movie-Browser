@@ -6,19 +6,24 @@ import {
     Title,
     Rating,
     Votes,
+    MovieTile,
  } from "./styled";
 
-const MovieDetailsCard = ({ selectedMovie }) => { 
+ const MovieDetailsCard = ({ backdrop_path, title, vote_average, vote_count }) => { 
+    console.log("Props:", { backdrop_path, title, vote_average, vote_count });
     
     return (
         <>
             <PosterTile>
-                <Poster src={ POSTER_URL_BIG + `${selectedMovie.backdrop_path}` } />
-                    <Title>{selectedMovie.title}</Title>
+                <Poster src={ POSTER_URL_BIG + backdrop_path } />
+                    <Title>{title}</Title>
                     <Star />
-                    <Rating>{selectedMovie.vote_average}</Rating>/10
-                    <Votes>{selectedMovie.vote_count} votes</Votes>
+                    <Rating>{vote_average}</Rating>/10
+                    <Votes>{vote_count} votes</Votes>
             </PosterTile>
+            <MovieTile>
+        
+            </MovieTile>
         </>
     );
 
