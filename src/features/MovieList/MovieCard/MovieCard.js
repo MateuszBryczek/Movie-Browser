@@ -29,7 +29,7 @@ const MovieCard = ({
 
   return (
     <>
-      <StyledCard>{id}
+      <StyledCard>
       <MovieDetailsLink to={`/movieDetails/${id}`}>
         <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
         <Description>
