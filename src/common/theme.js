@@ -16,8 +16,9 @@ export const GlobalTheme ={
     breakpoints:{
         smallDevices: 576,
         mediumDevices: 768,
-        largeDevices: 1024,
-        deskpots: 1100,
+        largeDevices: 1054,
+        smallDesktop: 1180,
+        mediumDesktop: 1400,
     },
 
     colors: {
