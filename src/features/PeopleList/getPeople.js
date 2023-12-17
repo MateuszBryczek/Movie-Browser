@@ -18,14 +18,13 @@ export const getSearchedPeople = async searchValue => {
     }
   
     return await { ...data };
-  };
+};
 
-  export const getPeopleForMovie = async (personId) => {
-    const { data } = await config.get(`movie/${personId}`);
-    
-    if (!data.ok) {
-      throw new Error(data.statusText);
-    }
-  
+export const getPersonDetails = async (personId) => {
+  try {
+    const { data } = await config.get(`person/${personId}`);
     return { ...data };
-  };
+  } catch (error) {
+    throw new Error(error.response.statusText);
+  }
+};
