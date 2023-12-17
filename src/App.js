@@ -15,7 +15,7 @@ export const App = () => {
         <HashRouter>
           <Navigation/>
           <Switch>
-            <Route path="/peopleDetails/:id" component={PersonDetails} />
+            <Route path="/personDetails/:id" component={PersonDetails} />
             <Route path="/peoplelist">
               <PeopleList />
             </Route>
