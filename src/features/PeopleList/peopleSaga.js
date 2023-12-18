@@ -1,4 +1,4 @@
-import { takeEvery, call, put, select, delay } from "@redux-saga/core/effects";
+import { takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
 import { getPeople, getSearchedPeople } from "./getPeople";
 import {
   fetchPeople,
@@ -24,5 +24,5 @@ function* fetchPeopleHandler({ payload: peopleId }) {
 }
 
 export function* watchFetchPeople() {
-  yield takeEvery(fetchPeople.type, fetchPeopleHandler);
+  yield takeLatest(fetchPeople.type, fetchPeopleHandler);
 }
