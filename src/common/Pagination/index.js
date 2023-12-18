@@ -16,8 +16,10 @@ import { GlobalTheme } from "../theme";
 const Pagination = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
-  const mediaQuery = GlobalTheme.breakpoints.mediumDevices
-  
+  const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
+
+  const { page } = useSelector;
+
   useEffect(() => {
     const handleResize = () => {
       setScreenSize(window.innerWidth);
@@ -38,7 +40,7 @@ const Pagination = () => {
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
       </LeftButton>
-      <LeftButton>
+      <LeftButton onClick={decrement}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "Previous" : ""}
       </LeftButton>
@@ -50,7 +52,7 @@ const Pagination = () => {
         <SpanPrimary> 500 </SpanPrimary>
       </Text>
 
-      <RightButton>
+      <RightButton onClick={increment}>
         {isMediaQuery() ? "Next" : ""}
         <RightVector src={rightVector} alt="" />
       </RightButton>
