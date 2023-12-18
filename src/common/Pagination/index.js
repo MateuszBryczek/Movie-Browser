@@ -12,13 +12,14 @@ import {
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
 import { GlobalTheme } from "../theme";
+import { decrement, goToFirstPage, goToLastPage, increment } from "./paginationSlice";
 
 const Pagination = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
 
-  const { page } = useSelector;
+  // const { page } = useSelector;
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,7 +37,7 @@ const Pagination = () => {
 
   return (
     <StyledPagination>
-      <LeftButton>
+      <LeftButton onClick={goToFirstPage}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
       </LeftButton>
@@ -56,7 +57,7 @@ const Pagination = () => {
         {isMediaQuery() ? "Next" : ""}
         <RightVector src={rightVector} alt="" />
       </RightButton>
-      <RightButton>
+      <RightButton onClick={goToLastPage}>
         {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
         <RightVector src={rightVector} alt="" />
       </RightButton>
