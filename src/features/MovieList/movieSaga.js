@@ -5,14 +5,14 @@ import {
   fetchMoviesError,
   selectSearchMoviesValue,
 } from "./movieSlice";
-import { getMovies, getSearchedMovies } from "./getMovies";
+import { useApiToGetMovies, getSearchedMovies } from "./useApiToGetMovies";
 
 function* fetchMoviesHandler({ payload: movieId }) {
   const searchValue = yield select(selectSearchMoviesValue);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const movie = yield call(getMovies, movieId);
+      const movie = yield call(useApiToGetMovies, movieId);
       yield put(fetchMoviesSucces(movie));
     } else {
       const movie = yield call(getSearchedMovies, searchValue, movieId);
