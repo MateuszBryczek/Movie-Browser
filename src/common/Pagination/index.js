@@ -19,9 +19,11 @@ import {
   increment,
 } from "./paginationSlice";
 
-//disptach akcji- dopisac akcjom dispatch, zaimportować usedispatch
+import { useDispatch } from "react-redux";
 
 const Pagination = () => {
+  const dispatch = useDispatch();
+
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
@@ -42,11 +44,11 @@ const Pagination = () => {
 
   return (
     <StyledPagination>
-      <LeftButton onClick={goToFirstPage}>
+      <LeftButton onClick={dispatch(goToFirstPage)}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
       </LeftButton>
-      <LeftButton onClick={decrement}>
+      <LeftButton onClick={dispatch(decrement)}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "Previous" : ""}
       </LeftButton>
@@ -58,11 +60,11 @@ const Pagination = () => {
         <SpanPrimary> 500 </SpanPrimary>
       </Text>
 
-      <RightButton onClick={increment}>
+      <RightButton onClick={dispatch(increment)}>
         {isMediaQuery() ? "Next" : ""}
         <RightVector src={rightVector} alt="" />
       </RightButton>
-      <RightButton onClick={goToLastPage}>
+      <RightButton onClick={dispatch(goToLastPage)}>
         {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
         <RightVector src={rightVector} alt="" />
       </RightButton>
