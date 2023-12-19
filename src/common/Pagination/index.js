@@ -19,6 +19,8 @@ import {
   increment,
 } from "./paginationSlice";
 
+//disptach akcji- dopisac akcjom dispatch, zaimportować usedispatch
+
 const Pagination = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
