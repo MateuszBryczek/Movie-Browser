@@ -2,14 +2,14 @@ import config from "../config";
 import { popularMoviesURL } from "../config";
 import { apiKey } from "../config";
 import { basicUrl } from "../config";
-import { selectPage } from "../../common/Pagination/paginationSlice";
+import { selectPageState } from "../../common/Pagination/paginationSlice";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useState } from "react";
 
 export const useApiToGetMovies = async () => {
 
-  const { page } = useSelector(selectPage);
+  const { page } = useSelector(selectPageState);
 
   const { data } = await axios.get(`${popularMoviesURL}` + `${page}`);
 

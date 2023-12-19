@@ -12,14 +12,17 @@ import {
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
 import { GlobalTheme } from "../theme";
-import { decrement, goToFirstPage, goToLastPage, increment } from "./paginationSlice";
+import {
+  decrement,
+  goToFirstPage,
+  goToLastPage,
+  increment,
+} from "./paginationSlice";
 
 const Pagination = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
-
-  // const { page } = useSelector;
 
   useEffect(() => {
     const handleResize = () => {
