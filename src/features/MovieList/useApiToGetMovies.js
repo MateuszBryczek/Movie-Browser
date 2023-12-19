@@ -2,13 +2,16 @@ import config from "../config";
 import { popularMoviesURL } from "../config";
 import { apiKey } from "../config";
 import { basicUrl } from "../config";
-import {page} from "../../common/Pagination/index";
+import { selectPage } from "../../common/Pagination/paginationSlice";
+import { useSelector } from "react-redux";
 import axios from "axios";
-// const popularMovieUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=5436c11ec3f3706d8f349dbc68c7265e&page=`;
+import { useState } from "react";
+
 export const useApiToGetMovies = async () => {
 
+  const { page } = useSelector(selectPage);
 
-  const { data } = await axios.get(`${popularMoviesURL}`+`&page=1`);
+  const { data } = await axios.get(`${popularMoviesURL}` + `${page}`);
 
   if (!data.ok) {
     new Error(data.statusText);
@@ -17,7 +20,7 @@ export const useApiToGetMovies = async () => {
   return await { ...data };
 };
 
-export const getSearchedMovies = async searchValue => {
+export const getSearchedMovies = async (searchValue) => {
   const { data } = await config.get(`search/movie?query=${searchValue}`);
 
   if (!data.ok) {
