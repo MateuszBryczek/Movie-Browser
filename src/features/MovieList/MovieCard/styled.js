@@ -136,6 +136,7 @@ export const RateWrapper = styled.div`
   gap: 12px;
   flex-grow: 1;
   align-items: end;
+  margin-top: 8px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     flex-grow: 0;
     margin-top: 8px
