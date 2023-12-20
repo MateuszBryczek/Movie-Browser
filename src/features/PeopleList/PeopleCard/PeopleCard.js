@@ -19,7 +19,7 @@ const PeopleCard = ({
             <Image src={IMG_URL_SMALL + profile_path}></Image>
                 <Name>{name}</Name>
                 {personRole && <p>{personRole}</p>}
-            </Description>
+            <Description/>
         </PersonDetailsLink>
         </>
     );
