@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPersonDetails, selectPersonDetails } from "../PeopleList/peopleSlice";
+import { fetchPersonDetails, selectPeopleIsLoading, selectPersonById } from "../PeopleList/peopleSlice";
 import { useEffect } from "react";
 import PersonDetailsCard from "./PersonDetailsCard/PersonDetailsCard";
 import Container from "../../common/Container";
+import IconSpiner from "../../common/IconSpinner";
 
 
 const PersonDetails = () => {
@@ -11,15 +12,24 @@ const PersonDetails = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
 
-    const selectedPerson = useSelector(selectPersonDetails)
+    const isLoading = useSelector(selectPeopleIsLoading);
+
+    const selectedPerson = useSelector(state => selectPersonById(state, id));
 
     useEffect(() => {
         dispatch(fetchPersonDetails(id));
     }, [id, dispatch]);
 
+    if (isLoading) {
+        return <IconSpiner />;
+      }
+
     return (
         <Container>
-            <PersonDetailsCard selectedPerson={selectedPerson.personDetails} />
+            <PersonDetailsCard 
+                profile_path={selectedPerson.profile_path}
+                name={selectedPerson.name}
+            />
         </Container>
     );
 

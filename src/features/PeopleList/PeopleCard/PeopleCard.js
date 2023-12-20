@@ -10,6 +10,7 @@ const PeopleCard = ({
     id,
     profile_path, 
     name,
+    personRole,
 }) => {
     
         return (
@@ -18,6 +19,7 @@ const PeopleCard = ({
             <Image src={IMG_URL_SMALL + profile_path}></Image>
             <Description>
                 <Name>{name}</Name>
+                {personRole && <p>{personRole}</p>}
             </Description>
         </PersonDetailsLink>
         </>

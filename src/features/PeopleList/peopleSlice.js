@@ -53,5 +53,6 @@ export const selectPeople = state => selectPeopleState(state).people;
 export const selectPeopleError = state => selectPeopleState(state).error;
 export const selectSearchPeopleValue = state => selectPeopleState(state).searchPeopleValue;
 export const selectPeopleIsLoading = state => selectPeopleState(state).isLoading;
-export const selectPersonDetails = (state) => state.people
+export const selectPersonDetails = (state) => state.people;
+export const selectPersonById = (state, id) => selectPeopleState(state).people.find(person => person.id.toString() === id.toString());
 export default peopleSlice.reducer;
