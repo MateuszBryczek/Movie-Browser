@@ -16,11 +16,12 @@ const movieSlice = createSlice({
       state.isLoading = true;
     },
     fetchMoviesSucces: (state, { payload: movies }) => {
-      state.movies = movies.results;
+      state.movies = movies;
       state.isLoading = false;
     },
     fetchMoviesError: (state, { payload: error }) => {
       state.error = true;
+      state.isLoading = false;
       console.error(error);
     },
     changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {

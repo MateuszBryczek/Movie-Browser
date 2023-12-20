@@ -5,8 +5,11 @@ import {
   useReplaceQueryParameter,
   useQueryParameter,
 } from "../../../features/queryParameter";
-import { changeSearchPeopleValue } from "../../../features/PeopleList/peopleSlice"
-import { changeSearchMoviesValue } from "../../../features/MovieList/movieSlice";
+import { changeSearchPeopleValue } from "../../../features/PeopleList/peopleSlice";
+import {
+  changeSearchMoviesValue,
+  fetchMovies,
+} from "../../../features/MovieList/movieSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import searchQueryParamName from "../../../features/searchQueryParamName";
@@ -20,7 +23,8 @@ const SearchBar = () => {
   useEffect(() => {
     location.pathname === "/peoplelist"
       ? dispatch(changeSearchPeopleValue(query))
-      : dispatch(changeSearchMoviesValue(query));
+      : dispatch(changeSearchMoviesValue(query)) &&
+        dispatch(fetchMovies(query));
   }, [dispatch, location, query]);
 
   const oninputChange = ({ target }) => {

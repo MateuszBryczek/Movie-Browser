@@ -9,10 +9,12 @@ import {
   RateWrapper,
   TagsWrapper,
   MovieDetailsLink
+  DataWrapper,
+  Star,
 } from "./styled";
 import { POSTER_URL_SMALL } from "../../config";
 import GenreList from "../Genras/GenresList";
-import { ReactComponent as Star } from "../../../images/starVector.svg";
+import star from "../../../images/starVector.svg";
 
 const MovieCard = ({
   id,
@@ -23,13 +25,13 @@ const MovieCard = ({
   vote_count,
   poster_path,
 }) => {
-
   const releaseDate = new Date(release_date);
   const year = releaseDate.getFullYear();
 
   return (
     <>
       <StyledCard>
+      <DataWrapper>
       <MovieDetailsLink to={`/movieDetails/${id}`}>
         <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
         <Description>
@@ -44,9 +46,8 @@ const MovieCard = ({
           <Rating>{vote_average.toFixed(1)}</Rating>
           <Votes>{vote_count} votes</Votes>
         </RateWrapper>
+      </DataWrapper>
       </MovieDetailsLink>
-      </StyledCard>
-      
     </>
   );
 };

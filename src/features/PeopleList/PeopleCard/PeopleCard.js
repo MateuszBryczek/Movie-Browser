@@ -17,7 +17,6 @@ const PeopleCard = ({
         <>
         <PersonDetailsLink to={`/personDetails/${id}`}>
             <Image src={IMG_URL_SMALL + profile_path}></Image>
-            <Description>
                 <Name>{name}</Name>
                 {personRole && <p>{personRole}</p>}
             </Description>
