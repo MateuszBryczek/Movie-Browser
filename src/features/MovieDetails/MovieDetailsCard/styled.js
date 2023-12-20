@@ -1,38 +1,5 @@
 import styled from "styled-components";
 
-export const PosterTile = styled.div`
-    width: 100%;
-    flex-shrink: 0px;
-    background-color: ${({ theme }) => theme.colors.header.primary};
-`;
-
-export const Poster = styled.img`
-    width: 1368px;
-    height: 769px;
-    flex-shrink: 0;
-`;
-
-export const Title = styled.h1`
-    color: ${({ theme }) => theme.colors.header.primary};
-    font-size: 64px;
-    font-weight: 600;
-    line-height: 120%;
-`;
-
-export const Rating = styled.a`
-    color: ${({ theme }) => theme.colors.header.primary};
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 130%;
-`;
-
-export const Votes = styled.a`
-    color: ${({ theme }) => theme.colors.header.primary};
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 120%;
-`;
-
 export const MovieTile = styled.div`
     background: ${({ theme }) => theme.colors.tile.primary};
     color: ${({ theme }) => theme.colors.tile.textPrimary};
@@ -41,4 +8,44 @@ export const MovieTile = styled.div`
     padding: 40px;
     align-items: flex-start;
     gap: 40px;
+`;
+
+export const Poster = styled.img`
+
+`;
+
+export const Title = styled.p`
+
+`;
+
+export const Date = styled.p`
+
+`;
+
+export const Section = styled.div`
+
+`;
+
+export const Production = styled.p`
+
+`;
+
+export const Relase = styled.p`
+
+`;
+
+export const TagsWrapper = styled.div`
+
+`;
+
+export const Rating = styled.a`
+
+`;
+
+export const Votes = styled.a`
+
+`;
+
+export const Descryption = styled.div`
+
 `;
