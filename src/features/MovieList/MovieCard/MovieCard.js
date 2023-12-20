@@ -8,7 +8,7 @@ import {
   StyledCard,
   RateWrapper,
   TagsWrapper,
-  MovieDetailsLink
+  MovieDetailsLink,
   DataWrapper,
   Star,
 } from "./styled";
@@ -32,7 +32,8 @@ const MovieCard = ({
     <>
       <StyledCard>
       <DataWrapper>
-      <MovieDetailsLink to={`/movieDetails/${id}`}>
+      <MovieDetailsLink to={`/movieDetails/${id}`}>      </MovieDetailsLink>
+
         <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
         <Description>
           <Title>{title}</Title>
@@ -47,7 +48,7 @@ const MovieCard = ({
           <Votes>{vote_count} votes</Votes>
         </RateWrapper>
       </DataWrapper>
-      </MovieDetailsLink>
+      </StyledCard>
     </>
   );
 };
