@@ -28,7 +28,6 @@ const movieSlice = createSlice({
       state.searchMoviesValue = searchMoviesValue;
       console.log(state.searchMoviesValue);
       state.moviePage = 1;
-
     },
     increment: (state) => {
       state.moviePage += 1;
@@ -55,7 +54,6 @@ export const {
   decrement,
   goToLastPage,
   goToFistPage,
-  
 } = movieSlice.actions;
 const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
@@ -64,7 +62,6 @@ export const selectSearchMoviesValue = (state) =>
   selectMoviesState(state).searchMoviesValue;
 export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
-export const selectMoviePageState = (state) => state.moviePage;
-export const selectMoviePage = (state) => selectMoviePageState(state).moviePage;
+export const selectMoviePage = (state) => selectMoviesState(state).moviePage;
 
 export default movieSlice.reducer;
