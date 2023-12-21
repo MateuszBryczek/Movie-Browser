@@ -27,18 +27,20 @@ const movieSlice = createSlice({
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
       console.log(state.searchMoviesValue);
+      state.moviePage = 1;
+
     },
-    increment: (state, {payload:moviePage}) => {
+    increment: (state) => {
       state.moviePage += 1;
     },
-    decrement: (state, {payload:moviePage}) => {
+    decrement: (state) => {
       state.moviePage -= 1;
     },
-    goToLastPage: (state, {payload:moviePage}) => {
+    goToLastPage: (state) => {
       state.moviePage = 24;
       //sprawdzić to jeszcze z danymi z api
     },
-    goToFirstPage: (state, {payload:moviePage}) => {
+    goToFirstPage: (state) => {
       state.moviePage = 1;
     },
   },
