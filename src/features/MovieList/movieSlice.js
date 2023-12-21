@@ -8,6 +8,7 @@ const movieSlice = createSlice({
     searchMoviesValue: "",
     isLoading: false,
     moviePage: 1,
+    maxPages: 500,
   },
   reducers: {
     fetchMovies: (state) => {
@@ -30,14 +31,13 @@ const movieSlice = createSlice({
       state.moviePage = 1;
     },
     increment: (state) => {
-      state.moviePage += 1;
+      state.moviePage = state.moviePage + 1;
     },
     decrement: (state) => {
-      state.moviePage -= 1;
+      state.moviePage = state.moviePage - 1;
     },
     goToLastPage: (state) => {
-      state.moviePage = 24;
-      //sprawdzić to jeszcze z danymi z api
+      state.moviePage = state.maxPages;
     },
     goToFirstPage: (state) => {
       state.moviePage = 1;
@@ -53,7 +53,7 @@ export const {
   increment,
   decrement,
   goToLastPage,
-  goToFistPage,
+  goToFirstPage,
 } = movieSlice.actions;
 const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
