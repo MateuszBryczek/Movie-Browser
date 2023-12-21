@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 export const StyledCard = styled.div`
   display: grid;
@@ -141,4 +142,8 @@ export const RateWrapper = styled.div`
     flex-grow: 0;
     margin-top: 8px
   }
+`;
+
+export const MovieDetailsLink = styled(NavLink)`
+  text-decoration: none;
 `;
