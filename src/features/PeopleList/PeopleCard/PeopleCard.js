@@ -3,6 +3,7 @@ import {
     Image, 
     Name,
     PersonDetailsLink,
+    Role,
 } from "./styled";
 import { IMG_URL_SMALL } from "../../config";
 
@@ -19,7 +20,7 @@ const PeopleCard = ({
             <Image src={IMG_URL_SMALL + profile_path}></Image>
             <Description>
                 <Name>{name}</Name>
-                {personRole && <p>{personRole}</p>}
+                <Role>{personRole && <p>{personRole}</p>}</Role>
             </Description>
         </PersonDetailsLink>
         </>

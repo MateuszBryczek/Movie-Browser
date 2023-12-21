@@ -27,6 +27,10 @@ export const Name = styled.h1`
     margin: 0;
 `;
 
+export const Role = styled.a`
+    color: ${({ theme }) => theme.colors.tile.textSecondary};
+`;
+
 export const PersonDetailsLink = styled(NavLink)`
     text-decoration: none;
 `;
