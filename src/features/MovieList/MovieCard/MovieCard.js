@@ -32,7 +32,7 @@ const MovieCard = ({
     <>
       <StyledCard>
       <DataWrapper>
-      <MovieDetailsLink to={`/movieDetails/${id}`}>      </MovieDetailsLink>
+      <MovieDetailsLink to={`/movieDetails/${id}`}>      
 
         <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
         <Description>
@@ -48,7 +48,9 @@ const MovieCard = ({
           <Votes>{vote_count} votes</Votes>
         </RateWrapper>
       </DataWrapper>
+      
       </StyledCard>
+      </MovieDetailsLink>
     </>
   );
 };
