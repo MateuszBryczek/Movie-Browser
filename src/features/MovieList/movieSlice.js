@@ -61,4 +61,7 @@ export const selectSearchMoviesValue = (state) =>
   selectMoviesState(state).searchMoviesValue;
 export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
+export const selectPageState = (state) => state.page;
+export const selectPage = (state) => selectPageState(state).page;
+
 export default movieSlice.reducer;
