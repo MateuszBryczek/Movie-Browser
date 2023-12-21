@@ -13,10 +13,15 @@ import IconSpiner from "../../common/IconSpinner";
 import Pagination from "../../common/Pagination";
 import Header from "../../common/Header";
 import Container from "../../common/Container";
+import { useQueryParameter } from "../queryParameter";
+import searchQueryParamName from "../searchQueryParamName";
+import NoResults from "../../common/noResults";
+import ErrorPage from "../../common/ErrorPage";
 
 const PeopleList = () => {
   const searchValue = useSelector(selectSearchPeopleValue);
   const isLoading = useSelector(selectPeopleIsLoading);
+  const query = useQueryParameter(searchQueryParamName);
 
   const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
@@ -30,20 +35,35 @@ const PeopleList = () => {
   return (
     <>
       <Container>
-        <Header>Popular people</Header>
-        {isLoading ? (
-          <IconSpiner />
-        ) : (
+        {error ? (
+          <ErrorPage />
+        ) : isLoading ? (
           <>
-            {" "}
+            <Header>
+              {searchValue ? `Search results for "${query}"` : "Popular people"}
+            </Header>
+            <IconSpiner />
+          </>
+        ) : people.total_results ? (
+          <>
+            <Header>
+              {searchValue
+                ? `Search results for "${query}" (${people.total_results})`
+                : "Popular people"}
+            </Header>
             <TilesWrapper>
-              {people.map((person) => (
+              {people.results?.map((person) => (
                 <PeopleTile key={person.id}>
                   <PeopleCard {...person} />
                 </PeopleTile>
               ))}
             </TilesWrapper>
             <Pagination />
+          </>
+        ) : (
+          <>
+            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <NoResults />
           </>
         )}
       </Container>

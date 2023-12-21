@@ -12,13 +12,15 @@ const peopleSlice = createSlice({
   reducers: {
     fetchPeople: (state) => {
       state.isLoading = true;
+      state.error = false;
     },
     fetchPeopleSucces: (state, { payload: people }) => {
-      state.people = people.results.slice(0, 24);
+      state.people = people;
       state.isLoading = false;
     },
     fetchPeopleError: (state, { payload: error }) => {
       state.error = true;
+      state.isLoading = false;
       console.error(error);
     },
     changeSearchPeopleValue: (state, { payload: searchPeopleValue }) => {

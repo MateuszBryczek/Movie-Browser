@@ -1,22 +1,25 @@
 import styled from "styled-components";
 
 export const TilesWrapper = styled.div`
-  max-width: 1368px;
-  height: 1391px;
-  margin-top: 30px;
-  margin: 50px auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-gap: 24px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  margin: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    width: 100%;
-    height: 142px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-content: center;
-    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -36,5 +39,10 @@ export const PeopleTile = styled.div`
     transform: scale(105%);
     transition: 0.3s;
     cursor: pointer;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
+    max-width: 136px;
+    max-height: 245px;
   }
 `;
