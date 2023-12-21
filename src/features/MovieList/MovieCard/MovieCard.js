@@ -9,12 +9,12 @@ import {
   RateWrapper,
   TagsWrapper,
   DataWrapper,
-  Star,
+  //Star,
   MovieDetailsLink,
 } from "./styled";
 import { POSTER_URL_SMALL } from "../../config";
 import GenreList from "../Genras/GenresList";
-import star from "../../../images/starVector.svg";
+import { ReactComponent as Star } from "../../../images/starVector.svg";
 
 const MovieCard = ({
   id,
