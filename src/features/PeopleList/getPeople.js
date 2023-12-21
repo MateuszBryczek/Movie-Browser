@@ -19,4 +19,12 @@ export const getSearchedPeople = async searchValue => {
   
     return await { ...data };
   };
-  
+
+export const getPersonDetails = async (personId) => {
+    try {
+      const { data } = await config.get(`person/${personId}`);
+      return { ...data };
+    } catch (error) {
+      throw new Error(error.response.statusText);
+    }
+  };
