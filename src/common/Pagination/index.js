@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   StyledPagination,
   LeftButton,
@@ -17,9 +18,7 @@ import {
   goToFirstPage,
   goToLastPage,
   increment,
-} from "./paginationSlice";
-
-import { useDispatch } from "react-redux";
+} from "../../features/MovieList/movieSlice";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -44,11 +43,11 @@ const Pagination = () => {
 
   return (
     <StyledPagination>
-      <LeftButton onClick={dispatch(goToFirstPage)}>
+      <LeftButton onClick={() => dispatch(goToFirstPage())}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
       </LeftButton>
-      <LeftButton onClick={dispatch(decrement)}>
+      <LeftButton onClick={() => dispatch(decrement())}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "Previous" : ""}
       </LeftButton>
@@ -60,11 +59,11 @@ const Pagination = () => {
         <SpanPrimary> 500 </SpanPrimary>
       </Text>
 
-      <RightButton onClick={dispatch(increment)}>
+      <RightButton onClick={() => dispatch(increment())}>
         {isMediaQuery() ? "Next" : ""}
         <RightVector src={rightVector} alt="" />
       </RightButton>
-      <RightButton onClick={dispatch(goToLastPage)}>
+      <RightButton onClick={() => dispatch(goToLastPage())}>
         {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
         <RightVector src={rightVector} alt="" />
       </RightButton>
