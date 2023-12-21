@@ -32,8 +32,8 @@ const MovieCard = ({
     <>
       
       <DataWrapper>
-      <MovieDetailsLink to={`/movieDetails/${id}`}>      
       <StyledCard>
+      <MovieDetailsLink to={`/movieDetails/${id}`}>      
         <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
         <Description>
           <Title>{title}</Title>
@@ -47,8 +47,8 @@ const MovieCard = ({
           <Rating>{vote_average.toFixed(1)}</Rating>
           <Votes>{vote_count} votes</Votes>
         </RateWrapper>
-      </StyledCard>
       </MovieDetailsLink>
+      </StyledCard>
       </DataWrapper>
 
 
