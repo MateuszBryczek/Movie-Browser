@@ -7,9 +7,10 @@ const movieSlice = createSlice({
     error: false,
     searchMoviesValue: "",
     isLoading: false,
+    moviePage: 1,
   },
   reducers: {
-    fetchMovies: state => {
+    fetchMovies: (state) => {
       state.isLoading = true;
     },
     fetchMoviesSucces: (state, { payload: movies }) => {
@@ -27,6 +28,19 @@ const movieSlice = createSlice({
       state.searchMoviesValue = searchMoviesValue;
       console.log(state.searchMoviesValue);
     },
+    increment: (state) => {
+      state.moviePage += 1;
+    },
+    decrement: (state) => {
+      state.moviePage -= 1;
+    },
+    goToLastPage: (state) => {
+      state.moviePage = 48;
+      //sprawdzić to jeszcze z danymi z api
+    },
+    goToFirstPage: (state) => {
+      state.moviePage = 1;
+    },
   },
 });
 
@@ -35,12 +49,16 @@ export const {
   fetchMoviesSucces,
   fetchMoviesError,
   changeSearchMoviesValue,
+  increment,
+  decrement,
+  goToLastPage,
+  goToFistPage,
 } = movieSlice.actions;
-const selectMoviesState = state => state.movies;
-export const selectMovies = state => selectMoviesState(state).movies;
-export const selectMoviesError = state => selectMoviesState(state).error;
-export const selectSearchMoviesValue = state =>
+const selectMoviesState = (state) => state.movies;
+export const selectMovies = (state) => selectMoviesState(state).movies;
+export const selectMoviesError = (state) => selectMoviesState(state).error;
+export const selectSearchMoviesValue = (state) =>
   selectMoviesState(state).searchMoviesValue;
-export const selectMoviesIsLoading = state =>
+export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
 export default movieSlice.reducer;
