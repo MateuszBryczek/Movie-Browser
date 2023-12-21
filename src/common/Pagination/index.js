@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import {
   StyledPagination,
   LeftButton,
@@ -19,6 +19,8 @@ import {
   goToLastPage,
   increment,
 } from "../../features/MovieList/movieSlice";
+
+
 
 const Pagination = () => {
   const dispatch = useDispatch();

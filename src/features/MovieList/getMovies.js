@@ -3,7 +3,8 @@ import { popularMoviesURL } from "../config";
 import { apiKey } from "../config";
 import { basicUrl } from "../config";
 import axios from "axios";
-export const useApiToGetMovies = async (moviePage) => {
+
+export const getMovies = async (moviePage) => {
   const { data } = await axios.get(`${popularMoviesURL}` + `${moviePage}`);
 
   if (!data.ok) {
