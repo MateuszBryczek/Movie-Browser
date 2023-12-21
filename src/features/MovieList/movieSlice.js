@@ -4,9 +4,12 @@ const movieSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
+    movieDetails: [],
     error: false,
     searchMoviesValue: "",
     isLoading: false,
+    cast: [],
+    crew: [],
   },
   reducers: {
     fetchMovies: state => {
@@ -25,6 +28,22 @@ const movieSlice = createSlice({
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
     },
+    fetchMovieDetails: state => {
+      state.isLoading = true;
+    },
+    fetchMovieDetailsSucces: (state, { payload: movieDetails }) => {
+      state.movieDetails = movieDetails;
+      state.isLoading = false;
+    },
+    fetchMovieDetailsError: (state, { payload: error }) => {
+      state.error = true;
+      console.error(error);
+    },
+    fetchPeopleForMovie: (state, { payload: peopleForMovie }) => {
+      state.cast = peopleForMovie.cast;
+      state.crew = peopleForMovie.crew;
+      state.isLoading = false
+    }
   },
 });
 
@@ -33,12 +52,15 @@ export const {
   fetchMoviesSucces,
   fetchMoviesError,
   changeSearchMoviesValue,
+  fetchMovieDetails,
+  fetchMovieDetailsSucces,
+  fetchMovieDetailsError,
+  fetchPeopleForMovie,
 } = movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
 export const selectMoviesError = state => selectMoviesState(state).error;
-export const selectSearchMoviesValue = state =>
-  selectMoviesState(state).searchMoviesValue;
-export const selectMoviesIsLoading = state =>
-  selectMoviesState(state).isLoading;
+export const selectSearchMoviesValue = state => selectMoviesState(state).searchMoviesValue;
+export const selectMoviesIsLoading = state => selectMoviesState(state).isLoading;
+export const selectMovieById = (state, id) => selectMoviesState(state).movies.find(movie => movie.id.toString() === id.toString());
 export default movieSlice.reducer;
