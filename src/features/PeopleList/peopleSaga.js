@@ -1,7 +1,5 @@
 import { takeEvery, takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
 import { getPeople, getSearchedPeople, getPersonDetails } from "./getPeople";
-import { takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
-import { getPeople, getSearchedPeople } from "./getPeople";
 import {
   fetchPeople,
   fetchPeopleError,
