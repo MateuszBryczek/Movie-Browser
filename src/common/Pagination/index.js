@@ -32,6 +32,8 @@ import {
 
 //jeśli jest movieList to wtedy funkcje z movies, jak jest people to z people
 // składnia z formularza z kantoru
+//dorobić disabled
+
 
 const Pagination = () => {
   const dispatch = useDispatch();
