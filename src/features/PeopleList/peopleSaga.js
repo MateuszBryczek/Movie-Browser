@@ -5,14 +5,16 @@ import {
   fetchPeopleError,
   fetchPeopleSucces,
   selectSearchPeopleValue,
+  selectPeoplePage,
 } from "./peopleSlice";
 
 function* fetchPeopleHandler({ payload: peopleId }) {
   const searchValue = yield select(selectSearchPeopleValue);
+  const peoplePage = yield select(selectPeoplePage);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const people = yield call(getPeople, peopleId);
+      const people = yield call(getPeople, peoplePage, peopleId);
       yield put(fetchPeopleSucces(people));
     } else {
       const people = yield call(getSearchedPeople, searchValue, peopleId);
