@@ -28,16 +28,16 @@ const peopleSlice = createSlice({
       state.isLoading = true;
       state.searchPeopleValue = searchPeopleValue;
     },
-    increment: (state) => {
+    nextPeoplePage: (state) => {
       state.page = state.page + 1;
     },
-    decrement: (state) => {
+    previousPeoplePage: (state) => {
       state.page = state.page - 1;
     },
-    goToLastPage: (state) => {
+    goToLastPeoplePage: (state) => {
       state.page = state.maxPages;
     },
-    goToFirstPage: (state) => {
+    goToFirstPeoplePage: (state) => {
       state.page = 1;
     },
   },
@@ -48,10 +48,10 @@ export const {
   fetchPeopleSucces,
   fetchPeopleError,
   changeSearchPeopleValue,
-  increment,
-  decrement,
-  goToLastPage,
-  goToFirstPage,
+  nextPeoplePage,
+  previousPeoplePage,
+  goToFirstPeoplePage,
+  goToLastPeoplePage,
 } = peopleSlice.actions;
 const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
@@ -60,6 +60,6 @@ export const selectSearchPeopleValue = (state) =>
   selectPeopleState(state).searchPeopleValue;
 export const selectPeopleIsLoading = (state) =>
   selectPeopleState(state).isLoading;
-  export const selectpage = (state) => selectPeopleState(state).page;
+export const selectPeoplepage = (state) => selectPeopleState(state).page;
 
 export default peopleSlice.reducer;
