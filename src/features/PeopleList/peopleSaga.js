@@ -17,7 +17,7 @@ function* fetchPeopleHandler({ payload: peopleId }) {
       const people = yield call(getPeople, peoplePage, peopleId);
       yield put(fetchPeopleSucces(people));
     } else {
-      const people = yield call(getSearchedPeople, searchValue, peopleId);
+      const people = yield call(getSearchedPeople, searchValue, peopleId, peoplePage);
       yield put(fetchPeopleSucces(people));
     }
   } catch (error) {
