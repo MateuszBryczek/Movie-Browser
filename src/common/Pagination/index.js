@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {  useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   StyledPagination,
   LeftButton,
@@ -14,19 +14,28 @@ import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
 import { GlobalTheme } from "../theme";
 import {
-  decrement,
-  goToFirstPage,
-  goToLastPage,
-  increment,
+  nextMoviePage,
+  previousMoviePage,
+  goToFirstMoviePage,
+  goToLastMoviePage,
+  setMaxMoviePages,
+  selectMoviePage,
 } from "../../features/MovieList/movieSlice";
 
+import {
+  nextPeoplePage,
+  previousPeoplePage,
+  goToFirstPeoplePage,
+  goToLastPeoplePage,
+  setMaxPeoplePages,
+} from "../../features/PeopleList/peopleSlice";
 
+//jeśli jest movieList to wtedy funkcje z movies, jak jest people to z people
+// składnia z formularza z kantoru
 
 const Pagination = () => {
   const dispatch = useDispatch();
-
   const [screenSize, setScreenSize] = useState(window.innerWidth);
-
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
 
   useEffect(() => {
@@ -43,29 +52,31 @@ const Pagination = () => {
 
   const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
 
+  const page = useSelector(selectMoviePage);
+
   return (
     <StyledPagination>
-      <LeftButton onClick={() => dispatch(goToFirstPage())}>
+      <LeftButton onClick={() => dispatch(goToFirstMoviePage())}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
       </LeftButton>
-      <LeftButton onClick={() => dispatch(decrement())}>
+      <LeftButton onClick={() => dispatch(previousMoviePage())}>
         <LeftVector src={leftVector} alt="" />
         {isMediaQuery() ? "Previous" : ""}
       </LeftButton>
 
       <Text>
         <SpanSecondary> Page </SpanSecondary>
-        <SpanPrimary> 1 </SpanPrimary>
+        <SpanPrimary> ${page} </SpanPrimary>
         <SpanSecondary> of </SpanSecondary>
         <SpanPrimary> 500 </SpanPrimary>
       </Text>
 
-      <RightButton onClick={() => dispatch(increment())}>
+      <RightButton onClick={() => dispatch(nextMoviePage())}>
         {isMediaQuery() ? "Next" : ""}
         <RightVector src={rightVector} alt="" />
       </RightButton>
-      <RightButton onClick={() => dispatch(goToLastPage())}>
+      <RightButton onClick={() => dispatch(goToLastMoviePage())}>
         {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
         <RightVector src={rightVector} alt="" />
       </RightButton>
