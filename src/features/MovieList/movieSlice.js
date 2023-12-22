@@ -42,6 +42,12 @@ const movieSlice = createSlice({
     goToFirstMoviePage: (state) => {
       state.page = 1;
     },
+    setMaxMoviePages: (state, { payload: maxPages }) => {
+      if (state.maxPages !== maxPages) {
+        state.page = 1;
+      }
+      state.maxPages = maxPages;
+    },
   },
 });
 
@@ -54,6 +60,7 @@ export const {
   previousMoviePage,
   goToFirstMoviePage,
   goToLastMoviePage,
+  setMaxMoviePages
 } = movieSlice.actions;
 const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
@@ -62,6 +69,6 @@ export const selectSearchMoviesValue = (state) =>
   selectMoviesState(state).searchMoviesValue;
 export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
-export const selectMoviepage = (state) => selectMoviesState(state).page;
-
+export const selectMoviePage = (state) => selectMoviesState(state).page;
+export const selectMaxMoviePages = (state) => selectMoviesState(state).maxPages;
 export default movieSlice.reducer;

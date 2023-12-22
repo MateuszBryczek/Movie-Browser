@@ -5,22 +5,23 @@ import {
   fetchMoviesError,
   selectSearchMoviesValue,
   selectMoviePage,
+  setMaxMoviePages,
 } from "./movieSlice";
 import { getMovies, getSearchedMovies } from "./getMovies";
 
 function* fetchMoviesHandler({ payload: movieId }) {
   const searchValue = yield select(selectSearchMoviesValue);
-  const moviePage = yield select(selectMoviePage);
+  const page = yield select(selectMoviePage);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const movie = yield call(getMovies, moviePage, movieId);
+      const movie = yield call(getMovies, page, movieId);
       yield put(fetchMoviesSucces(movie));
     } else {
       const movie = yield call(
         getSearchedMovies,
         searchValue,
-        moviePage,
+        page,
         movieId
       );
       yield put(fetchMoviesSucces(movie));
