@@ -10,14 +10,14 @@ import {
 
 function* fetchPeopleHandler({ payload: peopleId }) {
   const searchValue = yield select(selectSearchPeopleValue);
-  const peoplePage = yield select(selectPeoplePage);
+  const page = yield select(selectPeoplePage);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const people = yield call(getPeople, peoplePage, peopleId);
+      const people = yield call(getPeople, page, peopleId);
       yield put(fetchPeopleSucces(people));
     } else {
-      const people = yield call(getSearchedPeople, searchValue, peopleId, peoplePage);
+      const people = yield call(getSearchedPeople, searchValue, peopleId, page);
       yield put(fetchPeopleSucces(people));
     }
   } catch (error) {
