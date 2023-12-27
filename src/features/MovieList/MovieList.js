@@ -6,6 +6,7 @@ import {
   selectMoviesIsLoading,
   selectMovies,
   selectSearchMoviesValue,
+  selectMoviePage,
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import { MovieTile } from "./styled";
@@ -26,12 +27,13 @@ const MovieList = () => {
   const searchValue = useSelector(selectSearchMoviesValue);
   const movies = useSelector(selectMovies);
   const error = useSelector(selectMoviesError);
+  const page = useSelector(selectMoviePage);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [dispatch, searchValue]);
+  }, [dispatch, searchValue, page]);
 
   return (
     <>
