@@ -24,7 +24,7 @@ import GenreList from "../../MovieList/Genras/GenresList";
                 <Title>{title}</Title>
                 <Date>{relase_date}</Date>
                 <Section>
-                    Production:<Production>{production_countries}</Production>
+                    Production:<Production>{}</Production>
                     Relase date:<Relase>{relase_date}</Relase>
                 </Section>
                 <TagsWrapper>
