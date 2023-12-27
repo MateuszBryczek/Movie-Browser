@@ -28,10 +28,11 @@ export function* fetchMoviesHandler({ payload: movieId }) {
 }
 
 export function* fetchMovieDetailsHandler({ payload: movieId }) {
+  console.log("Fetching movie details for ID:", movieId);
   try {
     yield delay(500);
     const movieDetails = yield call(getMoviesDetails, movieId);
-    yield put(fetchMovieDetailsSucces(movieDetails));
+    yield put(fetchMovieDetailsSucces(movieDetails, movieId));
   } catch (error) {
     yield put(fetchMoviesError(error));
   }
@@ -41,7 +42,6 @@ export function* fetchPeopleForMovieHandler({ payload: movieId }) {
   try {
     yield delay(500);
     const peopleForMovie = yield call(getPeopleForMovie, movieId);
-    console.log("People For Movie:", peopleForMovie);
     yield put(fetchPeopleForMovie(peopleForMovie));
   } catch (error) {
     yield put(fetchMoviesError(error))
