@@ -7,6 +7,7 @@ import {
   selectMovies,
   selectSearchMoviesValue,
   selectMoviePage,
+  selectMaxMoviePages
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import { MovieTile } from "./styled";

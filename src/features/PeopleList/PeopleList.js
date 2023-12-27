@@ -6,6 +6,8 @@ import {
   selectPeople,
   selectSearchPeopleValue,
   selectPeopleIsLoading,
+  selectPeoplePage,
+  setMaxPeoplePages,
 } from "./peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper } from "./styled";
@@ -25,12 +27,13 @@ const PeopleList = () => {
 
   const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
+  const page = useSelector(selectPeoplePage);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPeople());
-  }, [dispatch, searchValue]);
+  }, [dispatch, searchValue, page]);
 
   return (
     <>
