@@ -15,15 +15,22 @@ const MovieDetails = () => {
 
     const isLoading = useSelector(selectMoviesIsLoading);
     
-    const selectedMovie = useSelector(state => selectMovieById(state, id));
+    const selectedMovie = useSelector((state) => selectMovieById(id)(state));
 
     useEffect(() => {
       dispatch(fetchMovieDetails(id));
       dispatch(fetchPeopleForMovie(id))
-    }, [id, dispatch]);
+    }, [id, dispatch, selectedMovie]);
   
     if (isLoading) {
       return <IconSpiner />;
+    }
+
+    console.log("Movie ID:", id);
+    console.log("Selected Movie:", selectedMovie);
+
+    if (!selectedMovie) {
+      return <p>Movie not found</p>;
     }
 
     return (
