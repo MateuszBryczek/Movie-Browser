@@ -31,14 +31,7 @@ import {
   selectPeoplePage,
 } from "../../features/PeopleList/peopleSlice";
 
-//dorobić disabled
-//wszystkie- total.results zaciagniete z api
-// wynikow na strone 20 
-//allPages= total.results / 20 
-
-
-
-const Pagination = ({ isMovieList }) => {
+const Pagination = ({ isMovieList, total_pages }) => {
   const dispatch = useDispatch();
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
@@ -62,17 +55,21 @@ const Pagination = ({ isMovieList }) => {
   const maxMoviePages = useSelector(selectMaxMoviePages);
   const maxPeoplePages = useSelector(selectMaxPeoplePages);
 
-
   return (
     <StyledPagination>
       {isMovieList ? (
         <>
-          <LeftButton disabled={moviePage===1}
-          onClick={() => dispatch(goToFirstMoviePage())}>
+          <LeftButton
+            disabled={moviePage === 1}
+            onClick={() => dispatch(goToFirstMoviePage())}
+          >
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
           </LeftButton>
-          <LeftButton disabled={moviePage===1} onClick={() => dispatch(previousMoviePage())}>
+          <LeftButton
+            disabled={moviePage === 1}
+            onClick={() => dispatch(previousMoviePage())}
+          >
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "Previous" : ""}
           </LeftButton>
@@ -80,25 +77,36 @@ const Pagination = ({ isMovieList }) => {
             <SpanSecondary> Page </SpanSecondary>
             <SpanPrimary> {moviePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
-            <SpanPrimary> 500 </SpanPrimary>
+            <SpanPrimary> {maxMoviePages} </SpanPrimary>
           </Text>
-          <RightButton disabled={moviePage === maxMoviePages} onClick={() => dispatch(nextMoviePage())}>
+          <RightButton
+            disabled={moviePage === maxMoviePages}
+            onClick={() => dispatch(nextMoviePage())}
+          >
             {isMediaQuery() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </RightButton>
-          <RightButton disabled={moviePage === maxMoviePages}
-          onClick={() => dispatch(goToLastMoviePage())}>
+          <RightButton
+            disabled={moviePage === maxMoviePages}
+            onClick={() => dispatch(goToLastMoviePage())}
+          >
             {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
           </RightButton>
         </>
       ) : (
         <>
-          <LeftButton disabled={peoplePage===1} onClick={() => dispatch(goToFirstPeoplePage())}>
+          <LeftButton
+            disabled={peoplePage === 1}
+            onClick={() => dispatch(goToFirstPeoplePage())}
+          >
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
           </LeftButton>
-          <LeftButton  disabled={peoplePage===1} onClick={() => dispatch(previousPeoplePage())}>
+          <LeftButton
+            disabled={peoplePage === 1}
+            onClick={() => dispatch(previousPeoplePage())}
+          >
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "Previous" : ""}
           </LeftButton>
@@ -106,14 +114,19 @@ const Pagination = ({ isMovieList }) => {
             <SpanSecondary> Page </SpanSecondary>
             <SpanPrimary> {peoplePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
-            <SpanPrimary> 500 </SpanPrimary>
+            <SpanPrimary> {maxPeoplePages}</SpanPrimary>
           </Text>
-          <RightButton disabled={peoplePage === maxPeoplePages}
-          onClick={() => dispatch(nextPeoplePage())}>
+          <RightButton
+            disabled={peoplePage === maxPeoplePages}
+            onClick={() => dispatch(nextPeoplePage())}
+          >
             {isMediaQuery() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </RightButton>
-          <RightButton disabled={peoplePage === maxPeoplePages} onClick={() => dispatch(goToLastPeoplePage())}>
+          <RightButton
+            disabled={peoplePage === maxPeoplePages}
+            onClick={() => dispatch(goToLastPeoplePage())}
+          >
             {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
           </RightButton>

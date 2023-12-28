@@ -22,14 +22,13 @@ const MovieCard = ({
   vote_count,
   poster_path,
 }) => {
-
   const releaseDate = new Date(release_date);
   const year = releaseDate.getFullYear();
 
   return (
     <>
       <StyledCard>
-        <Poster src={ POSTER_URL_SMALL + poster_path }></Poster>
+        <Poster src={POSTER_URL_SMALL + poster_path}></Poster>
         <Description>
           <Title>{title}</Title>
           <Year>{year}</Year>

@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//total_pages jest w wyniku get 
+
 const movieSlice = createSlice({
   name: "movies",
   initialState: {
