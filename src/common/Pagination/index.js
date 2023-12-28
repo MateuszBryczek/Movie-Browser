@@ -28,18 +28,15 @@ import {
   goToFirstPeoplePage,
   goToLastPeoplePage,
   setMaxPeoplePages,
+  selectPeoplePage,
 } from "../../features/PeopleList/peopleSlice";
 
-//jeśli jest movieList to wtedy funkcje z movies, jak jest people to z people
-// składnia z formularza z kantoru
 //dorobić disabled
 
 const Pagination = ({ isMovieList }) => {
   const dispatch = useDispatch();
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
-  // const isMovieList = { isMovieList };
-  // const isPeopleList = {isPeopleList};
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,7 +52,8 @@ const Pagination = ({ isMovieList }) => {
 
   const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
 
-  const page = useSelector(selectMoviePage);
+  const moviePage = useSelector(selectMoviePage);
+  const peoplePage = useSelector(selectPeoplePage);
 
   return (
     <StyledPagination>
@@ -71,7 +69,7 @@ const Pagination = ({ isMovieList }) => {
           </LeftButton>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
-            <SpanPrimary> ${page} </SpanPrimary>
+            <SpanPrimary> {moviePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
             <SpanPrimary> 500 </SpanPrimary>
           </Text>
@@ -96,7 +94,7 @@ const Pagination = ({ isMovieList }) => {
           </LeftButton>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
-            <SpanPrimary> ${page} </SpanPrimary>
+            <SpanPrimary> {peoplePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
             <SpanPrimary> 500 </SpanPrimary>
           </Text>
