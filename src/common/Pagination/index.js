@@ -34,11 +34,12 @@ import {
 // składnia z formularza z kantoru
 //dorobić disabled
 
-
-const Pagination = () => {
+const Pagination = ({ isMovieList }) => {
   const dispatch = useDispatch();
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
+  // const isMovieList = { isMovieList };
+  // const isPeopleList = {isPeopleList};
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,30 +59,57 @@ const Pagination = () => {
 
   return (
     <StyledPagination>
-      <LeftButton onClick={() => dispatch(goToFirstMoviePage())}>
-        <LeftVector src={leftVector} alt="" />
-        {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
-      </LeftButton>
-      <LeftButton onClick={() => dispatch(previousMoviePage())}>
-        <LeftVector src={leftVector} alt="" />
-        {isMediaQuery() ? "Previous" : ""}
-      </LeftButton>
-
-      <Text>
-        <SpanSecondary> Page </SpanSecondary>
-        <SpanPrimary> ${page} </SpanPrimary>
-        <SpanSecondary> of </SpanSecondary>
-        <SpanPrimary> 500 </SpanPrimary>
-      </Text>
-
-      <RightButton onClick={() => dispatch(nextMoviePage())}>
-        {isMediaQuery() ? "Next" : ""}
-        <RightVector src={rightVector} alt="" />
-      </RightButton>
-      <RightButton onClick={() => dispatch(goToLastMoviePage())}>
-        {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
-        <RightVector src={rightVector} alt="" />
-      </RightButton>
+      {isMovieList ? (
+        <>
+          <LeftButton onClick={() => dispatch(goToFirstMoviePage())}>
+            <LeftVector src={leftVector} alt="" />
+            {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
+          </LeftButton>
+          <LeftButton onClick={() => dispatch(previousMoviePage())}>
+            <LeftVector src={leftVector} alt="" />
+            {isMediaQuery() ? "Previous" : ""}
+          </LeftButton>
+          <Text>
+            <SpanSecondary> Page </SpanSecondary>
+            <SpanPrimary> ${page} </SpanPrimary>
+            <SpanSecondary> of </SpanSecondary>
+            <SpanPrimary> 500 </SpanPrimary>
+          </Text>
+          <RightButton onClick={() => dispatch(nextMoviePage())}>
+            {isMediaQuery() ? "Next" : ""}
+            <RightVector src={rightVector} alt="" />
+          </RightButton>
+          <RightButton onClick={() => dispatch(goToLastMoviePage())}>
+            {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
+            <RightVector src={rightVector} alt="" />
+          </RightButton>
+        </>
+      ) : (
+        <>
+          <LeftButton onClick={() => dispatch(goToFirstPeoplePage())}>
+            <LeftVector src={leftVector} alt="" />
+            {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
+          </LeftButton>
+          <LeftButton onClick={() => dispatch(previousPeoplePage())}>
+            <LeftVector src={leftVector} alt="" />
+            {isMediaQuery() ? "Previous" : ""}
+          </LeftButton>
+          <Text>
+            <SpanSecondary> Page </SpanSecondary>
+            <SpanPrimary> ${page} </SpanPrimary>
+            <SpanSecondary> of </SpanSecondary>
+            <SpanPrimary> 500 </SpanPrimary>
+          </Text>
+          <RightButton onClick={() => dispatch(nextPeoplePage())}>
+            {isMediaQuery() ? "Next" : ""}
+            <RightVector src={rightVector} alt="" />
+          </RightButton>
+          <RightButton onClick={() => dispatch(goToLastPeoplePage())}>
+            {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
+            <RightVector src={rightVector} alt="" />
+          </RightButton>
+        </>
+      )}
     </StyledPagination>
   );
 };
