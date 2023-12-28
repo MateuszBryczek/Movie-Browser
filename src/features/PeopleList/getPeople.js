@@ -28,3 +28,12 @@ export const getPersonDetails = async (personId) => {
       throw new Error(error.response.statusText);
     }
   };
+
+export const  getMoviesForPerson = async (personId) => {
+  try {
+    const { data } = await config.get(`person/${personId}/movie_credits`);
+    return { ...data };
+  } catch (error) {
+    throw new Error(error.response.statusText);
+  }
+};
