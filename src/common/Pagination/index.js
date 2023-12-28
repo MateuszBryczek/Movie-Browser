@@ -59,11 +59,12 @@ const Pagination = ({ isMovieList }) => {
     <StyledPagination>
       {isMovieList ? (
         <>
-          <LeftButton onClick={() => dispatch(goToFirstMoviePage())}>
+          <LeftButton disabled={moviePage===1}
+          onClick={() => dispatch(goToFirstMoviePage())}>
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
           </LeftButton>
-          <LeftButton onClick={() => dispatch(previousMoviePage())}>
+          <LeftButton disabled={moviePage===1} onClick={() => dispatch(previousMoviePage())}>
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "Previous" : ""}
           </LeftButton>
@@ -84,11 +85,11 @@ const Pagination = ({ isMovieList }) => {
         </>
       ) : (
         <>
-          <LeftButton onClick={() => dispatch(goToFirstPeoplePage())}>
+          <LeftButton disabled={peoplePage===1} onClick={() => dispatch(goToFirstPeoplePage())}>
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
           </LeftButton>
-          <LeftButton onClick={() => dispatch(previousPeoplePage())}>
+          <LeftButton  disabled={peoplePage===1} onClick={() => dispatch(previousPeoplePage())}>
             <LeftVector src={leftVector} alt="" />
             {isMediaQuery() ? "Previous" : ""}
           </LeftButton>
