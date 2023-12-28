@@ -7,9 +7,10 @@ const movieSlice = createSlice({
     movieDetails: [],
     error: false,
     searchMoviesValue: "",
-    isLoading: false,
+    isLoading: true,
     cast: [],
     crew: [],
+    movieId: false,
   },
   reducers: {
     fetchMovies: state => {
@@ -32,7 +33,7 @@ const movieSlice = createSlice({
       state.isLoading = true;
     },
     fetchMovieDetailsSucces: (state, { payload: movieDetails }) => {
-      state.movieDetails = Array.isArray(movieDetails) ? movieDetails : [movieDetails];
+      state.movieDetails = movieDetails;
       state.isLoading = false;
     },
     fetchMovieDetailsError: (state, { payload: error }) => {
@@ -42,8 +43,11 @@ const movieSlice = createSlice({
     fetchPeopleForMovie: (state, { payload: peopleForMovie }) => {
       state.cast = peopleForMovie.cast;
       state.crew = peopleForMovie.crew;
-      state.isLoading = false
-    }
+      state.isLoading = true;
+    },
+    updateMovieId: (state, { payload: id }) => {
+      state.movieId = id;
+    },
   },
 });
 
@@ -56,14 +60,19 @@ export const {
   fetchMovieDetailsSucces,
   fetchMovieDetailsError,
   fetchPeopleForMovie,
+  updateMovieId,
 } = movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
 export const selectMoviesError = state => selectMoviesState(state).error;
-export const selectSearchMoviesValue = state => selectMoviesState(state).searchMoviesValue;
-export const selectMoviesIsLoading = state => selectMoviesState(state).isLoading;
-export const selectMovieById = (movieId) => (state) => {
-  return state.movies.movieDetails.find((movie) => movie.id === parseInt(movieId));
-};
+export const selectSearchMoviesValue = state =>
+  selectMoviesState(state).searchMoviesValue;
+export const selectMoviesIsLoading = state =>
+  selectMoviesState(state).isLoading;
+export const selectMovieDetails = state =>
+  selectMoviesState(state).movieDetails;
+export const selectMovieId = state => selectMoviesState(state).movieId;
+export const selectCrew = state => selectMoviesState(state).crew;
+export const selectCast = state => selectMoviesState(state).cast;
 
 export default movieSlice.reducer;
