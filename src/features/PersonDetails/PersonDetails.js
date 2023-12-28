@@ -1,11 +1,19 @@
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPersonDetails, selectPeopleIsLoading, selectPersonById } from "../PeopleList/peopleSlice";
+import {
+  fetchPersonDetails,
+  selectPeopleError,
+  selectPeopleIsLoading,
+  selectPersonDetails,
+  updatePersonId,
+} from "../PeopleList/peopleSlice";
 import { useEffect } from "react";
 import PersonDetailsCard from "./PersonDetailsCard/PersonDetailsCard";
 import Container from "../../common/Container";
 import IconSpiner from "../../common/IconSpinner";
-
+import ErrorPage from "../../common/ErrorPage";
+import Cast from "./MoviesForPerson/Cast";
+import Crew from "./MoviesForPerson/Crew";
 
 const PersonDetails = () => {
 
@@ -13,26 +21,34 @@ const PersonDetails = () => {
     const dispatch = useDispatch();
 
     const isLoading = useSelector(selectPeopleIsLoading);
-
-    const selectedPerson = useSelector(state => selectPersonById(state, id));
+    const error = useSelector(selectPeopleError);
+    const selectedPerson = useSelector(selectPersonDetails);
 
     useEffect(() => {
-        dispatch(fetchPersonDetails(id));
+      dispatch(updatePersonId(id));
+      dispatch(fetchPersonDetails(id));
     }, [id, dispatch]);
 
-    if (isLoading) {
-        return <IconSpiner />;
-      }
-
-    return (
-        <Container>
-            <PersonDetailsCard 
-                profile_path={selectedPerson.profile_path}
-                name={selectedPerson.name}
-            />
-        </Container>
-    );
-
+  return (
+    <Container>
+      {isLoading ? (
+        <>
+          <IconSpiner />
+        </>
+      ) : error ? (
+        <ErrorPage />
+      ) : (
+        <>
+        <PersonDetailsCard
+          profile_path={selectedPerson.profile_path}
+          name={selectedPerson.name}
+        />
+        <Cast />
+        <Crew />
+        </>
+      )}
+    </Container>
+  );
 };
 
 export default PersonDetails;
