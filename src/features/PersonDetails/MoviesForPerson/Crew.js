@@ -12,7 +12,7 @@ const Crew = () => {
       <Header>Movies - crew</Header>
       <TilesWrapper>
         {crew && crew.length > 0 ? (
-          crew.map(movie => (
+          crew.map((movie) => (
             <MovieTile key={movie.id}>
               <MovieCard
                 id={movie.id}
