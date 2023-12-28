@@ -19,7 +19,7 @@ const GenreList = ({ genreIds }) => {
   }, []);
 
   const getGenreNames = () => {
-    return genreIds.map((genreId, index) => {
+    return genreIds?.map((genreId, index) => {
       const genre = genres.find((g) => g.id === genreId);
       return genre ? (
         <Tags key={index}>

@@ -1,11 +1,13 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
-export const StyledCard = styled.div`
+export const StyledCard = styled(NavLink)`
   display: grid;
   grid-template-columns: 1fr;
   padding: 15px;
   grid-template-rows: auto 1fr;
   height: 100%;
+  text-decoration: none;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     grid-template-columns: auto 1fr;
