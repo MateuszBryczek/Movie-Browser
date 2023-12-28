@@ -1,4 +1,4 @@
-import { takeEvery, takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
+import { takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
 import { getPeople, getSearchedPeople, getPersonDetails } from "./getPeople";
 import {
   fetchPeople,
@@ -8,17 +8,18 @@ import {
   fetchPersonDetails,
   fetchPersonDetailsSucces,
   fetchPersonDetailsError,
+  selectPersonId,
 } from "./peopleSlice";
 
-function* fetchPeopleHandler({ payload: peopleId }) {
+function* fetchPeopleHandler() {
   const searchValue = yield select(selectSearchPeopleValue);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const people = yield call(getPeople, peopleId);
+      const people = yield call(getPeople);
       yield put(fetchPeopleSucces(people));
     } else {
-      const people = yield call(getSearchedPeople, searchValue, peopleId);
+      const people = yield call(getSearchedPeople, searchValue);
       yield put(fetchPeopleSucces(people));
     }
   } catch (error) {
@@ -26,7 +27,8 @@ function* fetchPeopleHandler({ payload: peopleId }) {
   }
 }
 
-function* fetchPersonDetailsHandler({ payload: personId }) {
+function* fetchPersonDetailsHandler() {
+  const personId = yield select(selectPersonId);
   try {
     yield delay(500);
     const personDetails = yield call(getPersonDetails, personId);
