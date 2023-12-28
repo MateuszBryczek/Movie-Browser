@@ -45,6 +45,8 @@ export const GlobalTheme ={
             leftBar: colorNames.Whisper,
             rightBar: colorNames.PattensBlue,
             rightVector: colorNames.ScienceBlue,
+            disable: colorNames.Whisper,
+            inactiveText: colorNames.Mystic,
         },
         errorPage: {
             link: colorNames.ScienceBlue,

@@ -7,6 +7,9 @@ export const StyledPagination = styled.div`
 const Vector = styled.img`
   height: 11px;
   width: 7px;
+  &:disabled {
+    color: ${({ theme }) => theme.colors.pager.inactiveText};
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px ) {
     height: 8px;
@@ -16,6 +19,10 @@ const Vector = styled.img`
 
 export const LeftVector = styled(Vector)`
   margin-right: 8px;
+  
+
+
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     margin: 0;
   }
@@ -38,6 +45,11 @@ const Button = styled.button`
   border-radius: 5px;
   padding: 8px 16px 8px 16px;
   margin-right: 8px;
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.pager.disabled};
+    color: ${({ theme }) => theme.colors.pager.inactiveText};
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     padding: 8px 12px 8px 12px;
