@@ -4,8 +4,8 @@ import { apiKey } from "../config";
 import { basicUrl } from "../config";
 import axios from "axios";
 
-export const getMovies = async (page) => {
-  const { data } = await axios.get(`${popularMoviesURL}` + `${page}`);
+export const getMovies = async (moviePage) => {
+  const { data } = await axios.get(`${popularMoviesURL}` + `${moviePage}`);
 
   if (!data.ok) {
     new Error(data.statusText);

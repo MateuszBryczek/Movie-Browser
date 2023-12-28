@@ -28,13 +28,13 @@ const MovieList = () => {
   const searchValue = useSelector(selectSearchMoviesValue);
   const movies = useSelector(selectMovies);
   const error = useSelector(selectMoviesError);
-  const page = useSelector(selectMoviePage);
+  const moviePage = useSelector(selectMoviePage);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [dispatch, searchValue, page]);
+  }, [dispatch, searchValue, moviePage]);
 
   return (
     <>

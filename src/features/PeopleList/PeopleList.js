@@ -27,13 +27,13 @@ const PeopleList = () => {
 
   const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
-  const page = useSelector(selectPeoplePage);
+  const peoplePage = useSelector(selectPeoplePage);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPeople());
-  }, [dispatch, searchValue, page]);
+  }, [dispatch, searchValue, peoplePage]);
 
   return (
     <>
