@@ -1,5 +1,5 @@
-import { takeEvery, takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
-import { getPeople, getSearchedPeople, getPersonDetails } from "./getPeople";
+import { takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
+import { getPeople, getSearchedPeople, getPersonDetails, getMoviesForPerson } from "./getPeople";
 import {
   fetchPeople,
   fetchPeopleError,
@@ -8,17 +8,19 @@ import {
   fetchPersonDetails,
   fetchPersonDetailsSucces,
   fetchPersonDetailsError,
+  selectPersonId,
+  fetchMoviesForPerson,
 } from "./peopleSlice";
 
-function* fetchPeopleHandler({ payload: peopleId }) {
+function* fetchPeopleHandler() {
   const searchValue = yield select(selectSearchPeopleValue);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const people = yield call(getPeople, peopleId);
+      const people = yield call(getPeople);
       yield put(fetchPeopleSucces(people));
     } else {
-      const people = yield call(getSearchedPeople, searchValue, peopleId);
+      const people = yield call(getSearchedPeople, searchValue);
       yield put(fetchPeopleSucces(people));
     }
   } catch (error) {
@@ -26,7 +28,8 @@ function* fetchPeopleHandler({ payload: peopleId }) {
   }
 }
 
-function* fetchPersonDetailsHandler({ payload: personId }) {
+export function* fetchPersonDetailsHandler() {
+  const personId = yield select(selectPersonId);
   try {
     yield delay(500);
     const personDetails = yield call(getPersonDetails, personId);
@@ -34,11 +37,20 @@ function* fetchPersonDetailsHandler({ payload: personId }) {
   } catch (error) {
     yield put(fetchPersonDetailsError(error));
   }
-};
+}
+export function* fetchMoviesForPersonHandler() {
+    const personId = yield select(selectPersonId);
+    try {
+      yield delay(500);
+      const moviesForPerson = yield call(getMoviesForPerson, personId);
+      yield put(fetchMoviesForPerson(moviesForPerson));
+    } catch (error) {
+      yield put(fetchPersonDetailsError(error));
+    }
+}
 
-export function* watchFetchPeople() {
+export function* peopleSaga() {
   yield takeLatest(fetchPeople.type, fetchPeopleHandler);
-};
-export function* watchFetchPersonDetails() {
   yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
-};
+  yield takeLatest(fetchMoviesForPerson.type, fetchMoviesForPersonHandler);
+}
