@@ -1,4 +1,25 @@
 import styled from "styled-components";
+import {StyledHeader} from "../../common/Header";
+
+export const MovieHeader = styled(StyledHeader)`
+  width: 1368px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}px) {
+    width: 1020px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
+    width: 672px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    width: 500px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
+    width: 100%;
+  }
+`;
 
 export const TilesWrapper = styled.div`
   display: grid;
@@ -7,11 +28,11 @@ export const TilesWrapper = styled.div`
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}px) {
-    grid-template-columns: repeat( 3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
-    grid-template-columns: repeat( 2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
@@ -41,6 +62,6 @@ export const MovieTile = styled.article`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
     min-height: 201px;
-    width: 288px;
+    width: 100%;
   }
 `;

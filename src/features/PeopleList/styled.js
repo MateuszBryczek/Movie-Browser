@@ -1,5 +1,31 @@
 import styled from "styled-components";
 
+import {StyledHeader} from "../../common/Header";
+
+export const PeopleHeader = styled(StyledHeader)`
+  width: 1368px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}px) {
+    width: 1136px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}px) {
+    width: 904px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
+    width: 672px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    width: 440px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
+    width: 296px;
+  }
+`;
+
 export const TilesWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
