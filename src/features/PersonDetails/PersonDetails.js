@@ -16,13 +16,12 @@ import Cast from "./MoviesForPerson/Cast";
 import Crew from "./MoviesForPerson/Crew";
 
 const PersonDetails = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
 
-    const { id } = useParams();
-    const dispatch = useDispatch();
-
-    const isLoading = useSelector(selectPeopleIsLoading);
-    const error = useSelector(selectPeopleError);
-    const selectedPerson = useSelector(selectPersonDetails);
+  const isLoading = useSelector(selectPeopleIsLoading);
+  const error = useSelector(selectPeopleError);
+  const selectedPerson = useSelector(selectPersonDetails);
 
     useEffect(() => {
       dispatch(updatePersonId(id));

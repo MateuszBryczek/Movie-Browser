@@ -13,7 +13,7 @@ const peopleSlice = createSlice({
     personId: false,
   },
   reducers: {
-    fetchPeople: (state) => {
+    fetchPeople: state => {
       state.isLoading = true;
       state.error = false;
     },
@@ -30,7 +30,7 @@ const peopleSlice = createSlice({
       state.isLoading = true;
       state.searchPeopleValue = searchPeopleValue;
     },
-    fetchPersonDetails: (state) => {
+    fetchPersonDetails: state => {
       state.isLoading = true;
     },
     fetchPersonDetailsSucces: (state, { payload: personDetails }) => {
@@ -38,6 +38,7 @@ const peopleSlice = createSlice({
       state.isLoading = false;
     },
     fetchPersonDetailsError: (state, { payload: error }) => {
+      state.isLoading = false;
       state.error = true;
       console.error(error);
     },
@@ -52,7 +53,7 @@ const peopleSlice = createSlice({
   },
 });
 
-export const { 
+export const {
   fetchPeople,
   fetchPeopleSucces,
   fetchPeopleError,
