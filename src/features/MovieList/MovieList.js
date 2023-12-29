@@ -8,9 +8,8 @@ import {
   selectSearchMoviesValue,
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
-import { MovieHeader, MovieTile } from "./styled";
+import { MovieHeader, MovieTile, MovieContainer } from "./styled";
 import { TilesWrapper } from "./styled";
-import Container from "../../common/Container";
 import Pagination from "../../common/Pagination";
 import IconSpiner from "../../common/IconSpinner";
 import { useQueryParameter } from "../queryParameter";
@@ -34,7 +33,7 @@ const MovieList = () => {
 
   return (
     <>
-      <Container>
+      <MovieContainer>
         {isLoading ? (
           <>
             <MovieHeader>
@@ -52,7 +51,7 @@ const MovieList = () => {
                 : "Popular movies"}
             </MovieHeader>
             <TilesWrapper>
-              {movies.results?.map((movie) => (
+              {movies.results?.map(movie => (
                 <MovieTile key={movie.id}>
                   <MovieCard {...movie} />
                 </MovieTile>
@@ -66,7 +65,7 @@ const MovieList = () => {
             <NoResults />
           </>
         )}
-      </Container>
+      </MovieContainer>
     </>
   );
 };

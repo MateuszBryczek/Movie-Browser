@@ -1,5 +1,12 @@
 import styled from "styled-components";
-import {StyledHeader} from "../../common/Header";
+import { StyledHeader } from "../../common/Header";
+import { Container } from "../../common/Container";
+
+export const MovieContainer = styled(Container)`
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
+    grid-template-columns: 1fr;
+  }
+`;
 
 export const MovieHeader = styled(StyledHeader)`
   width: 1368px;

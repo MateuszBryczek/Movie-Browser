@@ -1,4 +1,4 @@
-import Header from "../../../common/Header";
+import { StyledHeader } from "../../../common/Header";
 import { PeopleTile, TilesWrapper } from "../../PeopleList/styled";
 import PeopleCard from "../../PeopleList/PeopleCard/PeopleCard";
 import { useSelector } from "react-redux";
@@ -9,7 +9,7 @@ const Crew = () => {
 
   return (
     <>
-      <Header>Crew</Header>
+      <StyledHeader>Crew</StyledHeader>
       <TilesWrapper>
         {crew && crew.length > 0 ? (
           crew.map(person => (
