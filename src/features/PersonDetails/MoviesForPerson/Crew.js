@@ -9,10 +9,10 @@ const Crew = () => {
 
   return (
     <>
-      <Header>Movies - crew</Header>
+      <Header>{`Movies - crew (${crew ? crew.length : 0})`}</Header>
       <TilesWrapper>
         {crew && crew.length > 0 ? (
-          crew.map((movie) => (
+          crew.map(movie => (
             <MovieTile key={movie.id}>
               <MovieCard
                 id={movie.id}

@@ -9,10 +9,10 @@ const Cast = () => {
 
   return (
     <>
-      <Header>Movies - cast</Header>
+      <Header>{`Movies - cast (${cast ? cast.length : 0})`}</Header>
       <TilesWrapper>
         {cast && cast.length > 0 ? (
-          cast.map((movie) => (
+          cast.map(movie => (
             <MovieTile key={movie.id}>
               <MovieCard
                 id={movie.id}
