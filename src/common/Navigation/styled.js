@@ -26,7 +26,7 @@ export const Wrapper = styled.nav`
 export const TitleWrapper = styled.div`
   display: grid;
   width: auto;
-  grid-column-gap: 15px;
+  grid-column-gap: 36px;
   grid-template-columns: auto auto;
   justify-content: space-between;
   justify-items: center;
