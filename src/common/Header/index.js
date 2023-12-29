@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHeader = styled.h1`
+export const Header = styled.h1`
   margin: 40px 0 24px;
   font-size: 36px;
   font-weight: 600;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledHeader } from "../../../common/Header";
+import { Header } from "../../../common/Header";
 import PeopleCard from "../../PeopleList/PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper } from "../../PeopleList/styled";
 import { useSelector } from "react-redux";
@@ -10,7 +10,7 @@ const Cast = () => {
 
   return (
     <>
-      <StyledHeader>Cast</StyledHeader>
+      <Header>Cast</Header>
       <TilesWrapper>
         {cast && cast.length > 0 ? (
           cast.map(person => (

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledHeader } from "../../common/Header";
+import { Header } from "../../common/Header";
 import { Container } from "../../common/Container";
 
 export const MovieContainer = styled(Container)`
@@ -8,7 +8,7 @@ export const MovieContainer = styled(Container)`
   }
 `;
 
-export const MovieHeader = styled(StyledHeader)`
+export const MovieHeader = styled(Header)`
   width: 1368px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}px) {

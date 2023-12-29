@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import {StyledHeader} from "../../common/Header";
+import {Header} from "../../common/Header";
 
-export const PeopleHeader = styled(StyledHeader)`
+export const PeopleHeader = styled(Header)`
   width: 1368px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}px) {
