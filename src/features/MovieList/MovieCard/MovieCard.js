@@ -30,7 +30,7 @@ const MovieCard = ({
 
   return (
     <>
-      <StyledCard>
+      <StyledCard to={`/movieDetails/${id}`}>
         <Poster src={poster_path ? POSTER_URL_SMALL + poster_path : noMovieImage}></Poster>
         <DataWrapper>
           <Description>
@@ -42,7 +42,7 @@ const MovieCard = ({
           </TagsWrapper>
           <RateWrapper>
             <Star src={star} alt="" />
-            <Rating>{vote_average.toFixed(1)}</Rating>
+            <Rating>{vote_average?.toFixed(1)}</Rating>
             <Votes>{vote_count} votes</Votes>
           </RateWrapper>
         </DataWrapper>

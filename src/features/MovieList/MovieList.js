@@ -52,8 +52,8 @@ const MovieList = () => {
                 : "Popular movies"}
             </MovieHeader>
             <TilesWrapper>
-              {movies.results?.map((movie, index) => (
-                <MovieTile key={index}>
+              {movies.results?.map((movie) => (
+                <MovieTile key={movie.id}>
                   <MovieCard {...movie} />
                 </MovieTile>
               ))}
