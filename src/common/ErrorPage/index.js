@@ -1,6 +1,6 @@
 import {
   DangerImg,
-  Header,
+  ErrorHeader,
   ErrorContainer,
   StyledParagraph,
   StyledLink,
@@ -10,7 +10,7 @@ import danger from "../../images/danger.svg";
 const ErrorPage = () => (
   <ErrorContainer>
     <DangerImg src={danger} alt="error"></DangerImg>
-    <Header>Ooops! Something went wrong... </Header>
+    <ErrorHeader>Ooops! Something went wrong... </ErrorHeader>
     <StyledParagraph>
       Please check your network connection and try again
     </StyledParagraph>
