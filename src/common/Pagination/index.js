@@ -56,7 +56,8 @@ const Pagination = ({ isMovieList }) => {
   const maxMoviePages = useSelector(selectMaxMoviePages);
   const maxPeoplePages = useSelector(selectMaxPeoplePages);
   const data = useSelector(selectDataForTotalMoviePages);
-  const totalMoviePages = data.total_pages;
+
+  const totalMoviePages = data.total_pages > 500 ? 500 : data.total_pages;
 
   return (
     <StyledPagination>
