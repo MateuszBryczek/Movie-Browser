@@ -14,19 +14,19 @@ export const StyledCard = styled.div`
 `;
 
 export const Poster = styled.img`
-  max-width: 292px;
-  max-height: 434px;
+  width: 292px;
+  height: 434px;
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-    max-width: 180px;
-
+    width: 180px;
+    height: 256px;
     margin-right: 16px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
-    max-width: 114px;
-    max-height: 169px;
+    width: 114px;
+    height: 169px;
   }
 `;
 

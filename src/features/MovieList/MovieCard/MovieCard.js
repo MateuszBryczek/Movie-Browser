@@ -14,6 +14,7 @@ import {
 import { POSTER_URL_SMALL } from "../../config";
 import GenreList from "../Genras/GenresList";
 import star from "../../../images/starVector.svg";
+import noMovieImage from "../../../images/noMovieImage.svg"
 
 const MovieCard = ({
   id,
@@ -30,7 +31,7 @@ const MovieCard = ({
   return (
     <>
       <StyledCard>
-        <Poster src={POSTER_URL_SMALL + poster_path}></Poster>
+        <Poster src={poster_path ? POSTER_URL_SMALL + poster_path : noMovieImage}></Poster>
         <DataWrapper>
           <Description>
             <Title>{title}</Title>
