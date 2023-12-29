@@ -6,7 +6,4 @@ export const StyledContainer = styled.div`
   display: grid;
   grid-template-columns: auto;
   justify-content: center;
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
-    grid-template-columns: 1fr;
-  }
 `;
