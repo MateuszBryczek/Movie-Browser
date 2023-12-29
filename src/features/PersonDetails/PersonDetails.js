@@ -6,6 +6,7 @@ import {
   selectPeopleIsLoading,
   selectPersonDetails,
   updatePersonId,
+  fetchMoviesForPerson,
 } from "../PeopleList/peopleSlice";
 import { useEffect } from "react";
 import PersonDetailsCard from "./PersonDetailsCard/PersonDetailsCard";
@@ -26,6 +27,7 @@ const PersonDetails = () => {
     useEffect(() => {
       dispatch(updatePersonId(id));
       dispatch(fetchPersonDetails(id));
+      dispatch(fetchMoviesForPerson(id));
     }, [id, dispatch]);
 
   return (
