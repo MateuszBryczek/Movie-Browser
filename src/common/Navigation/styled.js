@@ -31,7 +31,10 @@ export const TitleWrapper = styled.div`
   justify-content: space-between;
   justify-items: center;
   align-items: center;
+  margin-right: 10px;
   @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
+    grid-column-gap: 16px;
+    margin-right: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
