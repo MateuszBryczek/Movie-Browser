@@ -30,8 +30,9 @@ import {
   selectMaxPeoplePages,
   selectPeoplePage,
 } from "../../features/PeopleList/peopleSlice";
+import { selectDataForTotalMoviePages } from "../../features/MovieList/movieSlice";
 
-const Pagination = ({ isMovieList, total_pages }) => {
+const Pagination = ({ isMovieList }) => {
   const dispatch = useDispatch();
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
@@ -54,6 +55,8 @@ const Pagination = ({ isMovieList, total_pages }) => {
   const peoplePage = useSelector(selectPeoplePage);
   const maxMoviePages = useSelector(selectMaxMoviePages);
   const maxPeoplePages = useSelector(selectMaxPeoplePages);
+  const data = useSelector(selectDataForTotalMoviePages);
+  const totalMoviePages = data.total_pages;
 
   return (
     <StyledPagination>
@@ -77,7 +80,7 @@ const Pagination = ({ isMovieList, total_pages }) => {
             <SpanSecondary> Page </SpanSecondary>
             <SpanPrimary> {moviePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
-            <SpanPrimary> {maxMoviePages} </SpanPrimary>
+            <SpanPrimary> {totalMoviePages} </SpanPrimary>
           </Text>
           <RightButton
             disabled={moviePage === maxMoviePages}
