@@ -5,11 +5,20 @@ import {
   fetchMoviesError,
   selectSearchMoviesValue,
   selectMoviePage,
-  setMaxMoviePages,
+  fetchMovieDetails,
+  fetchMovieDetailsSucces,
+  fetchMovieDetailsError,
+  fetchPeopleForMovie,
+  selectMovieId,
 } from "./movieSlice";
-import { getMovies, getSearchedMovies } from "./getMovies";
+import {
+  getMoviesDetails,
+  getMovies,
+  getSearchedMovies,
+  getPeopleForMovie,
+} from "./getMovies";
 
-function* fetchMoviesHandler({ payload: movieId }) {
+export function* fetchMoviesHandler() {
   const searchValue = yield select(selectSearchMoviesValue);
   const page = yield select(selectMoviePage);
   try {
@@ -31,6 +40,30 @@ function* fetchMoviesHandler({ payload: movieId }) {
   }
 }
 
-export function* watchFetchMovies() {
+export function* fetchMovieDetailsHandler() {
+  const movieId = yield select(selectMovieId);
+  try {
+    yield delay(500);
+    const movieDetails = yield call(getMoviesDetails, movieId);
+    yield put(fetchMovieDetailsSucces(movieDetails, movieId));
+  } catch (error) {
+    yield put(fetchMovieDetailsError(error));
+  }
+}
+
+export function* fetchPeopleForMovieHandler() {
+  const movieId = yield select(selectMovieId);
+  try {
+    yield delay(500);
+    const peopleForMovie = yield call(getPeopleForMovie, movieId);
+    yield put(fetchPeopleForMovie(peopleForMovie));
+  } catch (error) {
+    yield put(fetchMovieDetailsError(error));
+  }
+}
+
+export function* movieSaga() {
   yield takeLatest(fetchMovies.type, fetchMoviesHandler);
+  yield takeLatest(fetchMovieDetails.type, fetchMovieDetailsHandler);
+  yield takeLatest(fetchMovieDetails.type, fetchPeopleForMovieHandler);
 }

@@ -5,9 +5,13 @@ const movieSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
+    movieDetails: [],
     error: false,
     searchMoviesValue: "",
-    isLoading: false,
+    isLoading: true,
+    cast: [],
+    crew: [],
+    movieId: false,
     moviePage: 1,
     total_pages: 1,
   },
@@ -16,7 +20,6 @@ const movieSlice = createSlice({
       state.isLoading = true;
     },
     fetchMoviesSucces: (state, { payload: movies }) => {
-      console.log(movies);
       state.movies = movies;
       state.isLoading = false;
     },
@@ -33,7 +36,25 @@ const movieSlice = createSlice({
     changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
-      console.log(state.searchMoviesValue);
+    },
+    fetchMovieDetails: state => {
+      state.isLoading = true;
+    },
+    fetchMovieDetailsSucces: (state, { payload: movieDetails }) => {
+      state.movieDetails = movieDetails;
+      state.isLoading = false;
+    },
+    fetchMovieDetailsError: (state, { payload: error }) => {
+      state.error = true;
+      console.error(error);
+    },
+    fetchPeopleForMovie: (state, { payload: peopleForMovie }) => {
+      state.cast = peopleForMovie.cast;
+      state.crew = peopleForMovie.crew;
+      state.isLoading = true;
+    },
+    updateMovieId: (state, { payload: id }) => {
+      state.movieId = id;
       state.moviePage = 1;
     },
     nextMoviePage: (state) => {
@@ -48,12 +69,7 @@ const movieSlice = createSlice({
     goToFirstMoviePage: (state) => {
       state.moviePage = 1;
     },
-    setMaxMoviePages: (state, { payload: maxPages }) => {
-      if (state.maxPages !== maxPages) {
-        state.moviePage = 1;
-      }
-      state.maxPages = maxPages;
-    },
+    
   },
 });
 
@@ -68,6 +84,11 @@ export const {
   goToLastMoviePage,
   setMaxMoviePages,
   setTotalPages,
+  fetchMovieDetails,
+  fetchMovieDetailsSucces,
+  fetchMovieDetailsError,
+  fetchPeopleForMovie,
+  updateMovieId,
 } = movieSlice.actions;
 const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
@@ -78,7 +99,10 @@ export const selectSearchMoviesValue = (state) =>
 export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
 export const selectMoviePage = (state) => selectMoviesState(state).moviePage;
-// export const selectMaxMoviePages = (state) => selectMoviesState(state).maxPages;
-
+export const selectMovieDetails = state =>
+  selectMoviesState(state).movieDetails;
+export const selectMovieId = state => selectMoviesState(state).movieId;
+export const selectCrew = state => selectMoviesState(state).crew;
+export const selectCast = state => selectMoviesState(state).cast;
 
 export default movieSlice.reducer;

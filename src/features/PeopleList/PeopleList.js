@@ -52,9 +52,9 @@ const PeopleList = () => {
                 : "Popular people"}
             </Header>
             <TilesWrapper>
-              {people.results?.map((people, index) => (
-                <PeopleTile key={index}>
-                  <PeopleCard {...people} />
+              {people.results?.map((person) => (
+                <PeopleTile key={person.id}>
+                  <PeopleCard {...person} />
                 </PeopleTile>
               ))}
             </TilesWrapper>

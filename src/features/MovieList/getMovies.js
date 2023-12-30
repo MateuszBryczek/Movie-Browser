@@ -23,3 +23,21 @@ export const getSearchedMovies = async (searchValue, moviePage) => {
 
   return await { ...data };
 };
+
+export const getMoviesDetails = async (movieId) => {
+  try {
+    const { data } = await config.get(`movie/${movieId}`);
+    return { ...data };
+  } catch (error) {
+    throw new Error(error.response.statusText);
+  }
+};
+
+export const getPeopleForMovie = async (movieId) => {
+  try {
+    const { data } = await config.get(`movie/${movieId}/credits`);
+    return { ...data };
+  } catch (error) {
+    throw new Error(error.response.statusText);
+  }
+};

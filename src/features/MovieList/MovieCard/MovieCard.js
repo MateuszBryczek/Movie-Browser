@@ -8,10 +8,12 @@ import {
   StyledCard,
   RateWrapper,
   TagsWrapper,
+  DataWrapper,
+  Star,
 } from "./styled";
 import { POSTER_URL_SMALL } from "../../config";
 import GenreList from "../Genras/GenresList";
-import { ReactComponent as Star } from "../../../images/starVector.svg";
+import star from "../../../images/starVector.svg";
 
 const MovieCard = ({
   id,
@@ -27,20 +29,22 @@ const MovieCard = ({
 
   return (
     <>
-      <StyledCard>
+      <StyledCard to={`/movieDetails/${id}`}>
         <Poster src={POSTER_URL_SMALL + poster_path}></Poster>
-        <Description>
-          <Title>{title}</Title>
-          <Year>{year}</Year>
-        </Description>
-        <TagsWrapper>
-          <GenreList genreIds={genre_ids} />
-        </TagsWrapper>
-        <RateWrapper>
-          <Star />
-          <Rating>{vote_average.toFixed(1)}</Rating>
-          <Votes>{vote_count} votes</Votes>
-        </RateWrapper>
+        <DataWrapper>
+          <Description>
+            <Title>{title}</Title>
+            <Year>{year}</Year>
+          </Description>
+          <TagsWrapper>
+            <GenreList genreIds={genre_ids} />
+          </TagsWrapper>
+          <RateWrapper>
+            <Star src={star} alt="" />
+            <Rating>{vote_average?.toFixed(1)}</Rating>
+            <Votes>{vote_count} votes</Votes>
+          </RateWrapper>
+        </DataWrapper>
       </StyledCard>
     </>
   );
