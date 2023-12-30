@@ -11,7 +11,7 @@ const Vector = styled.img`
     color: ${({ theme }) => theme.colors.pager.inactiveText};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px ) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     height: 8px;
     width: 5px;
   }
@@ -19,10 +19,6 @@ const Vector = styled.img`
 
 export const LeftVector = styled(Vector)`
   margin-right: 8px;
-  
-
-
-
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     margin: 0;
   }
