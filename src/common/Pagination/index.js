@@ -20,6 +20,7 @@ import {
   goToLastMoviePage,
   selectMaxMoviePages,
   selectMoviePage,
+  selectTotalPages
 } from "../../features/MovieList/movieSlice";
 
 import {
@@ -55,9 +56,10 @@ const Pagination = ({ isMovieList }) => {
   const peoplePage = useSelector(selectPeoplePage);
   const maxMoviePages = useSelector(selectMaxMoviePages);
   const maxPeoplePages = useSelector(selectMaxPeoplePages);
-  const data = useSelector(selectDataForTotalMoviePages);
+const totalMoviePages = useSelector(selectTotalPages);
 
-  const totalMoviePages = data.total_pages > 500 ? 500 : data.total_pages;
+const displayTotalMoviePages = totalMoviePages> 500 ? 500 : totalMoviePages;
+
 
   return (
     <StyledPagination>
@@ -81,17 +83,17 @@ const Pagination = ({ isMovieList }) => {
             <SpanSecondary> Page </SpanSecondary>
             <SpanPrimary> {moviePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
-            <SpanPrimary> {totalMoviePages} </SpanPrimary>
+            <SpanPrimary> {displayTotalMoviePages} </SpanPrimary>
           </Text>
           <RightButton
-            disabled={moviePage === maxMoviePages}
+            disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(nextMoviePage())}
           >
             {isMediaQuery() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </RightButton>
           <RightButton
-            disabled={moviePage === maxMoviePages}
+            disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(goToLastMoviePage())}
           >
             {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
