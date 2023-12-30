@@ -7,7 +7,6 @@ import {
   selectSearchPeopleValue,
   selectPeopleIsLoading,
   selectPeoplePage,
-  setMaxPeoplePages,
 } from "./peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper } from "./styled";
@@ -24,11 +23,9 @@ const PeopleList = () => {
   const searchValue = useSelector(selectSearchPeopleValue);
   const isLoading = useSelector(selectPeopleIsLoading);
   const query = useQueryParameter(searchQueryParamName);
-
   const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
   const peoplePage = useSelector(selectPeoplePage);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -61,7 +58,7 @@ const PeopleList = () => {
                 </PeopleTile>
               ))}
             </TilesWrapper>
-            <Pagination isPeopleList={true}/>
+            <Pagination isPeopleList={true} />
           </>
         ) : (
           <>
