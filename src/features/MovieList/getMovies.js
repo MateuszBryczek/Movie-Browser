@@ -1,6 +1,7 @@
 import { popularMoviesURL } from "../config";
 import { apiKey } from "../config";
 import { basicUrl } from "../config";
+import config from "../config";
 import axios from "axios";
 
 export const getMovies = async (moviePage) => {
