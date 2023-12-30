@@ -24,14 +24,14 @@ export function* fetchMoviesHandler() {
   try {
     yield delay(2000);
     if (!searchValue) {
-      const movie = yield call(getMovies, page, movieId);
+      const movie = yield call(getMovies, page);
       yield put(fetchMoviesSucces(movie));
     } else {
       const movie = yield call(
         getSearchedMovies,
         searchValue,
         page,
-        movieId
+      
       );
       yield put(fetchMoviesSucces(movie));
     }
