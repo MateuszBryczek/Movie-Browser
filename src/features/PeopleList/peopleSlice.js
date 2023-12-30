@@ -9,9 +9,11 @@ const peopleSlice = createSlice({
     searchPeopleValue: "",
     isLoading: true,
     personId: false,
+    peoplePage: 1,
+    total_pages: 1,
   },
   reducers: {
-    fetchPeople: state => {
+    fetchPeople: (state) => {
       state.isLoading = true;
       state.error = false;
     },
@@ -28,7 +30,19 @@ const peopleSlice = createSlice({
       state.isLoading = true;
       state.searchPeopleValue = searchPeopleValue;
     },
-    fetchPersonDetails: state => {
+    nextPeoplePage: (state) => {
+      state.peoplePage = state.peoplePage + 1;
+    },
+    previousPeoplePage: (state) => {
+      state.peoplePage = state.peoplePage - 1;
+    },
+    goToLastPeoplePage: (state) => {
+      state.peoplePage = state.people.total_pages;
+    },
+    goToFirstPeoplePage: (state) => {
+      state.peoplePage = 1;
+    },
+    fetchPersonDetails: (state) => {
       state.isLoading = true;
     },
     fetchPersonDetailsSucces: (state, { payload: personDetails }) => {
@@ -55,15 +69,23 @@ export const {
   fetchPersonDetailsSucces,
   fetchPersonDetailsError,
   updatePersonId,
+  goToLastPeoplePage,
+  nextPeoplePage,
+  previousPeoplePage,
+  goToFirstPeoplePage,
 } = peopleSlice.actions;
-const selectPeopleState = state => state.people;
-export const selectPeople = state => selectPeopleState(state).people;
-export const selectPeopleError = state => selectPeopleState(state).error;
-export const selectSearchPeopleValue = state =>
+const selectPeopleState = (state) => state.people;
+export const selectPeople = (state) => selectPeopleState(state).people;
+export const selectPeopleError = (state) => selectPeopleState(state).error;
+export const selectSearchPeopleValue = (state) =>
   selectPeopleState(state).searchPeopleValue;
-export const selectPeopleIsLoading = state =>
+export const selectPeopleIsLoading = (state) =>
   selectPeopleState(state).isLoading;
-export const selectPersonDetails = state =>
+export const selectPersonDetails = (state) =>
   selectPeopleState(state).personDetails;
-export const selectPersonId = state => selectPeopleState(state).personId;
+export const selectPersonId = (state) => selectPeopleState(state).personId;
+export const selectTotalPeoplePages = (state) =>
+  selectPeople(state).total_pages;
+export const selectPeoplePage = (state) => selectPeopleState(state).peoplePage;
+
 export default peopleSlice.reducer;

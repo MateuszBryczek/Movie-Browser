@@ -43,10 +43,12 @@ export const GlobalTheme ={
             star: colorNames.Candlelight,
         },
         pager: {
-            textSecondary: colorNames.Waterloo,
+            textSecondary: colorNames.Woodsmoke,
             leftBar: colorNames.Whisper,
             rightBar: colorNames.PattensBlue,
             rightVector: colorNames.ScienceBlue,
+            disable: colorNames.Whisper,
+            inactiveText: colorNames.Waterloo,
         },
         errorPage: {
             link: colorNames.ScienceBlue,

@@ -7,8 +7,11 @@ export const StyledPagination = styled.div`
 const Vector = styled.img`
   height: 11px;
   width: 7px;
+  &:disabled {
+    color: ${({ theme }) => theme.colors.pager.inactiveText};
+  }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px ) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     height: 8px;
     width: 5px;
   }
@@ -39,6 +42,11 @@ const Button = styled.button`
   padding: 8px 16px 8px 16px;
   margin-right: 8px;
 
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.pager.disabled};
+    color: ${({ theme }) => theme.colors.pager.inactiveText};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     padding: 8px 12px 8px 12px;
   }
@@ -49,7 +57,7 @@ export const LeftButton = styled(Button)`
 `;
 
 export const RightButton = styled(Button)`
-  background-color: ${({ theme }) => theme.colors.pager.rightBar};
+  background-color: ${({ theme }) => theme.colors.pager.leftBar};
 `;
 
 const Span = styled.span`

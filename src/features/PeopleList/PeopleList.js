@@ -6,6 +6,7 @@ import {
   selectPeople,
   selectSearchPeopleValue,
   selectPeopleIsLoading,
+  selectPeoplePage,
 } from "./peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper, PeopleHeader } from "./styled";
@@ -21,15 +22,14 @@ const PeopleList = () => {
   const searchValue = useSelector(selectSearchPeopleValue);
   const isLoading = useSelector(selectPeopleIsLoading);
   const query = useQueryParameter(searchQueryParamName);
-
   const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
-
+  const peoplePage = useSelector(selectPeoplePage);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPeople());
-  }, [dispatch, searchValue]);
+  }, [dispatch, searchValue, peoplePage]);
 
   return (
     <>

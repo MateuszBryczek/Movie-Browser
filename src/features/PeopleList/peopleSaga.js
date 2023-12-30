@@ -5,6 +5,7 @@ import {
   fetchPeopleError,
   fetchPeopleSucces,
   selectSearchPeopleValue,
+  selectPeoplePage,
   fetchPersonDetails,
   fetchPersonDetailsSucces,
   fetchPersonDetailsError,
@@ -13,13 +14,14 @@ import {
 
 function* fetchPeopleHandler() {
   const searchValue = yield select(selectSearchPeopleValue);
+  const peoplePage = yield select(selectPeoplePage);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const people = yield call(getPeople);
+      const people = yield call(getPeople, peoplePage);
       yield put(fetchPeopleSucces(people));
     } else {
-      const people = yield call(getSearchedPeople, searchValue);
+      const people = yield call(getSearchedPeople, searchValue, peoplePage);
       yield put(fetchPeopleSucces(people));
     }
   } catch (error) {
