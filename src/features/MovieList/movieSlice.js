@@ -9,7 +9,6 @@ const movieSlice = createSlice({
     searchMoviesValue: "",
     isLoading: false,
     moviePage: 1,
-    maxPages: 500,
     total_pages: 1,
   },
   reducers: {
@@ -79,8 +78,7 @@ export const selectSearchMoviesValue = (state) =>
 export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
 export const selectMoviePage = (state) => selectMoviesState(state).moviePage;
-export const selectMaxMoviePages = (state) => selectMoviesState(state).maxPages;
-export const selectDataForTotalMoviePages = (state) =>
-  selectMoviesState(state).data;
+// export const selectMaxMoviePages = (state) => selectMoviesState(state).maxPages;
+
 
 export default movieSlice.reducer;

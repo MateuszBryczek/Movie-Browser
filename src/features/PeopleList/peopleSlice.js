@@ -8,7 +8,7 @@ const peopleSlice = createSlice({
     searchPeopleValue: "",
     isLoading: false,
     peoplePage: 1,
-    maxPages: 500,
+    total_pages: 1,
   },
   reducers: {
     fetchPeople: (state) => {
@@ -35,16 +35,10 @@ const peopleSlice = createSlice({
       state.peoplePage = state.peoplePage - 1;
     },
     goToLastPeoplePage: (state) => {
-      state.peoplePage = state.maxPages;
+      state.peoplePage = state.people.total_pages;
     },
     goToFirstPeoplePage: (state) => {
       state.peoplePage = 1;
-    },
-    setMaxPeoplePages: (state, { payload: maxPages }) => {
-      if (state.maxPages !== maxPages) {
-        state.peoplePage = 1;
-      }
-      state.maxPages = maxPages;
     },
   },
 });
@@ -58,15 +52,16 @@ export const {
   previousPeoplePage,
   goToFirstPeoplePage,
   goToLastPeoplePage,
-  setMaxPeoplePages
 } = peopleSlice.actions;
 const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
+export const selectTotalPeoplePages = (state) =>
+  selectPeople(state).total_pages;
 export const selectPeopleError = (state) => selectPeopleState(state).error;
 export const selectSearchPeopleValue = (state) =>
   selectPeopleState(state).searchPeopleValue;
 export const selectPeopleIsLoading = (state) =>
   selectPeopleState(state).isLoading;
 export const selectPeoplePage = (state) => selectPeopleState(state).peoplePage;
-export const selectMaxPeoplePages = (state) => selectPeopleState(state).maxPages;
+
 export default peopleSlice.reducer;
