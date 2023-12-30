@@ -1,4 +1,4 @@
-import Header from "../../../common/Header";
+import { Header } from "../../../common/Header";
 import { PeopleTile, TilesWrapper } from "../../PeopleList/styled";
 import PeopleCard from "../../PeopleList/PeopleCard/PeopleCard";
 import { useSelector } from "react-redux";

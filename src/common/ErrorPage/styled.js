@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { Header } from "../Header";
 
 export const ErrorContainer = styled.div`
   display: grid;
@@ -16,15 +17,12 @@ export const DangerImg = styled.img`
   margin: auto;
 `;
 
-export const StyledHeader = styled.h1`
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 43, 2px;
+export const ErrorHeader = styled(Header)`
   justify-content: center;
   text-align: center;
   margin: 0;
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
-    font-size: 28px;
+    margin: 0;
   }
 `;
 
@@ -38,6 +36,7 @@ export const StyledParagraph = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
     width: auto;
+    font-size: 12px;
   }
 `;
 

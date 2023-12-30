@@ -8,11 +8,10 @@ import {
   selectPeopleIsLoading,
 } from "./peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
-import { PeopleTile, TilesWrapper } from "./styled";
+import { PeopleTile, TilesWrapper, PeopleHeader } from "./styled";
 import IconSpiner from "../../common/IconSpinner";
 import Pagination from "../../common/Pagination";
-import Header from "../../common/Header";
-import Container from "../../common/Container";
+import {Container} from "../../common/Container";
 import { useQueryParameter } from "../queryParameter";
 import searchQueryParamName from "../searchQueryParamName";
 import NoResults from "../../common/noResults";
@@ -39,18 +38,18 @@ const PeopleList = () => {
           <ErrorPage />
         ) : isLoading ? (
           <>
-            <Header>
+            <PeopleHeader>
               {searchValue ? `Search results for "${query}"` : "Popular people"}
-            </Header>
+            </PeopleHeader>
             <IconSpiner />
           </>
         ) : people.total_results ? (
           <>
-            <Header>
+            <PeopleHeader>
               {searchValue
                 ? `Search results for "${query}" (${people.total_results})`
                 : "Popular people"}
-            </Header>
+            </PeopleHeader>
             <TilesWrapper>
               {people.results?.map((person) => (
                 <PeopleTile key={person.id}>
@@ -62,7 +61,7 @@ const PeopleList = () => {
           </>
         ) : (
           <>
-            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <PeopleHeader>{`Sorry, there are no results for "${query}"`}</PeopleHeader>
             <NoResults />
           </>
         )}

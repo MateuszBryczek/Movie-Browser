@@ -8,10 +8,8 @@ import {
   selectSearchMoviesValue,
 } from "./movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
-import { MovieTile } from "./styled";
+import { MovieHeader, MovieTile, MovieContainer } from "./styled";
 import { TilesWrapper } from "./styled";
-import Header from "../../common/Header";
-import Container from "../../common/Container";
 import Pagination from "../../common/Pagination";
 import IconSpiner from "../../common/IconSpinner";
 import { useQueryParameter } from "../queryParameter";
@@ -35,25 +33,25 @@ const MovieList = () => {
 
   return (
     <>
-      <Container>
+      <MovieContainer>
         {isLoading ? (
           <>
-            <Header>
+            <MovieHeader>
               {searchValue ? `Search results for "${query}"` : "Popular movies"}
-            </Header>
+            </MovieHeader>
             <IconSpiner />
           </>
         ) : error ? (
           <ErrorPage />
         ) : movies.total_results ? (
           <>
-            <Header>
+            <MovieHeader>
               {searchValue
                 ? `Search results for "${query}" (${movies.total_results})`
                 : "Popular movies"}
-            </Header>
+            </MovieHeader>
             <TilesWrapper>
-              {movies.results?.map((movie) => (
+              {movies.results?.map(movie => (
                 <MovieTile key={movie.id}>
                   <MovieCard {...movie} />
                 </MovieTile>
@@ -63,11 +61,11 @@ const MovieList = () => {
           </>
         ) : (
           <>
-            <Header>{`Sorry, there are no results for "${query}"`}</Header>
+            <MovieHeader>{`Sorry, there are no results for "${query}"`}</MovieHeader>
             <NoResults />
           </>
         )}
-      </Container>
+      </MovieContainer>
     </>
   );
 };

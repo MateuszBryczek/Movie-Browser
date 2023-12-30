@@ -26,12 +26,15 @@ export const Wrapper = styled.nav`
 export const TitleWrapper = styled.div`
   display: grid;
   width: auto;
-  grid-column-gap: 15px;
+  grid-column-gap: 36px;
   grid-template-columns: auto auto;
   justify-content: space-between;
   justify-items: center;
   align-items: center;
+  margin-right: 10px;
   @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
+    grid-column-gap: 16px;
+    margin-right: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
