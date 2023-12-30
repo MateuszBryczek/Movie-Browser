@@ -58,7 +58,7 @@ const PeopleList = () => {
                 </PeopleTile>
               ))}
             </TilesWrapper>
-            <Pagination isPeopleList={true} />
+            <Pagination />
           </>
         ) : (
           <>
