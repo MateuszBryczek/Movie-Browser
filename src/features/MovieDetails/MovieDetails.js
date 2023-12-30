@@ -11,7 +11,7 @@ import {
 import { useEffect } from "react";
 import MovieDetailsCard from "./MovieDetailsCard/MovieDetailsCard";
 import IconSpiner from "../../common/IconSpinner";
-import Container from "../../common/Container";
+import { Container } from "../../common/Container";
 import Banner from "./Banner";
 import Cast from "./PeopleForMovie/Cast";
 import Crew from "./PeopleForMovie/Crew";
