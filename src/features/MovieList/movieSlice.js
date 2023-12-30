@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//total_pages jest w wyniku get 
 
 const movieSlice = createSlice({
   name: "movies",
@@ -11,7 +10,7 @@ const movieSlice = createSlice({
     isLoading: false,
     moviePage: 1,
     maxPages: 500,
-    data: [],
+    total_pages: 1,
   },
   reducers: {
     fetchMovies: (state) => {
@@ -22,6 +21,11 @@ const movieSlice = createSlice({
       state.movies = movies;
       state.isLoading = false;
     },
+    fetchTotalPages: (state, { payload: total_pages }) => {
+      state.movies.total_pages = total_pages;
+      state.isLoading = false;
+    },
+
     fetchMoviesError: (state, { payload: error }) => {
       state.error = true;
       state.isLoading = false;
@@ -40,7 +44,7 @@ const movieSlice = createSlice({
       state.moviePage = state.moviePage - 1;
     },
     goToLastMoviePage: (state) => {
-      state.moviePage = state.maxPages;
+      state.moviePage = state.movies.total_pages;
     },
     goToFirstMoviePage: (state) => {
       state.moviePage = 1;
@@ -51,9 +55,6 @@ const movieSlice = createSlice({
       }
       state.maxPages = maxPages;
     },
-    setTotalPages: (state, {payload:data})=>{
-      state.data = data;
-    }
   },
 });
 
@@ -71,6 +72,7 @@ export const {
 } = movieSlice.actions;
 const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
+export const selectTotalPages = (state) => selectMovies(state).total_pages;
 export const selectMoviesError = (state) => selectMoviesState(state).error;
 export const selectSearchMoviesValue = (state) =>
   selectMoviesState(state).searchMoviesValue;
@@ -78,5 +80,7 @@ export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
 export const selectMoviePage = (state) => selectMoviesState(state).moviePage;
 export const selectMaxMoviePages = (state) => selectMoviesState(state).maxPages;
-export const selectDataForTotalMoviePages = (state)=>selectMoviesState(state).data;
+export const selectDataForTotalMoviePages = (state) =>
+  selectMoviesState(state).data;
+
 export default movieSlice.reducer;
