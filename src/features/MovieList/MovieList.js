@@ -62,7 +62,7 @@ const MovieList = () => {
                 </MovieTile>
               ))}
             </TilesWrapper>
-            <Pagination isMovieList={true}/>
+            <Pagination />
           </>
         ) : (
           <>

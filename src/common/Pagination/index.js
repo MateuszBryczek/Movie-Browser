@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import {
   StyledPagination,
   LeftButton,
@@ -32,10 +33,11 @@ import {
 } from "../../features/PeopleList/peopleSlice";
 import { selectDataForTotalMoviePages } from "../../features/MovieList/movieSlice";
 
-const Pagination = ({ isMovieList }) => {
+const Pagination = () => {
   const dispatch = useDispatch();
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
+  const location= useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,7 +63,7 @@ const Pagination = ({ isMovieList }) => {
 
   return (
     <StyledPagination>
-      {isMovieList ? (
+      {location.pathname==="/movielist" ? (
         <>
           <LeftButton
             disabled={moviePage === 1}
