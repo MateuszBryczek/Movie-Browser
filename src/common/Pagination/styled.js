@@ -57,7 +57,7 @@ export const LeftButton = styled(Button)`
 `;
 
 export const RightButton = styled(Button)`
-  background-color: ${({ theme }) => theme.colors.pager.rightBar};
+  background-color: ${({ theme }) => theme.colors.pager.leftBar};
 `;
 
 const Span = styled.span`
