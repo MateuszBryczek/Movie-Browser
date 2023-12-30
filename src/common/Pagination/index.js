@@ -18,9 +18,8 @@ import {
   previousMoviePage,
   goToFirstMoviePage,
   goToLastMoviePage,
-  selectMaxMoviePages,
   selectMoviePage,
-  selectTotalPages
+  selectTotalPages,
 } from "../../features/MovieList/movieSlice";
 
 import {
@@ -28,8 +27,8 @@ import {
   previousPeoplePage,
   goToFirstPeoplePage,
   goToLastPeoplePage,
-  selectMaxPeoplePages,
   selectPeoplePage,
+  selectTotalPeoplePages,
 } from "../../features/PeopleList/peopleSlice";
 import { selectDataForTotalMoviePages } from "../../features/MovieList/movieSlice";
 
@@ -54,12 +53,11 @@ const Pagination = ({ isMovieList }) => {
 
   const moviePage = useSelector(selectMoviePage);
   const peoplePage = useSelector(selectPeoplePage);
-  const maxMoviePages = useSelector(selectMaxMoviePages);
-  const maxPeoplePages = useSelector(selectMaxPeoplePages);
-const totalMoviePages = useSelector(selectTotalPages);
-
-const displayTotalMoviePages = totalMoviePages> 500 ? 500 : totalMoviePages;
-
+  const totalMoviePages = useSelector(selectTotalPages);
+  const displayTotalMoviePages = totalMoviePages > 500 ? 500 : totalMoviePages;
+  const totalPeoplePages = useSelector(selectTotalPeoplePages);
+  const displayTotalPeoplePages =
+    totalPeoplePages > 500 ? 500 : totalPeoplePages;
 
   return (
     <StyledPagination>
@@ -120,17 +118,17 @@ const displayTotalMoviePages = totalMoviePages> 500 ? 500 : totalMoviePages;
             <SpanSecondary> Page </SpanSecondary>
             <SpanPrimary> {peoplePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
-            <SpanPrimary> {maxPeoplePages}</SpanPrimary>
+            <SpanPrimary> {displayTotalPeoplePages}</SpanPrimary>
           </Text>
           <RightButton
-            disabled={peoplePage === maxPeoplePages}
+            disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(nextPeoplePage())}
           >
             {isMediaQuery() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </RightButton>
           <RightButton
-            disabled={peoplePage === maxPeoplePages}
+            disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(goToLastPeoplePage())}
           >
             {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
