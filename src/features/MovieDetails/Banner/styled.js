@@ -59,9 +59,9 @@ export const Section = styled.div`
     margin-left: 16px;
     position: absolute;
     bottom: 1px;
-     display: grid;
+    display: grid;
     grid-template-rows: 1fr;
-     margin-bottom: 26px;
+    margin-bottom: 26px;
 `;
 
 export const Title = styled.h1`
