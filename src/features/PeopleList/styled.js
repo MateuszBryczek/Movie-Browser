@@ -25,7 +25,7 @@ export const TilesWrapper = styled.div`
 
 export const PeopleTile = styled.div`
   max-width: 208px;
-  max-height: 339px;
+  max-height: 350px;
   border-radius: 5px;
   gap: 12px;
   padding: 16px;

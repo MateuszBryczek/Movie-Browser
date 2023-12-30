@@ -14,11 +14,10 @@ export const Image = styled.img`
 
 export const Name = styled.h1`
     color: ${({ theme }) => theme.colors.tile.textPrimary};
-    max-width: 176px;
+    max-width: 178px;
     font-weight: 500;
     line-height: 130%;
     font-size: 22px;
-    text-align: center;
     margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
@@ -28,10 +27,10 @@ export const Name = styled.h1`
 `;
 
 export const Description = styled.div`
-    display: flex;
-    max-height: 64px;
-    align-items: flex-start;
-    justify-content: center;
+  display: flex;
+  width: 176px;
+  flex-direction: column;
+  text-align: center;
 `;
 
 export const Role = styled.a`

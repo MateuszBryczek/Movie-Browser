@@ -43,6 +43,9 @@ const PersonDetails = () => {
         <PersonDetailsCard
           profile_path={selectedPerson.profile_path}
           name={selectedPerson.name}
+          birthday={selectedPerson.birthday}
+          place_of_birth={selectedPerson.place_of_birth}
+          biography={selectedPerson.biography}
         />
         <Cast />
         <Crew />
