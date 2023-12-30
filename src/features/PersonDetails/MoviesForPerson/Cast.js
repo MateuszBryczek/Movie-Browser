@@ -1,4 +1,4 @@
-import Header from "../../../common/Header";
+import { Header } from "../../../common/Header";
 import { useSelector } from "react-redux";
 import MovieCard from "../../MovieList/MovieCard/MovieCard";
 import { MovieTile, TilesWrapper } from "../../MovieList/styled";
