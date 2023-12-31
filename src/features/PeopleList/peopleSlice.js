@@ -45,7 +45,6 @@ const peopleSlice = createSlice({
     fetchMoviesForPerson: (state, { payload: moviesForPerson }) => {
       state.cast = moviesForPerson.cast;
       state.crew = moviesForPerson.crew;
-      state.isLoading = false;
     },
     updatePersonId: (state, { payload: id }) => {
       state.personId = id;
