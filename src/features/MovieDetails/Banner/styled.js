@@ -6,6 +6,7 @@ export const Background = styled.section`
     width: 100%;
     background-color: black;
     overflow: auto;
+    margin-bottom: 50px;
 `;
 
 export const Wrapper = styled.div`
@@ -72,16 +73,16 @@ export const Title = styled.h1`
 `;
 
 export const RatingSection = styled.div`
-    display: grid;
-    grid-template-rows: 1fr 1fr;
     margin-top: 25px;
-    grid-gap: 10px;
-    justify-content: flex-start;
-    align-items: flex-end;
-    display: flex;
     gap: 10px;
-    margin-top: 8px;
+    display:flex;
+    flex-direction: column;
 `;
+
+export const RatingWrapper = styled.div`
+display:flex;
+flex-direction: row;
+`
 
 export const Rating = styled.a`
     color: ${({ theme }) => theme.colors.header.textPrimary};
@@ -91,7 +92,8 @@ export const Rating = styled.a`
     
 `;
 
-export const Votes = styled.a`
+export const Votes = styled.p`
+text-align: left;
     color: ${({ theme }) => theme.colors.header.textPrimary};
     font-size: 16px;
     font-weight: 400;
