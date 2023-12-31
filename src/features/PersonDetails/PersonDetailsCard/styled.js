@@ -30,28 +30,32 @@ export const Name = styled.h1`
     font-size: 36px;
     font-weight: 600;
     line-height: 43.2px;
+    margin: 0px;
+    margin-bottom: 16px;
 `;
 
 export const Section = styled.section`
     color: ${({ theme }) => theme.colors.tile.textSecondary};
-    margin-top: 10px;
     display: inline-flex;
     flex-flow: column wrap;
-    gap: 22px;
+    gap: 8px;
     font-size: 18px;
     font-weight: 400;
+`;
+
+export const InfoSecion = styled.div`
+    display: flex;
+    gap: 3px;
 `;
 
 export const Date = styled.a`
     color: ${({ theme }) => theme.colors.tile.textPrimary};
     display: flex;
-    
 `;
 
 export const BirthPlace = styled.a`
     color: ${({ theme }) => theme.colors.tile.textPrimary};
     display: flex;
-    margin-top: -12px;
 `;
 
 export const Description = styled.a`
@@ -61,4 +65,5 @@ export const Description = styled.a`
     font-weight: 400;
     line-height: 32px;
     text-align: justify;
+    margin-top: 16px;
 `;
