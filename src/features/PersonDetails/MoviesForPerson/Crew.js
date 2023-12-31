@@ -13,15 +13,16 @@ const Crew = () => {
       <TilesWrapper>
         {crew && crew.length > 0 ? (
           crew.map(movie => (
-            <MovieTile key={movie.id}>
+            <MovieTile key={movie.id + movie.job}>
               <MovieCard
-                id={movie.id}
+                id={movie.id + movie.job}
                 poster_path={movie.poster_path}
                 title={movie.title}
                 release_date={movie.release_date}
                 genre_ids={movie.genre_ids}
                 vote_average={movie.vote_average}
                 vote_count={movie.vote_count}
+                job={movie.job}
               />
             </MovieTile>
           ))

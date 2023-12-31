@@ -22,6 +22,7 @@ const Cast = () => {
                 genre_ids={movie.genre_ids}
                 vote_average={movie.vote_average}
                 vote_count={movie.vote_count}
+                character={movie.character}
               />
             </MovieTile>
           ))

@@ -31,7 +31,7 @@ function* fetchPeopleHandler() {
 export function* fetchPersonDetailsHandler() {
   const personId = yield select(selectPersonId);
   try {
-    yield delay(500);
+    yield delay(2000);
     const personDetails = yield call(getPersonDetails, personId);
     yield put(fetchPersonDetailsSucces(personDetails));
   } catch (error) {
@@ -41,7 +41,7 @@ export function* fetchPersonDetailsHandler() {
 export function* fetchMoviesForPersonHandler() {
     const personId = yield select(selectPersonId);
     try {
-      yield delay(500);
+      yield delay(2000);
       const moviesForPerson = yield call(getMoviesForPerson, personId);
       yield put(fetchMoviesForPerson(moviesForPerson));
     } catch (error) {
@@ -52,5 +52,5 @@ export function* fetchMoviesForPersonHandler() {
 export function* peopleSaga() {
   yield takeLatest(fetchPeople.type, fetchPeopleHandler);
   yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
-  yield takeLatest(fetchMoviesForPerson.type, fetchMoviesForPersonHandler);
+  yield takeLatest(fetchPersonDetails.type, fetchMoviesForPersonHandler);
 }
