@@ -37,7 +37,8 @@ const peopleSlice = createSlice({
       state.peoplePage = state.peoplePage - 1;
     },
     goToLastPeoplePage: (state) => {
-      state.peoplePage = state.people.total_pages;
+      state.peoplePage =
+        state.people.total_pages > 500 ? 500 : state.people.total_pages;
     },
     goToFirstPeoplePage: (state) => {
       state.peoplePage = 1;
