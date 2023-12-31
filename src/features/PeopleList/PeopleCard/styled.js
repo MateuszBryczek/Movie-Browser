@@ -13,12 +13,12 @@ export const Image = styled.img`
 `;
 
 export const Name = styled.h1`
-    color: ${({ theme }) => theme.colors.tile.textPrimary};
-    max-width: 178px;
-    font-weight: 500;
-    line-height: 130%;
-    font-size: 22px;
-    margin: 0;
+  color: ${({ theme }) => theme.colors.tile.textPrimary};
+  max-width: 178px;
+  font-weight: 500;
+  line-height: 130%;
+  font-size: 22px;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
     line-height: 18.2px;
@@ -33,10 +33,11 @@ export const Description = styled.div`
   text-align: center;
 `;
 
-export const Role = styled.a`
-    color: ${({ theme }) => theme.colors.tile.textSecondary};
+export const Role = styled.div`
+  margin: 0;
+  color: ${({ theme }) => theme.colors.tile.textSecondary};
 `;
 
 export const PersonDetailsLink = styled(NavLink)`
-    text-decoration: none;
+  text-decoration: none;
 `;
