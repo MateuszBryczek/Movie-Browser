@@ -26,6 +26,8 @@ const MovieDetailsCard = ({
   vote_count,
   overview,
 }) => {
+
+  const countryNames = production_countries.map(country => country.name).join(", ");
   
   return ( 
     <>
@@ -35,7 +37,7 @@ const MovieDetailsCard = ({
         <Title>{title}</Title>
         <Date>{release_date}</Date>
         <Section>
-          Production:<Production>{}</Production>
+          Production:<Production>{countryNames}</Production>
           Relase date:<Relase>{release_date}</Relase>
         </Section>
         <TagsWrapper>
