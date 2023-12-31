@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const movieSlice = createSlice({
   name: "movies",
   initialState: {
@@ -37,7 +36,7 @@ const movieSlice = createSlice({
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
     },
-    fetchMovieDetails: state => {
+    fetchMovieDetails: (state) => {
       state.isLoading = true;
     },
     fetchMovieDetailsSucces: (state, { payload: movieDetails }) => {
@@ -64,12 +63,12 @@ const movieSlice = createSlice({
       state.moviePage = state.moviePage - 1;
     },
     goToLastMoviePage: (state) => {
-      state.moviePage = state.movies.total_pages;
+      state.moviePage =
+        state.movies.total_pages > 500 ? 500 : state.movies.total_pages;
     },
-    goToFirstMoviePage: (state) => {
-      state.moviePage = 1;
-    },
-    
+  },
+  goToFirstMoviePage: (state) => {
+    state.moviePage = 1;
   },
 });
 
@@ -99,10 +98,10 @@ export const selectSearchMoviesValue = (state) =>
 export const selectMoviesIsLoading = (state) =>
   selectMoviesState(state).isLoading;
 export const selectMoviePage = (state) => selectMoviesState(state).moviePage;
-export const selectMovieDetails = state =>
+export const selectMovieDetails = (state) =>
   selectMoviesState(state).movieDetails;
-export const selectMovieId = state => selectMoviesState(state).movieId;
-export const selectCrew = state => selectMoviesState(state).crew;
-export const selectCast = state => selectMoviesState(state).cast;
+export const selectMovieId = (state) => selectMoviesState(state).movieId;
+export const selectCrew = (state) => selectMoviesState(state).crew;
+export const selectCast = (state) => selectMoviesState(state).cast;
 
 export default movieSlice.reducer;

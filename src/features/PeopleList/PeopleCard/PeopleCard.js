@@ -4,6 +4,7 @@ import {
     Name,
     PersonDetailsLink,
     Role,
+    InsideWrapper
 } from "./styled";
 import { IMG_URL_SMALL } from "../../config";
 import noPersonImage from "../../../images/noPersonImage.svg"
@@ -17,12 +18,15 @@ const PeopleCard = ({
     
         return (
         <>
+
         <PersonDetailsLink to={`/personDetails/${id}`}>
+            <InsideWrapper>
             <Image src={profile_path ? IMG_URL_SMALL + profile_path : noPersonImage}></Image>
             <Description>
                 <Name>{name}</Name>
                 <Role>{personRole && <p>{personRole}</p>}</Role>
             </Description>
+            </InsideWrapper>
         </PersonDetailsLink>
         </>
     );

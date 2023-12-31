@@ -49,6 +49,7 @@ export const GlobalTheme ={
             rightVector: colorNames.ScienceBlue,
             disable: colorNames.Whisper,
             inactiveText: colorNames.Waterloo,
+            background:colorNames.PattensBlue,
         },
         errorPage: {
             link: colorNames.ScienceBlue,

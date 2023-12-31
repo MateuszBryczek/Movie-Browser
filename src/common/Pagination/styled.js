@@ -41,6 +41,7 @@ const Button = styled.button`
   border-radius: 5px;
   padding: 8px 16px 8px 16px;
   margin-right: 8px;
+  background-color: ${({ theme }) => theme.colors.pager.background};
 
   &:disabled {
     background-color: ${({ theme }) => theme.colors.pager.disabled};
@@ -53,11 +54,11 @@ const Button = styled.button`
 `;
 
 export const LeftButton = styled(Button)`
-  background-color: ${({ theme }) => theme.colors.pager.leftBar};
+  /* background-color: ${({ theme }) => theme.colors.pager.leftBar}; */
 `;
 
 export const RightButton = styled(Button)`
-  background-color: ${({ theme }) => theme.colors.pager.leftBar};
+  /* background-color: ${({ theme }) => theme.colors.pager.leftBar}; */
 `;
 
 const Span = styled.span`
