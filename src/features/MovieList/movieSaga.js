@@ -36,7 +36,7 @@ export function* fetchMoviesHandler() {
 export function* fetchMovieDetailsHandler() {
   const movieId = yield select(selectMovieId);
   try {
-    yield delay(500);
+    yield delay(2000);
     const movieDetails = yield call(getMoviesDetails, movieId);
     yield put(fetchMovieDetailsSucces(movieDetails, movieId));
   } catch (error) {
