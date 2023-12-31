@@ -9,12 +9,10 @@ import {
   Background,
   Section,
   RatingSection,
-  RatingWrapper
 } from "./styled";
 import { RatingsWrapper } from "../MovieDetailsCard/styled";
 
 const Banner = ({ backdrop_path, title, vote_average, vote_count }) => {
-
   return (
     <>
       <Background>
@@ -24,8 +22,8 @@ const Banner = ({ backdrop_path, title, vote_average, vote_count }) => {
             <Title>{title}</Title>
             <RatingSection>
               <RatingsWrapper>
-              <Star />
-              <Rating>{vote_average?.toFixed(1)}</Rating>/10
+                <Star />
+                <Rating>{vote_average?.toFixed(1)}</Rating>/10
               </RatingsWrapper>
               <Votes>{vote_count} votes</Votes>
             </RatingSection>
