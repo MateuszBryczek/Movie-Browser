@@ -67,10 +67,11 @@ const movieSlice = createSlice({
       state.moviePage =
         state.movies.total_pages > 500 ? 500 : state.movies.total_pages;
     },
+    goToFirstMoviePage: (state) => {
+      state.moviePage = 1;
+    },
   },
-  goToFirstMoviePage: (state) => {
-    state.moviePage = 1;
-  },
+  
 });
 
 export const {
