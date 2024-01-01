@@ -42,7 +42,7 @@ const SearchBar = () => {
         }
         value={query || ""}
         onChange={oninputChange}
-        disabled={location.pathname != "/peoplelist" && location.pathname != "/movielist" ? true : false}
+        disabled={location.pathname !== "/peoplelist" && location.pathname !== "/movielist" ? true : false}
       />
     </SearchWrapper>
   );
