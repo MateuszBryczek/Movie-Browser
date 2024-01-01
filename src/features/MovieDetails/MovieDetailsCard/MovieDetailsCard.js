@@ -3,20 +3,25 @@ import {
   Descryption,
   MovieTile,
   Poster,
-  Production,
   Rating,
-  Relase,
   Section,
   TagsWrapper,
   Title,
   Votes,
-  PosterWrapper,
   TextWrapper,
-  RatingsWrapper
+  RatingsWrapper,
+  AdditionalData,
+  LabelAdditionalData,
+  Label,
+  StarImg,
+  SmallRating,
+  MovieTiLeConstainer,
 } from "./styled";
-import { ReactComponent as Star } from "../../../images/starVector.svg";
+import star from "../../../images/starVector.svg";
 import { IMG_URL_SMALL } from "../../config";
 import GenreList from "../../MovieList/Genras/GenresList";
+import { useEffect, useState } from "react";
+import { GlobalTheme } from "../../../common/theme";
 
 const MovieDetailsCard = ({
   poster_path,
@@ -28,30 +33,83 @@ const MovieDetailsCard = ({
   vote_count,
   overview,
 }) => {
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
+
   return (
     <>
-      <MovieTile>
-        <PosterWrapper>
-          <Poster src={IMG_URL_SMALL + poster_path}></Poster>
-        </PosterWrapper>
-        <TextWrapper>
-          <Title>{title}</Title>
-          <Date>{relase_date}</Date>
-          <Section>
-            Relase date:<Relase>{relase_date}</Relase>
-            Production:<Production>{}</Production>
-          </Section>
-          <TagsWrapper>
-            <GenreList genreIds={genre_ids} />
-          </TagsWrapper>
-          <RatingsWrapper>
-          <Star />
-          <Rating>{vote_average?.toFixed(1)}</Rating>/10
-          <Votes>{vote_count}</Votes>votes
-          </RatingsWrapper>
+      {isMediaQuery() ? (
+        <MovieTile>
+          <MovieTiLeConstainer>
+            <Poster src={IMG_URL_SMALL + poster_path}></Poster>
+            <TextWrapper>
+              <Title>{title}</Title>
+              <Date>{relase_date}2020</Date>
+              <Section>
+                <Label>
+                  <LabelAdditionalData>Production:</LabelAdditionalData>
+                  <AdditionalData>{}2020</AdditionalData>
+                </Label>
+                <Label>
+                  <LabelAdditionalData>Relase date:</LabelAdditionalData>
+                  <AdditionalData>{relase_date}2020</AdditionalData>
+                </Label>
+              </Section>
+              <TagsWrapper>
+                <GenreList genreIds={genre_ids} />
+              </TagsWrapper>
+              <RatingsWrapper>
+                <StarImg src={star} />
+                <Rating>{vote_average?.toFixed(1)}</Rating>
+                <SmallRating>/10</SmallRating>
+                <Votes>{vote_count} votes</Votes>
+              </RatingsWrapper>
+              <Descryption>{overview}</Descryption>
+            </TextWrapper>
+          </MovieTiLeConstainer>
+        </MovieTile>
+      ) : (
+        <MovieTile>
+          <MovieTiLeConstainer>
+            <Poster src={IMG_URL_SMALL + poster_path}></Poster>
+            <TextWrapper>
+              <Title>{title}</Title>
+              <Date>{relase_date}2020</Date>
+              <Section>
+                <Label>
+                  <AdditionalData>{}2020</AdditionalData>
+                </Label>
+                <Label>
+                  <AdditionalData>{relase_date}2020</AdditionalData>
+                </Label>
+              </Section>
+              <TagsWrapper>
+                <GenreList genreIds={genre_ids} />
+              </TagsWrapper>
+              <RatingsWrapper>
+                <StarImg src={star} />
+                <Rating>{vote_average?.toFixed(1)}</Rating>
+                <Votes>{vote_count} votes</Votes>
+              </RatingsWrapper>
+            </TextWrapper>
+          </MovieTiLeConstainer>
           <Descryption>{overview}</Descryption>
-        </TextWrapper>
-      </MovieTile>
+        </MovieTile>
+      )}
     </>
   );
 };
