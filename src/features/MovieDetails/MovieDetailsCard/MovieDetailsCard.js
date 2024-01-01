@@ -125,7 +125,6 @@ const MovieDetailsCard = ({
                 <RatingsWrapper>
                   <StarImg src={star} />
                   <Rating>{vote_average?.toFixed(1)}</Rating>
-                  <SmallRating>/10</SmallRating>
                   <Votes>{vote_count} votes</Votes>
                 </RatingsWrapper>
               ) : (
