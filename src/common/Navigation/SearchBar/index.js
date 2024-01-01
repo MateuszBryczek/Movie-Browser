@@ -8,7 +8,6 @@ import {
 import { changeSearchPeopleValue } from "../../../features/PeopleList/peopleSlice";
 import {
   changeSearchMoviesValue,
-  fetchMovies,
 } from "../../../features/MovieList/movieSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
