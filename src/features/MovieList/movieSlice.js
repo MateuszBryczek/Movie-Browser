@@ -35,6 +35,7 @@ const movieSlice = createSlice({
     changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
+      state.moviePage = 1;
     },
     fetchMovieDetails: (state) => {
       state.isLoading = true;
