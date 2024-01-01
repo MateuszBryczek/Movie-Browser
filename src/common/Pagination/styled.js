@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledPagination = styled.div`
   text-align: center;
+  margin: 12px;
 `;
 
 const Vector = styled.img`
