@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledPagination = styled.div`
   text-align: center;
+  margin: 12px;
 `;
 
 const Vector = styled.img`
@@ -31,7 +32,7 @@ export const RightVector = styled(Vector)`
   }
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   text-align: center;
   text-decoration: none;
   border: none;
@@ -43,22 +44,19 @@ const Button = styled.button`
   margin-right: 8px;
   background-color: ${({ theme }) => theme.colors.pager.background};
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:disabled {
     background-color: ${({ theme }) => theme.colors.pager.disabled};
     color: ${({ theme }) => theme.colors.pager.inactiveText};
+    cursor: not-allowed;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     padding: 8px 12px 8px 12px;
   }
-`;
-
-export const LeftButton = styled(Button)`
-  /* background-color: ${({ theme }) => theme.colors.pager.leftBar}; */
-`;
-
-export const RightButton = styled(Button)`
-  /* background-color: ${({ theme }) => theme.colors.pager.leftBar}; */
 `;
 
 const Span = styled.span`

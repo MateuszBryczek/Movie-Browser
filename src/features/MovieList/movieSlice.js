@@ -35,6 +35,7 @@ const movieSlice = createSlice({
     changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
+      state.moviePage = 1;
     },
     fetchMovieDetails: (state) => {
       state.isLoading = true;
@@ -66,10 +67,11 @@ const movieSlice = createSlice({
       state.moviePage =
         state.movies.total_pages > 500 ? 500 : state.movies.total_pages;
     },
+    goToFirstMoviePage: (state) => {
+      state.moviePage = 1;
+    },
   },
-  goToFirstMoviePage: (state) => {
-    state.moviePage = 1;
-  },
+  
 });
 
 export const {

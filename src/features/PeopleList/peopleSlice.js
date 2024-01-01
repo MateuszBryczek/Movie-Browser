@@ -31,6 +31,7 @@ const peopleSlice = createSlice({
     changeSearchPeopleValue: (state, { payload: searchPeopleValue }) => {
       state.isLoading = true;
       state.searchPeopleValue = searchPeopleValue;
+      state.peoplePage = 1;
     },
     nextPeoplePage: (state) => {
       state.peoplePage = state.peoplePage + 1;

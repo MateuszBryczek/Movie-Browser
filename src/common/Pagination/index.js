@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import {
   StyledPagination,
-  LeftButton,
-  RightButton,
+  Button,
   LeftVector,
   RightVector,
   SpanPrimary,
@@ -48,77 +47,77 @@ const Pagination = () => {
     <StyledPagination>
       {location.pathname==="/movielist" ? (
         <>
-          <LeftButton
+          <Button
             disabled={moviePage === 1}
             onClick={() => dispatch(goToFirstMoviePage())}
           >
             <LeftVector src={leftVector} alt="" />
             {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
-          </LeftButton>
-          <LeftButton
+          </Button>
+          <Button
             disabled={moviePage === 1}
             onClick={() => dispatch(previousMoviePage())}
           >
             <LeftVector src={leftVector} alt="" />
             {resize() ? "Previous" : ""}
-          </LeftButton>
+          </Button>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
             <SpanPrimary> {moviePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
             <SpanPrimary> {displayTotalMoviePages} </SpanPrimary>
           </Text>
-          <RightButton
+          <Button
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(nextMoviePage())}
           >
             {resize() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
-          </RightButton>
-          <RightButton
+          </Button>
+          <Button
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(goToLastMoviePage())}
           >
             {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
-          </RightButton>
+          </Button>
         </>
       ) : (
         <>
-          <LeftButton
+          <Button
             disabled={peoplePage === 1}
             onClick={() => dispatch(goToFirstPeoplePage())}
           >
             <LeftVector src={leftVector} alt="" />
             {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
-          </LeftButton>
-          <LeftButton
+          </Button>
+          <Button
             disabled={peoplePage === 1}
             onClick={() => dispatch(previousPeoplePage())}
           >
             <LeftVector src={leftVector} alt="" />
             {resize() ? "Previous" : ""}
-          </LeftButton>
+          </Button>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
             <SpanPrimary> {peoplePage} </SpanPrimary>
             <SpanSecondary> of </SpanSecondary>
             <SpanPrimary> {displayTotalPeoplePages}</SpanPrimary>
           </Text>
-          <RightButton
+          <Button
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(nextPeoplePage())}
           >
             {resize() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
-          </RightButton>
-          <RightButton
+          </Button>
+          <Button
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(goToLastPeoplePage())}
           >
             {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
-          </RightButton>
+          </Button>
         </>
       )}
     </StyledPagination>

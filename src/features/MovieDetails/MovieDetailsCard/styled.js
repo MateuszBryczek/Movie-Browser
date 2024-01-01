@@ -72,7 +72,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Date = styled.p`
+export const Year = styled.p`
   margin: 0;
   font-size: 22px;
   line-height: 26.4px;

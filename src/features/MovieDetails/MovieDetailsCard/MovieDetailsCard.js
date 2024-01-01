@@ -1,5 +1,5 @@
 import {
-  Date,
+  Year,
   Descryption,
   MovieTile,
   Poster,
@@ -40,6 +40,9 @@ const MovieDetailsCard = ({
     ?.map(country => country.name)
     .join(", ");
 
+    const releaseDate = new Date(release_date);
+    const year = releaseDate.getFullYear() ? releaseDate.getFullYear() : "-";
+
   return (
     <>
       {resize() ? (
@@ -50,7 +53,7 @@ const MovieDetailsCard = ({
             ></Poster>
             <TextWrapper>
               <Title>{title}</Title>
-              <Date>{release_date ? release_date : "-"}</Date>
+              <Year>{release_date ? year : "-"}</Year>
               <Section>
                 <Label>
                   <LabelAdditionalData>Production:</LabelAdditionalData>
@@ -90,7 +93,7 @@ const MovieDetailsCard = ({
             ></Poster>
             <TextWrapper>
               <Title>{title}</Title>
-              <Date>{release_date ? release_date : "-"}</Date>
+              <Year>{release_date ? year : "-"}</Year>
               <Section>
                 <Label>
                   <AdditionalData>
