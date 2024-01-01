@@ -43,7 +43,7 @@ export function* fetchPersonDetailsHandler() {
 export function* fetchMoviesForPersonHandler() {
     const personId = yield select(selectPersonId);
     try {
-      yield delay(1000);
+      yield delay(500);
       const moviesForPerson = yield call(getMoviesForPerson, personId);
       yield put(fetchMoviesForPerson(moviesForPerson));
     } catch (error) {

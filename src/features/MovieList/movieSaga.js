@@ -54,7 +54,7 @@ export function* fetchMovieDetailsHandler() {
 export function* fetchPeopleForMovieHandler() {
   const movieId = yield select(selectMovieId);
   try {
-    yield delay(1000);
+    yield delay(500);
     const peopleForMovie = yield call(getPeopleForMovie, movieId);
     yield put(fetchPeopleForMovie(peopleForMovie));
   } catch (error) {
