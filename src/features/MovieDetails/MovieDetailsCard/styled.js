@@ -5,6 +5,7 @@ export const MovieTile = styled.div`
   color: ${({ theme }) => theme.colors.tile.textPrimary};
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
   padding: 40px;
+  max-width: 1368px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
     padding: 26px;

@@ -69,22 +69,30 @@ const MovieDetailsCard = ({
               <Section>
                 <Label>
                   <LabelAdditionalData>Production:</LabelAdditionalData>
-                  <AdditionalData>{countryNames ? countryNames : "-"}</AdditionalData>
+                  <AdditionalData>
+                    {countryNames ? countryNames : "-"}
+                  </AdditionalData>
                 </Label>
                 <Label>
                   <LabelAdditionalData>Relase date:</LabelAdditionalData>
-                  <AdditionalData>{release_date ? release_date : "-"}</AdditionalData>
+                  <AdditionalData>
+                    {release_date ? release_date : "-"}
+                  </AdditionalData>
                 </Label>
               </Section>
               <TagsWrapper>
                 <GenreList genreNames={genre_ids} />
               </TagsWrapper>
-              <RatingsWrapper>
-                <StarImg src={star} />
-                <Rating>{vote_average?.toFixed(1)}</Rating>
-                <SmallRating>/10</SmallRating>
-                <Votes>{vote_count} votes</Votes>
-              </RatingsWrapper>
+              {vote_count ? (
+                <RatingsWrapper>
+                  <StarImg src={star} />
+                  <Rating>{vote_average?.toFixed(1)}</Rating>
+                  <SmallRating>/10</SmallRating>
+                  <Votes>{vote_count} votes</Votes>
+                </RatingsWrapper>
+              ) : (
+                <SmallRating>No votes yet</SmallRating>
+              )}
               <Descryption>{overview}</Descryption>
             </TextWrapper>
           </MovieTiLeConstainer>
@@ -92,26 +100,37 @@ const MovieDetailsCard = ({
       ) : (
         <MovieTile>
           <MovieTiLeConstainer>
-            <Poster src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}></Poster>
+            <Poster
+              src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}
+            ></Poster>
             <TextWrapper>
               <Title>{title}</Title>
               <Date>{release_date ? release_date : "-"}</Date>
               <Section>
                 <Label>
-                  <AdditionalData>{countryNames ? countryNames : "-"}</AdditionalData>
+                  <AdditionalData>
+                    {countryNames ? countryNames : "-"}
+                  </AdditionalData>
                 </Label>
                 <Label>
-                  <AdditionalData>{release_date ? release_date : "-"}</AdditionalData>
+                  <AdditionalData>
+                    {release_date ? release_date : "-"}
+                  </AdditionalData>
                 </Label>
               </Section>
               <TagsWrapper>
                 <GenreList genreNames={genre_ids} />
               </TagsWrapper>
-              <RatingsWrapper>
-                <StarImg src={star} />
-                <Rating>{vote_average?.toFixed(1)}</Rating>
-                <Votes>{vote_count} votes</Votes>
-              </RatingsWrapper>
+              {vote_count ? (
+                <RatingsWrapper>
+                  <StarImg src={star} />
+                  <Rating>{vote_average?.toFixed(1)}</Rating>
+                  <SmallRating>/10</SmallRating>
+                  <Votes>{vote_count} votes</Votes>
+                </RatingsWrapper>
+              ) : (
+                <SmallRating>No votes yet</SmallRating>
+              )}
             </TextWrapper>
           </MovieTiLeConstainer>
           <Descryption>{overview}</Descryption>
