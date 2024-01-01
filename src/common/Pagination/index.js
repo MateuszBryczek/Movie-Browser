@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import {
@@ -12,7 +11,6 @@ import {
 } from "./styled";
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
-import { GlobalTheme } from "../theme";
 import {
   nextMoviePage,
   previousMoviePage,
@@ -30,26 +28,12 @@ import {
   selectPeoplePage,
   selectTotalPeoplePages,
 } from "../../features/PeopleList/peopleSlice";
+import { useResize } from "../../features/resize";
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const [screenSize, setScreenSize] = useState(window.innerWidth);
-  const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
   const location= useLocation();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
+  const resize = useResize()
 
   const moviePage = useSelector(selectMoviePage);
   const peoplePage = useSelector(selectPeoplePage);
@@ -68,14 +52,14 @@ const Pagination = () => {
             onClick={() => dispatch(goToFirstMoviePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
+            {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
           </Button>
           <Button
             disabled={moviePage === 1}
             onClick={() => dispatch(previousMoviePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "Previous" : ""}
+            {resize() ? "Previous" : ""}
           </Button>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
@@ -87,14 +71,14 @@ const Pagination = () => {
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(nextMoviePage())}
           >
-            {isMediaQuery() ? "Next" : ""}
+            {resize() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </Button>
           <Button
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(goToLastMoviePage())}
           >
-            {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
+            {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
           </Button>
         </>
@@ -105,14 +89,14 @@ const Pagination = () => {
             onClick={() => dispatch(goToFirstPeoplePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
+            {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
           </Button>
           <Button
             disabled={peoplePage === 1}
             onClick={() => dispatch(previousPeoplePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "Previous" : ""}
+            {resize() ? "Previous" : ""}
           </Button>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
@@ -124,14 +108,14 @@ const Pagination = () => {
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(nextPeoplePage())}
           >
-            {isMediaQuery() ? "Next" : ""}
+            {resize() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </Button>
           <Button
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(goToLastPeoplePage())}
           >
-            {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
+            {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
           </Button>
         </>

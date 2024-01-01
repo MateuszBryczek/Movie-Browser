@@ -53,7 +53,7 @@ export const Title = styled.h1`
   margin: 0;
   font-size: 36px;
   font-weight: 600;
-  line-height: 43px;
+  line-height: 43.2px;
   text-align: left;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {

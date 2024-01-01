@@ -20,9 +20,8 @@ import {
 import star from "../../../images/starVector.svg";
 import { IMG_URL_SMALL } from "../../config";
 import GenreList from "../../MovieList/Genras/GenresList";
-import { useEffect, useState } from "react";
-import { GlobalTheme } from "../../../common/theme";
 import noMovieImage from "../../../images/noMovieImage.svg";
+import { useResize } from "../../resize";
 
 const MovieDetailsCard = ({
   poster_path,
@@ -34,22 +33,8 @@ const MovieDetailsCard = ({
   vote_count,
   overview,
 }) => {
-  const [screenSize, setScreenSize] = useState(window.innerWidth);
-  const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
 
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
+  const resize = useResize()
 
   const countryNames = production_countries
     ?.map(country => country.name)
@@ -60,7 +45,7 @@ const MovieDetailsCard = ({
 
   return (
     <>
-      {isMediaQuery() ? (
+      {resize() ? (
         <MovieTile>
           <MovieTiLeConstainer>
             <Poster
