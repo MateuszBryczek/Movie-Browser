@@ -1,11 +1,38 @@
-This is Movie Browser App.
-It enables browsing movies, checking people related to movies and movies with chosen actors or another content creators. 
+
+# Movies Browser
+
+
+This is a Movie Browser App.
+It enables browsing movies, checking people related to movies and movies realted to the cast and the crew.
+
+[demo](https://mateuszbryczek.github.io/Movie-Browser/)
+
+![image](https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/bbb5a074-baed-41ee-bd5d-752c0f49736a)
+
+
+## Authors
+
+- [Paweł Brejnak](https://github.com/mombil)
+
+
+- [Mateusz Bryczek](https://github.com/MateuszBryczek)
+
+
+- [Małgorzata Gajlusz](https://github.com/gosiagajlusz)
+
+
+## Api source
+
+https://themoviedb.org
 
 "This Movie Browser Application uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB."
 
-[demo](https://mateuszbryczek.github.io/Movie-Browser/)
- 
 
+## Technologies
+
+![TechnologiesIcons](https://skillicons.dev/icons?i=html,css,js,react,redux,git,styledcomponents,figma,)
+
+ 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
