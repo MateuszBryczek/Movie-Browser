@@ -38,6 +38,7 @@ export const Role = styled.div`
   font-size: 18px;
   font-weight: 400;
   line-height: 27px;
+  text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
     font-size: 13px;
