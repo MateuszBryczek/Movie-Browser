@@ -20,13 +20,11 @@ const PeopleCard = ({
         <>
 
         <PersonDetailsLink to={`/personDetails/${id}`}>
-            <InsideWrapper>
             <Image src={profile_path ? IMG_URL_SMALL + profile_path : noPersonImage}></Image>
             <Description>
                 <Name>{name}</Name>
                 <Role>{personRole && <p>{personRole}</p>}</Role>
             </Description>
-            </InsideWrapper>
         </PersonDetailsLink>
         </>
     );
