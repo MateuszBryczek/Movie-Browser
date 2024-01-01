@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import {
@@ -13,7 +12,6 @@ import {
 } from "./styled";
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
-import { GlobalTheme } from "../theme";
 import {
   nextMoviePage,
   previousMoviePage,

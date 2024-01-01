@@ -20,8 +20,6 @@ import {
 import star from "../../../images/starVector.svg";
 import { IMG_URL_SMALL } from "../../config";
 import GenreList from "../../MovieList/Genras/GenresList";
-import { useEffect, useState } from "react";
-import { GlobalTheme } from "../../../common/theme";
 import noMovieImage from "../../../images/noMovieImage.svg";
 import { useResize } from "../../resize";
 
