@@ -31,7 +31,6 @@ import {
   selectPeoplePage,
   selectTotalPeoplePages,
 } from "../../features/PeopleList/peopleSlice";
-import { selectDataForTotalMoviePages } from "../../features/MovieList/movieSlice";
 
 const Pagination = () => {
   const dispatch = useDispatch();

@@ -1,11 +1,7 @@
-import { popularPeopleURL } from "../config";
-import axios from "axios";
-import { apiKey } from "../config";
-import { basicUrl } from "../config";
 import config from "../config";
 
 export const getPeople = async (peoplePage) => {
-  const { data } = await axios.get(`${popularPeopleURL}` + `${peoplePage}`);
+  const { data } = await config.get(`person/popular?page=${peoplePage}`);
   if (!data.ok) {
     new Error(data.statusText);
   }
@@ -14,10 +10,8 @@ export const getPeople = async (peoplePage) => {
 };
 
 export const getSearchedPeople = async (searchValue, peoplePage) => {
-  const { data } = await axios.get(
-    `${basicUrl}` +
-      `search/person?query=${searchValue}&page=${peoplePage}` +
-      `&api_key=${apiKey}`
+  const { data } = await config.get(
+      `search/person?query=${searchValue}&page=${peoplePage}`
   );
 
   if (!data.ok) {
