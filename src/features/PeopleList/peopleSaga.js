@@ -17,7 +17,7 @@ function* fetchPeopleHandler() {
   const searchValue = yield select(selectSearchPeopleValue);
   const peoplePage = yield select(selectPeoplePage);
   try {
-    yield delay(2000);
+    yield delay(1000);
     if (!searchValue) {
       const people = yield call(getPeople, peoplePage);
       yield put(fetchPeopleSucces(people));
@@ -33,7 +33,7 @@ function* fetchPeopleHandler() {
 export function* fetchPersonDetailsHandler() {
   const personId = yield select(selectPersonId);
   try {
-    yield delay(2000);
+    yield delay(1000);
     const personDetails = yield call(getPersonDetails, personId);
     yield put(fetchPersonDetailsSucces(personDetails));
   } catch (error) {
@@ -43,7 +43,7 @@ export function* fetchPersonDetailsHandler() {
 export function* fetchMoviesForPersonHandler() {
     const personId = yield select(selectPersonId);
     try {
-      yield delay(2000);
+      yield delay(1000);
       const moviesForPerson = yield call(getMoviesForPerson, personId);
       yield put(fetchMoviesForPerson(moviesForPerson));
     } catch (error) {

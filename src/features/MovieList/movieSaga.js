@@ -22,7 +22,7 @@ export function* fetchMoviesHandler() {
   const searchValue = yield select(selectSearchMoviesValue);
   const page = yield select(selectMoviePage);
   try {
-    yield delay(2000);
+    yield delay(1000);
     if (!searchValue) {
       const movie = yield call(getMovies, page);
       yield put(fetchMoviesSucces(movie));
@@ -43,7 +43,7 @@ export function* fetchMoviesHandler() {
 export function* fetchMovieDetailsHandler() {
   const movieId = yield select(selectMovieId);
   try {
-    yield delay(2000);
+    yield delay(1000);
     const movieDetails = yield call(getMoviesDetails, movieId);
     yield put(fetchMovieDetailsSucces(movieDetails, movieId));
   } catch (error) {
@@ -54,7 +54,7 @@ export function* fetchMovieDetailsHandler() {
 export function* fetchPeopleForMovieHandler() {
   const movieId = yield select(selectMovieId);
   try {
-    yield delay(500);
+    yield delay(1000);
     const peopleForMovie = yield call(getPeopleForMovie, movieId);
     yield put(fetchPeopleForMovie(peopleForMovie));
   } catch (error) {
