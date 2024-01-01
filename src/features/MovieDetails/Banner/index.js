@@ -12,12 +12,11 @@ import {
 } from "./styled";
 
 const Banner = ({ backdrop_path, title, vote_average, vote_count }) => {
-
   return (
     <>
       <Background>
         <Wrapper>
-          <Poster src={POSTER_URL_BIG + backdrop_path} />
+          {backdrop_path ? <Poster src={POSTER_URL_BIG + backdrop_path} /> : ""}
           <Section>
             <Title>{title}</Title>
             <RatingSection>

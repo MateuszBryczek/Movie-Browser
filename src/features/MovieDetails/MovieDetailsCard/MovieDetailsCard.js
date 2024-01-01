@@ -10,38 +10,51 @@ import {
   TagsWrapper,
   Title,
   Votes,
+  Star,
+  TileWrapper,
 } from "./styled";
-import { ReactComponent as Star } from "../../../images/starVector.svg";
 import { IMG_URL_SMALL } from "../../config";
 import GenreList from "../../MovieList/Genras/GenresList";
+import noMovieImage from "../../../images/noMovieImage.svg";
 
 const MovieDetailsCard = ({
   poster_path,
   title,
-  relase_date,
+  release_date,
   production_countries,
   genre_ids,
   vote_average,
   vote_count,
   overview,
 }) => {
+  const countryNames = production_countries
+    ?.map(country => country.name)
+    .join(", ");
+
   return (
     <>
       <MovieTile>
-        <Poster src={IMG_URL_SMALL + poster_path}></Poster>
-        <Title>{title}</Title>
-        <Date>{relase_date}</Date>
-        <Section>
-          Production:<Production>{}</Production>
-          Relase date:<Relase>{relase_date}</Relase>
-        </Section>
-        <TagsWrapper>
-          <GenreList genreIds={genre_ids} />
-        </TagsWrapper>
-        <Star />
-        <Rating>{vote_average?.toFixed(1)}</Rating>/10
-        <Votes>{vote_count}</Votes>
-        <Descryption>{overview}</Descryption>
+        <Poster
+          src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}
+        ></Poster>
+        <TileWrapper>
+          <Title>{title}</Title>
+          <Date>{release_date ? release_date : ""}</Date>
+          <Section>
+            Production:
+            <Production>{countryNames ? countryNames : "-"}</Production>
+            Relase date:<Relase>{release_date ? release_date : "-"}</Relase>
+          </Section>
+          <TagsWrapper>
+            <GenreList
+              genreNames={genre_ids}
+            />
+          </TagsWrapper>
+          <Star />
+          <Rating>{vote_average?.toFixed(1)}</Rating>/10
+          <Votes>{vote_count}</Votes>
+          <Descryption>{overview}</Descryption>
+        </TileWrapper>
       </MovieTile>
     </>
   );

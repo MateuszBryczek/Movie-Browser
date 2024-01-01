@@ -14,9 +14,9 @@ const Cast = () => {
       <TilesWrapper>
         {cast && cast.length > 0 ? (
           cast.map(person => (
-            <PeopleTile key={person.id}>
+            <PeopleTile key={person.id + person.character}>
               <PeopleCard
-                id={person.id}
+                id={person.id + person.character}
                 profile_path={person.profile_path}
                 name={person.name}
                 personRole={person.character}

@@ -8,6 +8,8 @@ const peopleSlice = createSlice({
     error: false,
     searchPeopleValue: "",
     isLoading: true,
+    cast: [],
+    crew: [],
     personId: false,
     peoplePage: 1,
     total_pages: 1,
@@ -55,6 +57,10 @@ const peopleSlice = createSlice({
       state.error = true;
       console.error(error);
     },
+    fetchMoviesForPerson: (state, { payload: moviesForPerson }) => {
+      state.cast = moviesForPerson.cast;
+      state.crew = moviesForPerson.crew;
+    },
     updatePersonId: (state, { payload: id }) => {
       state.personId = id;
     },
@@ -69,6 +75,7 @@ export const {
   fetchPersonDetails,
   fetchPersonDetailsSucces,
   fetchPersonDetailsError,
+  fetchMoviesForPerson,
   updatePersonId,
   goToLastPeoplePage,
   nextPeoplePage,
@@ -88,5 +95,7 @@ export const selectPersonId = (state) => selectPeopleState(state).personId;
 export const selectTotalPeoplePages = (state) =>
   selectPeople(state).total_pages;
 export const selectPeoplePage = (state) => selectPeopleState(state).peoplePage;
+export const selectCrew = state => selectPeopleState(state).crew;
+export const selectCast = state => selectPeopleState(state).cast;
 
 export default peopleSlice.reducer;

@@ -28,22 +28,17 @@ export const Name = styled.h1`
 `;
 
 export const Description = styled.div`
-  display: grid;
-  max-height: 64px;
-  grid-template-columns: 1fr;
+  display: flex;
+  width: 176px;
+  flex-direction: column;
+  text-align: center;
 `;
 
-export const Role = styled.a`
-  text-align: center;
+export const Role = styled.div`
+  margin: 0;
   color: ${({ theme }) => theme.colors.tile.textSecondary};
 `;
 
 export const PersonDetailsLink = styled(NavLink)`
   text-decoration: none;
-`;
-
-export const InsideWrapper = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 12px;
 `;

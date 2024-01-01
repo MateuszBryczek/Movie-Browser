@@ -8,7 +8,6 @@ import {
 import { changeSearchPeopleValue } from "../../../features/PeopleList/peopleSlice";
 import {
   changeSearchMoviesValue,
-  fetchMovies,
 } from "../../../features/MovieList/movieSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -23,8 +22,7 @@ const SearchBar = () => {
   useEffect(() => {
     location.pathname === "/peoplelist"
       ? dispatch(changeSearchPeopleValue(query))
-      : dispatch(changeSearchMoviesValue(query)) &&
-        dispatch(fetchMovies(query));
+      : dispatch(changeSearchMoviesValue(query))
   }, [dispatch, location, query]);
 
   const oninputChange = ({ target }) => {
@@ -42,6 +40,7 @@ const SearchBar = () => {
         }
         value={query || ""}
         onChange={oninputChange}
+        disabled={location.pathname !== "/peoplelist" && location.pathname !== "/movielist" ? true : false}
       />
     </SearchWrapper>
   );
