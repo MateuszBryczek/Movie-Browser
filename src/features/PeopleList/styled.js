@@ -51,15 +51,12 @@ export const TilesWrapper = styled.div`
 
 export const PeopleTile = styled.div`
   max-width: 208px;
-  max-height: 389px;
+  min-height: 339px;
   border-radius: 5px;
   gap: 12px;
   padding: 16px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
   background-color: ${({ theme }) => theme.colors.primary};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   &:hover {
     transform: scale(105%);
@@ -69,6 +66,9 @@ export const PeopleTile = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
     max-width: 136px;
-    max-height: 245px;
+    min-height: 245px;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
   }
 `;

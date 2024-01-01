@@ -29,13 +29,21 @@ export const Name = styled.h1`
 
 export const Description = styled.div`
   display: grid;
-  max-height: 64px;
   grid-template-columns: 1fr;
 `;
 
-export const Role = styled.a`
+export const Role = styled.p`
+  margin: 0;
   text-align: center;
   color: ${({ theme }) => theme.colors.tile.textSecondary};
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
+    font-size: 13px;
+    line-height: 17px;
+  }
 `;
 
 export const PersonDetailsLink = styled(NavLink)`
@@ -44,6 +52,6 @@ export const PersonDetailsLink = styled(NavLink)`
 
 export const InsideWrapper = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 12px;
+  grid-template-rows: 1fr auto;
+  grid-gap: 8px;
 `;

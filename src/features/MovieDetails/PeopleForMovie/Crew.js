@@ -1,8 +1,9 @@
 import { Header } from "../../../common/Header";
-import { PeopleTile, TilesWrapper } from "../../PeopleList/styled";
+import { PeopleTile } from "../../PeopleList/styled";
 import PeopleCard from "../../PeopleList/PeopleCard/PeopleCard";
 import { useSelector } from "react-redux";
 import { selectCrew } from "../../MovieList/movieSlice";
+import { PeopleForMovieTilesWrapper } from "./styled";
 
 const Crew = () => {
   const crew = useSelector(selectCrew);
@@ -10,7 +11,7 @@ const Crew = () => {
   return (
     <>
       <Header>Crew</Header>
-      <TilesWrapper>
+      <PeopleForMovieTilesWrapper>
         {crew && crew.length > 0 ? (
           crew.map(person => (
             <PeopleTile key={person.id}>
@@ -25,7 +26,7 @@ const Crew = () => {
         ) : (
           <p>No crew members available</p>
         )}
-      </TilesWrapper>
+      </PeopleForMovieTilesWrapper>
     </>
   );
 };

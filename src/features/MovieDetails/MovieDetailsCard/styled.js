@@ -5,13 +5,25 @@ export const MovieTile = styled.div`
   color: ${({ theme }) => theme.colors.tile.textPrimary};
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
   padding: 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
+    padding: 26px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    padding: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
+    padding: 8px;
+  }
 `;
 
 export const MovieTiLeConstainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 40px;
+  gap: 20px;
 `;
 
 export const TextWrapper = styled.div`
@@ -28,7 +40,6 @@ export const Poster = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
     width: 260px;
     height: auto;
-    margin-right: 16px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
@@ -47,6 +58,10 @@ export const Title = styled.h1`
   @media (max-width: ${({ theme }) => theme.breakpoints.largeDevices}px) {
     line-height: 120%;
     font-size: 28px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    font-size: 22px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {

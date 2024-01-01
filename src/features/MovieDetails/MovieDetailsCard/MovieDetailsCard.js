@@ -58,15 +58,15 @@ const MovieDetailsCard = ({
             <Poster src={IMG_URL_SMALL + poster_path}></Poster>
             <TextWrapper>
               <Title>{title}</Title>
-              <Date>{relase_date}2020</Date>
+              <Date>{relase_date}</Date>
               <Section>
                 <Label>
                   <LabelAdditionalData>Production:</LabelAdditionalData>
-                  <AdditionalData>{}2020</AdditionalData>
+                  <AdditionalData>{}</AdditionalData>
                 </Label>
                 <Label>
                   <LabelAdditionalData>Relase date:</LabelAdditionalData>
-                  <AdditionalData>{relase_date}2020</AdditionalData>
+                  <AdditionalData>{relase_date}</AdditionalData>
                 </Label>
               </Section>
               <TagsWrapper>
@@ -88,13 +88,13 @@ const MovieDetailsCard = ({
             <Poster src={IMG_URL_SMALL + poster_path}></Poster>
             <TextWrapper>
               <Title>{title}</Title>
-              <Date>{relase_date}2020</Date>
+              <Date>{relase_date}</Date>
               <Section>
                 <Label>
-                  <AdditionalData>{}2020</AdditionalData>
+                  <AdditionalData>{}</AdditionalData>
                 </Label>
                 <Label>
-                  <AdditionalData>{relase_date}2020</AdditionalData>
+                  <AdditionalData>{relase_date}</AdditionalData>
                 </Label>
               </Section>
               <TagsWrapper>
