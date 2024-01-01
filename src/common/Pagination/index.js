@@ -31,26 +31,12 @@ import {
   selectPeoplePage,
   selectTotalPeoplePages,
 } from "../../features/PeopleList/peopleSlice";
+import { useResize } from "../../features/resize";
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const [screenSize, setScreenSize] = useState(window.innerWidth);
-  const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
   const location= useLocation();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
+  const resize = useResize()
 
   const moviePage = useSelector(selectMoviePage);
   const peoplePage = useSelector(selectPeoplePage);
@@ -69,14 +55,14 @@ const Pagination = () => {
             onClick={() => dispatch(goToFirstMoviePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
+            {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
           </LeftButton>
           <LeftButton
             disabled={moviePage === 1}
             onClick={() => dispatch(previousMoviePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "Previous" : ""}
+            {resize() ? "Previous" : ""}
           </LeftButton>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
@@ -88,14 +74,14 @@ const Pagination = () => {
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(nextMoviePage())}
           >
-            {isMediaQuery() ? "Next" : ""}
+            {resize() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </RightButton>
           <RightButton
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(goToLastMoviePage())}
           >
-            {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
+            {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
           </RightButton>
         </>
@@ -106,14 +92,14 @@ const Pagination = () => {
             onClick={() => dispatch(goToFirstPeoplePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "First" : <LeftVector src={leftVector} alt="" />}
+            {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
           </LeftButton>
           <LeftButton
             disabled={peoplePage === 1}
             onClick={() => dispatch(previousPeoplePage())}
           >
             <LeftVector src={leftVector} alt="" />
-            {isMediaQuery() ? "Previous" : ""}
+            {resize() ? "Previous" : ""}
           </LeftButton>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
@@ -125,14 +111,14 @@ const Pagination = () => {
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(nextPeoplePage())}
           >
-            {isMediaQuery() ? "Next" : ""}
+            {resize() ? "Next" : ""}
             <RightVector src={rightVector} alt="" />
           </RightButton>
           <RightButton
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(goToLastPeoplePage())}
           >
-            {isMediaQuery() ? "Last" : <RightVector src={rightVector} alt="" />}
+            {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
             <RightVector src={rightVector} alt="" />
           </RightButton>
         </>
