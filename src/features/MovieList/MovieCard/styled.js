@@ -93,10 +93,7 @@ export const TagsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 10px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
-    gap: 8px;
-  }
+  gap: 8px;
 `;
 
 export const Star = styled.img`

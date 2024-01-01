@@ -3,18 +3,25 @@ import {
   Descryption,
   MovieTile,
   Poster,
-  Production,
   Rating,
-  Relase,
   Section,
   TagsWrapper,
   Title,
   Votes,
-  Star,
-  TileWrapper,
+  TextWrapper,
+  RatingsWrapper,
+  AdditionalData,
+  LabelAdditionalData,
+  Label,
+  StarImg,
+  SmallRating,
+  MovieTiLeConstainer,
 } from "./styled";
+import star from "../../../images/starVector.svg";
 import { IMG_URL_SMALL } from "../../config";
 import GenreList from "../../MovieList/Genras/GenresList";
+import { useEffect, useState } from "react";
+import { GlobalTheme } from "../../../common/theme";
 import noMovieImage from "../../../images/noMovieImage.svg";
 
 const MovieDetailsCard = ({
@@ -27,35 +34,107 @@ const MovieDetailsCard = ({
   vote_count,
   overview,
 }) => {
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  const mediaQuery = GlobalTheme.breakpoints.mediumDevices;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
+
   const countryNames = production_countries
     ?.map(country => country.name)
     .join(", ");
 
   return (
     <>
-      <MovieTile>
-        <Poster
-          src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}
-        ></Poster>
-        <TileWrapper>
-          <Title>{title}</Title>
-          <Date>{release_date ? release_date : ""}</Date>
-          <Section>
-            Production:
-            <Production>{countryNames ? countryNames : "-"}</Production>
-            Relase date:<Relase>{release_date ? release_date : "-"}</Relase>
-          </Section>
-          <TagsWrapper>
-            <GenreList
-              genreNames={genre_ids}
-            />
-          </TagsWrapper>
-          <Star />
-          <Rating>{vote_average?.toFixed(1)}</Rating>/10
-          <Votes>{vote_count}</Votes>
+      {isMediaQuery() ? (
+        <MovieTile>
+          <MovieTiLeConstainer>
+            <Poster
+              src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}
+            ></Poster>
+            <TextWrapper>
+              <Title>{title}</Title>
+              <Date>{release_date ? release_date : "-"}</Date>
+              <Section>
+                <Label>
+                  <LabelAdditionalData>Production:</LabelAdditionalData>
+                  <AdditionalData>
+                    {countryNames ? countryNames : "-"}
+                  </AdditionalData>
+                </Label>
+                <Label>
+                  <LabelAdditionalData>Relase date:</LabelAdditionalData>
+                  <AdditionalData>
+                    {release_date ? release_date : "-"}
+                  </AdditionalData>
+                </Label>
+              </Section>
+              <TagsWrapper>
+                <GenreList genreNames={genre_ids} />
+              </TagsWrapper>
+              {vote_count ? (
+                <RatingsWrapper>
+                  <StarImg src={star} />
+                  <Rating>{vote_average?.toFixed(1)}</Rating>
+                  <SmallRating>/10</SmallRating>
+                  <Votes>{vote_count} votes</Votes>
+                </RatingsWrapper>
+              ) : (
+                <SmallRating>No votes yet</SmallRating>
+              )}
+              <Descryption>{overview}</Descryption>
+            </TextWrapper>
+          </MovieTiLeConstainer>
+        </MovieTile>
+      ) : (
+        <MovieTile>
+          <MovieTiLeConstainer>
+            <Poster
+              src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}
+            ></Poster>
+            <TextWrapper>
+              <Title>{title}</Title>
+              <Date>{release_date ? release_date : "-"}</Date>
+              <Section>
+                <Label>
+                  <AdditionalData>
+                    {countryNames ? countryNames : "-"}
+                  </AdditionalData>
+                </Label>
+                <Label>
+                  <AdditionalData>
+                    {release_date ? release_date : "-"}
+                  </AdditionalData>
+                </Label>
+              </Section>
+              <TagsWrapper>
+                <GenreList genreNames={genre_ids} />
+              </TagsWrapper>
+              {vote_count ? (
+                <RatingsWrapper>
+                  <StarImg src={star} />
+                  <Rating>{vote_average?.toFixed(1)}</Rating>
+                  <Votes>{vote_count} votes</Votes>
+                </RatingsWrapper>
+              ) : (
+                <SmallRating>No votes yet</SmallRating>
+              )}
+            </TextWrapper>
+          </MovieTiLeConstainer>
           <Descryption>{overview}</Descryption>
-        </TileWrapper>
-      </MovieTile>
+        </MovieTile>
+      )}
     </>
   );
 };

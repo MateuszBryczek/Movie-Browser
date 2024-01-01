@@ -28,17 +28,30 @@ export const Name = styled.h1`
 `;
 
 export const Description = styled.div`
-  display: flex;
-  width: 176px;
-  flex-direction: column;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
 `;
 
 export const Role = styled.div`
   margin: 0;
   color: ${({ theme }) => theme.colors.tile.textSecondary};
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {
+    font-size: 13px;
+    line-height: 17px;
+  }
 `;
 
 export const PersonDetailsLink = styled(NavLink)`
   text-decoration: none;
+`;
+
+export const InsideWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-gap: 8px;
 `;

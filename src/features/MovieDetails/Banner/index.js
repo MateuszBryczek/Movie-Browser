@@ -1,5 +1,5 @@
 import { POSTER_URL_BIG } from "../../config";
-import { ReactComponent as Star } from "../../../images/starVector.svg";
+import star from "../../../images/starVector.svg";
 import {
   Wrapper,
   Poster,
@@ -9,6 +9,9 @@ import {
   Background,
   Section,
   RatingSection,
+  StarImg,
+  SmallRating,
+  RatingsWrapper,
 } from "./styled";
 
 const Banner = ({ backdrop_path, title, vote_average, vote_count }) => {
@@ -20,8 +23,11 @@ const Banner = ({ backdrop_path, title, vote_average, vote_count }) => {
           <Section>
             <Title>{title}</Title>
             <RatingSection>
-              <Star />
-              <Rating>{vote_average?.toFixed(1)}</Rating>/10
+              <RatingsWrapper>
+                <StarImg src={star} alt="" />
+                <Rating>{vote_average?.toFixed(1)}</Rating>
+                <SmallRating>/10</SmallRating>
+              </RatingsWrapper>
               <Votes>{vote_count} votes</Votes>
             </RatingSection>
           </Section>
