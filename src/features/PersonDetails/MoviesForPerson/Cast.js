@@ -1,8 +1,9 @@
 import { Header } from "../../../common/Header";
 import { useSelector } from "react-redux";
 import MovieCard from "../../MovieList/MovieCard/MovieCard";
-import { MovieTile, TilesWrapper } from "../../MovieList/styled";
+import { MovieTile } from "../../MovieList/styled";
 import { selectCast } from "../../PeopleList/peopleSlice";
+import { MoviesForPeopleTilesWrapper } from "./styled";
 
 const Cast = () => {
   const cast = useSelector(selectCast);
@@ -10,7 +11,7 @@ const Cast = () => {
   return (
     <>
       <Header>{`Movies - cast (${cast ? cast.length : 0})`}</Header>
-      <TilesWrapper>
+      <MoviesForPeopleTilesWrapper>
         {cast && cast.length > 0 ? (
           cast.map(movie => (
             <MovieTile key={movie.id}>
@@ -29,7 +30,7 @@ const Cast = () => {
         ) : (
           <p>No movie cast available</p>
         )}
-      </TilesWrapper>
+      </MoviesForPeopleTilesWrapper>
     </>
   );
 };
