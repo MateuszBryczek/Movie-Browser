@@ -23,8 +23,7 @@ const SearchBar = () => {
   useEffect(() => {
     location.pathname === "/peoplelist"
       ? dispatch(changeSearchPeopleValue(query))
-      : dispatch(changeSearchMoviesValue(query)) &&
-        dispatch(fetchMovies(query));
+      : dispatch(changeSearchMoviesValue(query))
   }, [dispatch, location, query]);
 
   const oninputChange = ({ target }) => {
