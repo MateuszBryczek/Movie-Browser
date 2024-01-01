@@ -1,5 +1,5 @@
 import { takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
-import { getPeople, getSearchedPeople, getPersonDetails } from "./getPeople";
+import { getPeople, getSearchedPeople, getPersonDetails, getMoviesForPerson } from "./getPeople";
 import {
   fetchPeople,
   fetchPeopleError,
@@ -10,6 +10,7 @@ import {
   fetchPersonDetailsSucces,
   fetchPersonDetailsError,
   selectPersonId,
+  fetchMoviesForPerson,
 } from "./peopleSlice";
 
 function* fetchPeopleHandler() {
@@ -29,20 +30,29 @@ function* fetchPeopleHandler() {
   }
 }
 
-function* fetchPersonDetailsHandler() {
+export function* fetchPersonDetailsHandler() {
   const personId = yield select(selectPersonId);
   try {
-    yield delay(500);
+    yield delay(2000);
     const personDetails = yield call(getPersonDetails, personId);
     yield put(fetchPersonDetailsSucces(personDetails));
   } catch (error) {
     yield put(fetchPersonDetailsError(error));
   }
-};
+}
+export function* fetchMoviesForPersonHandler() {
+    const personId = yield select(selectPersonId);
+    try {
+      yield delay(2000);
+      const moviesForPerson = yield call(getMoviesForPerson, personId);
+      yield put(fetchMoviesForPerson(moviesForPerson));
+    } catch (error) {
+      yield put(fetchPersonDetailsError(error));
+    }
+}
 
-export function* watchFetchPeople() {
+export function* peopleSaga() {
   yield takeLatest(fetchPeople.type, fetchPeopleHandler);
-};
-export function* watchFetchPersonDetails() {
   yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
-};
+  yield takeLatest(fetchPersonDetails.type, fetchMoviesForPersonHandler);
+}

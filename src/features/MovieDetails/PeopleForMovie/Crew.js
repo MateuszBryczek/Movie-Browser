@@ -14,9 +14,9 @@ const Crew = () => {
       <PeopleForMovieTilesWrapper>
         {crew && crew.length > 0 ? (
           crew.map(person => (
-            <PeopleTile key={person.id}>
+            <PeopleTile key={person.id + person.job}>
               <PeopleCard
-                id={person.id}
+                id={person.id + person.job}
                 profile_path={person.profile_path}
                 name={person.name}
                 personRole={person.job}

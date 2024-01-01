@@ -56,9 +56,9 @@ const MovieDetails = () => {
             <MovieDetailsCard
               poster_path={selectedMovie.poster_path}
               title={selectedMovie.title}
-              relase_date={selectedMovie.relase_date}
+              release_date={selectedMovie.release_date}
               production_countries={selectedMovie.production_countries}
-              genre_ids={selectedMovie.genre_ids}
+              genre_ids={selectedMovie.genres}
               vote_average={selectedMovie.vote_average}
               vote_count={selectedMovie.vote_count}
               overview={selectedMovie.overview}

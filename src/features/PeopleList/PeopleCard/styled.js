@@ -32,9 +32,8 @@ export const Description = styled.div`
   grid-template-columns: 1fr;
 `;
 
-export const Role = styled.p`
+export const Role = styled.div`
   margin: 0;
-  text-align: center;
   color: ${({ theme }) => theme.colors.tile.textSecondary};
   font-size: 18px;
   font-weight: 400;

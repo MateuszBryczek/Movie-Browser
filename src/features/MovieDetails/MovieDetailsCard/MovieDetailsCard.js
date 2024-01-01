@@ -22,11 +22,12 @@ import { IMG_URL_SMALL } from "../../config";
 import GenreList from "../../MovieList/Genras/GenresList";
 import { useEffect, useState } from "react";
 import { GlobalTheme } from "../../../common/theme";
+import noMovieImage from "../../../images/noMovieImage.svg";
 
 const MovieDetailsCard = ({
   poster_path,
   title,
-  relase_date,
+  release_date,
   production_countries,
   genre_ids,
   vote_average,
@@ -50,27 +51,33 @@ const MovieDetailsCard = ({
 
   const isMediaQuery = () => (mediaQuery < screenSize ? true : false);
 
+  const countryNames = production_countries
+    ?.map(country => country.name)
+    .join(", ");
+
   return (
     <>
       {isMediaQuery() ? (
         <MovieTile>
           <MovieTiLeConstainer>
-            <Poster src={IMG_URL_SMALL + poster_path}></Poster>
+            <Poster
+              src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}
+            ></Poster>
             <TextWrapper>
               <Title>{title}</Title>
-              <Date>{relase_date}</Date>
+              <Date>{release_date ? release_date : "-"}</Date>
               <Section>
                 <Label>
                   <LabelAdditionalData>Production:</LabelAdditionalData>
-                  <AdditionalData>{}</AdditionalData>
+                  <AdditionalData>{countryNames ? countryNames : "-"}</AdditionalData>
                 </Label>
                 <Label>
                   <LabelAdditionalData>Relase date:</LabelAdditionalData>
-                  <AdditionalData>{relase_date}</AdditionalData>
+                  <AdditionalData>{release_date ? release_date : "-"}</AdditionalData>
                 </Label>
               </Section>
               <TagsWrapper>
-                <GenreList genreIds={genre_ids} />
+                <GenreList genreNames={genre_ids} />
               </TagsWrapper>
               <RatingsWrapper>
                 <StarImg src={star} />
@@ -85,20 +92,20 @@ const MovieDetailsCard = ({
       ) : (
         <MovieTile>
           <MovieTiLeConstainer>
-            <Poster src={IMG_URL_SMALL + poster_path}></Poster>
+            <Poster src={poster_path ? IMG_URL_SMALL + poster_path : noMovieImage}></Poster>
             <TextWrapper>
               <Title>{title}</Title>
-              <Date>{relase_date}</Date>
+              <Date>{release_date ? release_date : "-"}</Date>
               <Section>
                 <Label>
-                  <AdditionalData>{}</AdditionalData>
+                  <AdditionalData>{countryNames ? countryNames : "-"}</AdditionalData>
                 </Label>
                 <Label>
-                  <AdditionalData>{relase_date}</AdditionalData>
+                  <AdditionalData>{release_date ? release_date : "-"}</AdditionalData>
                 </Label>
               </Section>
               <TagsWrapper>
-                <GenreList genreIds={genre_ids} />
+                <GenreList genreNames={genre_ids} />
               </TagsWrapper>
               <RatingsWrapper>
                 <StarImg src={star} />

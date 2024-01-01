@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getGenre } from "../Genras/getGenres";
 import { Tags } from "../MovieCard/styled";
 
-const GenreList = ({ genreIds }) => {
+const GenreList = ({ genreIds, genreNames }) => {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
@@ -19,14 +19,16 @@ const GenreList = ({ genreIds }) => {
   }, []);
 
   const getGenreNames = () => {
-    return genreIds?.map((genreId, index) => {
-      const genre = genres.find((g) => g.id === genreId);
-      return genre ? (
-        <Tags key={index}>
-          {genre.name}
-        </Tags>
-      ) : null;
-    });
+    if (genreIds) {
+      return genreIds?.map((genreId, index) => {
+        const genre = genres.find(g => g.id === genreId);
+        return genre ? <Tags key={index}>{genre.name}</Tags> : null;
+      });
+    } else {
+      return genreNames?.map(genreName => {
+        return <Tags key={genreName.id}>{genreName.name}</Tags>;
+      });
+    }
   };
 
   return <>{getGenreNames()}</>;
