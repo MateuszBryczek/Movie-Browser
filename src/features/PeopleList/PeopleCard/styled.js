@@ -14,10 +14,11 @@ export const Image = styled.img`
 
 export const Name = styled.h1`
   color: ${({ theme }) => theme.colors.tile.textPrimary};
-  max-width: 178px;
+  max-width: 176px;
   font-weight: 500;
   line-height: 130%;
   font-size: 22px;
+  text-align: center;
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDevices}px) {

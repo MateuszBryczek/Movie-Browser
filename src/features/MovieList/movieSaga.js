@@ -4,6 +4,7 @@ import {
   fetchMoviesSucces,
   fetchMoviesError,
   selectSearchMoviesValue,
+  selectMoviePage,
   fetchMovieDetails,
   fetchMovieDetailsSucces,
   fetchMovieDetailsError,
@@ -19,13 +20,19 @@ import {
 
 export function* fetchMoviesHandler() {
   const searchValue = yield select(selectSearchMoviesValue);
+  const page = yield select(selectMoviePage);
   try {
     yield delay(2000);
     if (!searchValue) {
-      const movie = yield call(getMovies);
+      const movie = yield call(getMovies, page);
       yield put(fetchMoviesSucces(movie));
     } else {
-      const movie = yield call(getSearchedMovies, searchValue);
+      const movie = yield call(
+        getSearchedMovies,
+        searchValue,
+        page,
+      
+      );
       yield put(fetchMoviesSucces(movie));
     }
   } catch (error) {
