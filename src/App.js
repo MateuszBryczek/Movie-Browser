@@ -6,6 +6,7 @@ import PeopleList from "./features/PeopleList/PeopleList";
 import Navigation from "./common/Navigation";
 import MovieDetails from "./features/MovieDetails/MovieDetails";
 import PersonDetails from "./features/PersonDetails/PersonDetails";
+import Pagination from "./common/Pagination";
 
 export const App = () => {
   return (
@@ -20,7 +21,7 @@ export const App = () => {
               <PeopleList />
             </Route>
             <Route path="/movieDetails/:id" component={MovieDetails} />
-            <Route path="/movielist">
+            <Route path="/movielist/Page=moviePage" component={Pagination}>
               <MovieList />
             </Route>
             <Route path="/">

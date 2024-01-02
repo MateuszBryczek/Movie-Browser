@@ -6,14 +6,9 @@ It enables browsing movies, checking people related to movies and movies with ch
 [demo](https://mateuszbryczek.github.io/Movie-Browser/)
 
 
-
-
-
 https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/07e01ae4-e2df-40e6-b7df-65c08fd27951
 
 
-
- 
 
 # Getting Started with Create React App
 
