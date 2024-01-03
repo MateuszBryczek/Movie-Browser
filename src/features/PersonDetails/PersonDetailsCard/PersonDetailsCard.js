@@ -21,6 +21,14 @@ const PersonDetailsCard = ({
   biography,
 }) => {
   const resize = useResize();
+
+  const date = new Date(birthday);
+  const birthdayDate = date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).replace(/\//g, '.');
+
   return (
     <>
       {resize() ? (
@@ -33,7 +41,7 @@ const PersonDetailsCard = ({
               <Name>{name}</Name>
               <InfoSecion>
                 <Label>Date of birth:</Label>
-                <AdditionalData>{birthday ? birthday : "-"}</AdditionalData>
+                <AdditionalData>{birthday ? birthdayDate : "-"}</AdditionalData>
               </InfoSecion>
               <InfoSecion>
                 <Label>Place of birth:</Label>
