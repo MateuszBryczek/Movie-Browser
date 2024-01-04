@@ -11,8 +11,8 @@ import {
   DataWrapper,
   Star,
 } from "./styled";
-import { POSTER_URL_SMALL } from "../../config";
-import GenreList from "../Genras/GenresList";
+import { POSTER_URL_SMALL } from "../../getAPI/config";
+import GenreList from "../../Genras";
 import star from "../../../images/starVector.svg";
 import noMovieImage from "../../../images/noMovieImage.svg";
 
@@ -29,7 +29,6 @@ const MovieCard = ({
 }) => {
   const releaseDate = new Date(release_date);
   const year = releaseDate.getFullYear() ? releaseDate.getFullYear() : "-";
-
 
   return (
     <>
@@ -57,7 +56,7 @@ const MovieCard = ({
             {vote_count ? (
               <>
                 <Star src={star} alt="" />
-                <Rating>{vote_average?.toFixed(1)}</Rating>
+                <Rating>{vote_average?.toFixed(1).replace(".", ",")}</Rating>
                 <Votes>{vote_count} votes</Votes>
               </>
             ) : (

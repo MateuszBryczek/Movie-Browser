@@ -18,7 +18,7 @@ import {
   goToLastMoviePage,
   selectMoviePage,
   selectTotalPages,
-} from "../../features/MovieList/movieSlice";
+} from "../../features/Slices/movieSlice";
 
 import {
   nextPeoplePage,
@@ -27,7 +27,7 @@ import {
   goToLastPeoplePage,
   selectPeoplePage,
   selectTotalPeoplePages,
-} from "../../features/PeopleList/peopleSlice";
+} from "../../features/Slices/peopleSlice";
 import { useResize } from "../../features/resize";
 
 const Pagination = () => {

@@ -7,15 +7,15 @@ import {
   selectMovieDetails,
   updateMovieId,
   selectMoviesError,
-} from "../MovieList/movieSlice";
+} from "../../Slices/movieSlice";
 import { useEffect } from "react";
 import MovieDetailsCard from "./MovieDetailsCard/MovieDetailsCard";
-import IconSpiner from "../../common/IconSpinner";
-import { Container } from "../../common/Container";
+import IconSpiner from "../../../common/IconSpinner";
+import { Container } from "../../../common/Container";
 import Banner from "./Banner";
 import Cast from "./PeopleForMovie/Cast";
 import Crew from "./PeopleForMovie/Crew";
-import ErrorPage from "../../common/ErrorPage";
+import ErrorPage from "../../../common/ErrorPage";
 
 const MovieDetails = () => {
   const { id } = useParams();

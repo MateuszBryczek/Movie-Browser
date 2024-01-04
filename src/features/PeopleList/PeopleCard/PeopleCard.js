@@ -6,7 +6,7 @@ import {
   Role,
   InsideWrapper,
 } from "./styled";
-import { IMG_URL_SMALL } from "../../config";
+import { IMG_URL_SMALL } from "../../getAPI/config";
 import noPersonImage from "../../../images/noPersonImage.svg";
 
 const PeopleCard = ({ id, profile_path, name, personRole }) => {

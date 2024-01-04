@@ -5,10 +5,10 @@ import {
   useReplaceQueryParameter,
   useQueryParameter,
 } from "../../../features/queryParameter";
-import { changeSearchPeopleValue } from "../../../features/PeopleList/peopleSlice";
+import { changeSearchPeopleValue } from "../../../features/Slices/peopleSlice";
 import {
   changeSearchMoviesValue,
-} from "../../../features/MovieList/movieSlice";
+} from "../../../features/Slices/movieSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import searchQueryParamName from "../../../features/searchQueryParamName";

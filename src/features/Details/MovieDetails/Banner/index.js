@@ -1,5 +1,5 @@
-import { POSTER_URL_BIG } from "../../config";
-import star from "../../../images/starVector.svg";
+import { POSTER_URL_BIG } from "../../../getAPI/config";
+import star from "../../../../images/starVector.svg";
 import {
   Wrapper,
   Poster,
@@ -25,7 +25,7 @@ const Banner = ({ backdrop_path, title, vote_average, vote_count }) => {
             <RatingSection>
               <RatingsWrapper>
                 <StarImg src={star} alt="" />
-                <Rating>{vote_average?.toFixed(1)}</Rating>
+                <Rating>{vote_average?.toFixed(1).replace(".", ",")}</Rating>
                 <SmallRating>/10</SmallRating>
               </RatingsWrapper>
               <Votes>{vote_count} votes</Votes>

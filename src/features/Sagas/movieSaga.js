@@ -10,13 +10,13 @@ import {
   fetchMovieDetailsError,
   fetchPeopleForMovie,
   selectMovieId,
-} from "./movieSlice";
+} from "../Slices/movieSlice";
 import {
   getMoviesDetails,
   getMovies,
   getSearchedMovies,
   getPeopleForMovie,
-} from "./getMovies";
+} from "../getAPI/getMovies";
 
 export function* fetchMoviesHandler() {
   const searchValue = yield select(selectSearchMoviesValue);
