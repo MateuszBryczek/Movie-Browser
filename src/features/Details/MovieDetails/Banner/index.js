@@ -1,5 +1,5 @@
-import { POSTER_URL_BIG } from "../../config";
-import star from "../../../images/starVector.svg";
+import { POSTER_URL_BIG } from "../../../getAPI/config";
+import star from "../../../../images/starVector.svg";
 import {
   Wrapper,
   Poster,

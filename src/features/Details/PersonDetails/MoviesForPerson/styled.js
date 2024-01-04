@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TilesWrapper } from "../../MovieList/styled";
+import { TilesWrapper } from "../../../MovieList/styled";
 
 export const MoviesForPeopleTilesWrapper = styled(TilesWrapper)`
   justify-content: space-evenly;

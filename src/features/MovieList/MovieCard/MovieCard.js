@@ -11,8 +11,8 @@ import {
   DataWrapper,
   Star,
 } from "./styled";
-import { POSTER_URL_SMALL } from "../../config";
-import GenreList from "../Genras/GenresList";
+import { POSTER_URL_SMALL } from "../../getAPI/config";
+import GenreList from "../../Genras";
 import star from "../../../images/starVector.svg";
 import noMovieImage from "../../../images/noMovieImage.svg";
 

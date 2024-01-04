@@ -1,4 +1,4 @@
-import config from "../config";
+import config from "./config";
 
 export const getMovies = async moviePage => {
   const { data } = await config.get(`movie/popular?page=${moviePage}`);

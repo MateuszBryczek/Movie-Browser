@@ -7,12 +7,12 @@ import {
   selectPersonDetails,
   updatePersonId,
   fetchMoviesForPerson,
-} from "../PeopleList/peopleSlice";
+} from "../../Slices/peopleSlice";
 import { useEffect } from "react";
 import PersonDetailsCard from "./PersonDetailsCard/PersonDetailsCard";
-import {Container} from "../../common/Container";
-import IconSpiner from "../../common/IconSpinner";
-import ErrorPage from "../../common/ErrorPage";
+import {Container} from "../../../common/Container";
+import IconSpiner from "../../../common/IconSpinner";
+import ErrorPage from "../../../common/ErrorPage";
 import Cast from "./MoviesForPerson/Cast";
 import Crew from "./MoviesForPerson/Crew";
 

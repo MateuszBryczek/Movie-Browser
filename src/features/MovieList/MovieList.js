@@ -7,7 +7,7 @@ import {
   selectMovies,
   selectSearchMoviesValue,
   selectMoviePage,  
-} from "./movieSlice";
+} from "../Slices/movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import { MovieHeader, MovieTile, MovieContainer } from "./styled";
 import { TilesWrapper } from "./styled";

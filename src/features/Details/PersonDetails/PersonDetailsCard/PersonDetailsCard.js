@@ -1,5 +1,5 @@
-import { IMG_URL_SMALL } from "../../config";
-import noPersonImage from "../../../images/noPersonImage.svg";
+import { IMG_URL_SMALL } from "../../../getAPI/config";
+import noPersonImage from "../../../../images/noPersonImage.svg";
 import {
   PersonTile,
   Image,
@@ -11,7 +11,7 @@ import {
   Label,
   AdditionalData,
 } from "./styled";
-import { useResize } from "../../resize";
+import { useResize } from "../../../resize";
 
 const PersonDetailsCard = ({
   profile_path,

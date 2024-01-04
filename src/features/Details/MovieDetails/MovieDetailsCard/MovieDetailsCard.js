@@ -17,11 +17,11 @@ import {
   SmallRating,
   MovieTiLeConstainer,
 } from "./styled";
-import star from "../../../images/starVector.svg";
-import { IMG_URL_SMALL } from "../../config";
-import GenreList from "../../MovieList/Genras/GenresList";
-import noMovieImage from "../../../images/noMovieImage.svg";
-import { useResize } from "../../resize";
+import star from "../../../../images/starVector.svg";
+import { IMG_URL_SMALL } from "../../../getAPI/config";
+import GenreList from "../../../Genras";
+import noMovieImage from "../../../../images/noMovieImage.svg";
+import { useResize } from "../../../resize";
 
 const MovieDetailsCard = ({
   poster_path,
