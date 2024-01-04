@@ -1,8 +1,8 @@
-import { Header } from "../../../common/Header";
-import { PeopleTile } from "../../PeopleList/styled";
-import PeopleCard from "../../PeopleList/PeopleCard/PeopleCard";
+import { Header } from "../../../../common/Header";
+import { PeopleTile } from "../../../PeopleList/styled";
+import PeopleCard from "../../../PeopleList/PeopleCard/PeopleCard";
 import { useSelector } from "react-redux";
-import { selectCrew } from "../../MovieList/movieSlice";
+import { selectCrew } from "../../../Slices/movieSlice";
 import { PeopleForMovieTilesWrapper } from "./styled";
 
 const Crew = () => {

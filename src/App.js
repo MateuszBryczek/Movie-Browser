@@ -4,8 +4,8 @@ import MovieList from "./features/MovieList/MovieList";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import PeopleList from "./features/PeopleList/PeopleList";
 import Navigation from "./common/Navigation";
-import MovieDetails from "./features/MovieDetails/MovieDetails";
-import PersonDetails from "./features/PersonDetails/PersonDetails";
+import MovieDetails from "./features/Details/MovieDetails/MovieDetails";
+import PersonDetails from "./features/Details/PersonDetails/PersonDetails"
 
 export const App = () => {
   return (

@@ -17,11 +17,11 @@ import {
   SmallRating,
   MovieTiLeConstainer,
 } from "./styled";
-import star from "../../../images/starVector.svg";
-import { IMG_URL_SMALL } from "../../config";
-import GenreList from "../../MovieList/Genras/GenresList";
-import noMovieImage from "../../../images/noMovieImage.svg";
-import { useResize } from "../../resize";
+import star from "../../../../images/starVector.svg";
+import { IMG_URL_SMALL } from "../../../getAPI/config";
+import GenreList from "../../../Genras";
+import noMovieImage from "../../../../images/noMovieImage.svg";
+import { useResize } from "../../../resize";
 
 const MovieDetailsCard = ({
   poster_path,
@@ -40,8 +40,14 @@ const MovieDetailsCard = ({
     ?.map(country => country.name)
     .join(", ");
 
-    const releaseDate = new Date(release_date);
-    const year = releaseDate.getFullYear() ? releaseDate.getFullYear() : "-";
+    const date = new Date(release_date);
+    const releaseDate = date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).replace(/\//g, '.');
+  
+    const year = date.getFullYear() ? date.getFullYear() : "-";
 
   return (
     <>
@@ -64,7 +70,7 @@ const MovieDetailsCard = ({
                 <Label>
                   <LabelAdditionalData>Relase date:</LabelAdditionalData>
                   <AdditionalData>
-                    {release_date ? release_date : "-"}
+                    {release_date ? releaseDate : "-"}
                   </AdditionalData>
                 </Label>
               </Section>
@@ -74,7 +80,7 @@ const MovieDetailsCard = ({
               {vote_count ? (
                 <RatingsWrapper>
                   <StarImg src={star} />
-                  <Rating>{vote_average?.toFixed(1)}</Rating>
+                  <Rating>{vote_average?.toFixed(1).replace(".", ",")}</Rating>
                   <SmallRating>/10</SmallRating>
                   <Votes>{vote_count} votes</Votes>
                 </RatingsWrapper>

@@ -1,8 +1,8 @@
-import { Header } from "../../../common/Header";
+import { Header } from "../../../../common/Header";
 import { useSelector } from "react-redux";
-import MovieCard from "../../MovieList/MovieCard/MovieCard";
-import { MovieTile } from "../../MovieList/styled";
-import { selectCast } from "../../PeopleList/peopleSlice";
+import MovieCard from "../../../MovieList/MovieCard/MovieCard";
+import { MovieTile } from "../../../MovieList/styled";
+import { selectCast } from "../../../Slices/peopleSlice";
 import { MoviesForPeopleTilesWrapper } from "./styled";
 
 const Cast = () => {

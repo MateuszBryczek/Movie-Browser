@@ -1,5 +1,5 @@
 import { takeLatest, call, put, select, delay } from "@redux-saga/core/effects";
-import { getPeople, getSearchedPeople, getPersonDetails, getMoviesForPerson } from "./getPeople";
+import { getPeople, getSearchedPeople, getPersonDetails, getMoviesForPerson } from "../getAPI/getPeople";
 import {
   fetchPeople,
   fetchPeopleError,
@@ -11,7 +11,7 @@ import {
   fetchPersonDetailsError,
   selectPersonId,
   fetchMoviesForPerson,
-} from "./peopleSlice";
+} from "../Slices/peopleSlice";
 
 function* fetchPeopleHandler() {
   const searchValue = yield select(selectSearchPeopleValue);

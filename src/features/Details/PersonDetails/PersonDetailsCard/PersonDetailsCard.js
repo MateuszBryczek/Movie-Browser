@@ -1,5 +1,5 @@
-import { IMG_URL_SMALL } from "../../config";
-import noPersonImage from "../../../images/noPersonImage.svg";
+import { IMG_URL_SMALL } from "../../../getAPI/config";
+import noPersonImage from "../../../../images/noPersonImage.svg";
 import {
   PersonTile,
   Image,
@@ -11,7 +11,7 @@ import {
   Label,
   AdditionalData,
 } from "./styled";
-import { useResize } from "../../resize";
+import { useResize } from "../../../resize";
 
 const PersonDetailsCard = ({
   profile_path,
@@ -21,6 +21,14 @@ const PersonDetailsCard = ({
   biography,
 }) => {
   const resize = useResize();
+
+  const date = new Date(birthday);
+  const birthdayDate = date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).replace(/\//g, '.');
+
   return (
     <>
       {resize() ? (
@@ -33,7 +41,7 @@ const PersonDetailsCard = ({
               <Name>{name}</Name>
               <InfoSecion>
                 <Label>Date of birth:</Label>
-                <AdditionalData>{birthday ? birthday : "-"}</AdditionalData>
+                <AdditionalData>{birthday ? birthdayDate : "-"}</AdditionalData>
               </InfoSecion>
               <InfoSecion>
                 <Label>Place of birth:</Label>

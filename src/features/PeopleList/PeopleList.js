@@ -7,7 +7,7 @@ import {
   selectSearchPeopleValue,
   selectPeopleIsLoading,
   selectPeoplePage,
-} from "./peopleSlice";
+} from "../Slices/peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper, PeopleHeader } from "./styled";
 import IconSpiner from "../../common/IconSpinner";

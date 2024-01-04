@@ -1,4 +1,4 @@
-import config from "../config";
+import config from "./config";
 
 export const getPeople = async (peoplePage) => {
   const { data } = await config.get(`person/popular?page=${peoplePage}`);
