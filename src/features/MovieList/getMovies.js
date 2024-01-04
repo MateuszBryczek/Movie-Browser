@@ -1,7 +1,13 @@
 import config from "../config";
+import { buildQueryString } from "../../common/buildQueryString";
+
+const popularMoviePath = `movie/popular?`
+//użyć buildQueryString({page:${pageskadpowinnabyc}}) 
+//wywalić page=ze sklejanki
+
 
 export const getMovies = async moviePage => {
-  const { data } = await config.get(`movie/popular?page=${moviePage}`);
+  const { data } = await config.get(`${popularMoviePath}page=${moviePage}`);
   if (!data.ok) {
     new Error(data.statusText);
   }
