@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Arrow } from "../../images/leftVector.svg";
-import {ReactComponent as RightVector} from "../../images/rightVector.svg";
+import { ReactComponent as RightVector } from "../../images/rightVector.svg";
 import css from "styled-components";
 
 export const StyledPagination = styled.div`
@@ -95,12 +95,13 @@ export const Text = styled.p`
 export const Arrows = styled.span`
   display: flex;
   margin: 0 2px;
+  align-items: center;
 `;
 
 export const StyledVector = styled(Arrow)`
   margin-right: 8px;
   color: ${({ theme }) => theme.colors.pager.rightVector};
-  width: auto;  
+  width: auto;
 
   *:disabled & {
     color: ${({ theme }) => theme.colors.pager.inactiveText};
@@ -110,15 +111,15 @@ export const StyledVector = styled(Arrow)`
   }
 `;
 
-export const StyledRightVector=styled(RightVector)`
-margin-left: 8px;
-color: ${({ theme }) => theme.colors.pager.rightVector};
-width: auto;  
+export const StyledRightVector = styled(RightVector)`
+  margin-left: 8px;
+  color: ${({ theme }) => theme.colors.pager.rightVector};
+  width: auto;
 
-*:disabled & {
-  color: ${({ theme }) => theme.colors.pager.inactiveText};
-}
-@media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
-  margin: 0;
-}
+  *:disabled & {
+    color: ${({ theme }) => theme.colors.pager.inactiveText};
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    margin: 0;
+  }
 `;
