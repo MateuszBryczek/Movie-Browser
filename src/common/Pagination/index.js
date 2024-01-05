@@ -10,6 +10,7 @@ import {
   Text,
   StyledVector,
   Arrows,
+  StyledRightVector
 } from "./styled";
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
@@ -55,7 +56,7 @@ const Pagination = () => {
           >
             <Arrows>
               <StyledVector />
-              <StyledVector src={leftVector} alt="" />
+              <StyledVector />
               {resize() ? "First" : <StyledVector src={leftVector} alt="" />}
             </Arrows>
           </Button>
@@ -79,14 +80,17 @@ const Pagination = () => {
             onClick={() => dispatch(nextMoviePage())}
           >
             {resize() ? "Next" : ""}
-            <RightVector src={rightVector} alt="" />
+            <Arrows>
+              {" "}
+              <StyledRightVector />{" "}
+            </Arrows>
           </Button>
           <Button
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(goToLastMoviePage())}
           >
-            {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
-            <RightVector src={rightVector} alt="" />
+            {resize() ? "Last" : <StyledRightVector />}
+            <StyledRightVector />
           </Button>
         </>
       ) : (
@@ -95,14 +99,16 @@ const Pagination = () => {
             disabled={peoplePage === 1}
             onClick={() => dispatch(goToFirstPeoplePage())}
           >
-            <LeftVector src={leftVector} alt="" />
-            {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
+            <Arrows>
+              <LeftVector src={leftVector} alt="" />
+              {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
+            </Arrows>
           </Button>
           <Button
             disabled={peoplePage === 1}
             onClick={() => dispatch(previousPeoplePage())}
           >
-            <LeftVector src={leftVector} alt="" />
+            <StyledVector />
             {resize() ? "Previous" : ""}
           </Button>
           <Text>
@@ -116,14 +122,14 @@ const Pagination = () => {
             onClick={() => dispatch(nextPeoplePage())}
           >
             {resize() ? "Next" : ""}
-            <RightVector src={rightVector} alt="" />
+            <StyledVector right />
           </Button>
           <Button
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(goToLastPeoplePage())}
           >
-            {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
-            <RightVector src={rightVector} alt="" />
+            {resize() ? "Last" : <StyledVector right />}
+            <StyledVector right />
           </Button>
         </>
       )}
