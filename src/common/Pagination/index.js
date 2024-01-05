@@ -8,6 +8,8 @@ import {
   SpanPrimary,
   SpanSecondary,
   Text,
+  StyledVector,
+  Arrows,
 } from "./styled";
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
@@ -32,8 +34,8 @@ import { useResize } from "../../features/resize";
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const location= useLocation();
-  const resize = useResize()
+  const location = useLocation();
+  const resize = useResize();
 
   const moviePage = useSelector(selectMoviePage);
   const peoplePage = useSelector(selectPeoplePage);
@@ -45,21 +47,26 @@ const Pagination = () => {
 
   return (
     <StyledPagination>
-      {location.pathname==="/movielist" ? (
+      {location.pathname === "/movielist" ? (
         <>
           <Button
             disabled={moviePage === 1}
             onClick={() => dispatch(goToFirstMoviePage())}
           >
-            <LeftVector src={leftVector} alt="" />
-            {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
+            <Arrows>
+              <StyledVector />
+              <StyledVector src={leftVector} alt="" />
+              {resize() ? "First" : <StyledVector src={leftVector} alt="" />}
+            </Arrows>
           </Button>
           <Button
             disabled={moviePage === 1}
             onClick={() => dispatch(previousMoviePage())}
           >
-            <LeftVector src={leftVector} alt="" />
-            {resize() ? "Previous" : ""}
+            <Arrows>
+              <StyledVector />
+              {resize() ? "Previous" : ""}
+            </Arrows>
           </Button>
           <Text>
             <SpanSecondary> Page </SpanSecondary>
