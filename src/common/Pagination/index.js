@@ -10,7 +10,7 @@ import {
   Text,
   StyledVector,
   Arrows,
-  StyledRightVector
+  StyledRightVector,
 } from "./styled";
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
@@ -57,7 +57,7 @@ const Pagination = () => {
             <Arrows>
               <StyledVector />
               <StyledVector />
-              {resize() ? "First" : <StyledVector/>}
+              {resize() ? "First" : " "}
             </Arrows>
           </Button>
           <Button
@@ -80,19 +80,17 @@ const Pagination = () => {
             onClick={() => dispatch(nextMoviePage())}
           >
             <Arrows>
-            {resize() ? "Next" : ""}            
-            {" "}
-              <StyledRightVector/>
-              <StyledRightVector/>
-                        </Arrows>
+              {resize() ? "Next" : ""} <StyledRightVector />
+              <StyledRightVector />
+            </Arrows>
           </Button>
           <Button
             disabled={moviePage === displayTotalMoviePages}
             onClick={() => dispatch(goToLastMoviePage())}
           >
             <Arrows>
-            {resize() ? "Last" : <StyledRightVector />}
-            <StyledRightVector />            
+              {resize() ? "Last" : <StyledRightVector />}
+              <StyledRightVector />
             </Arrows>
           </Button>
         </>
@@ -125,15 +123,15 @@ const Pagination = () => {
             onClick={() => dispatch(nextPeoplePage())}
           >
             {resize() ? "Next" : ""}
-            <StyledRightVector/>
+            <StyledRightVector />
           </Button>
           <Button
             disabled={peoplePage === displayTotalPeoplePages}
             onClick={() => dispatch(goToLastPeoplePage())}
           >
             <Arrows>
-            <StyledRightVector />
-            {resize() ? "Last" : <StyledRightVector />}            
+              <StyledRightVector />
+              {resize() ? "Last" : <StyledRightVector />}
             </Arrows>
           </Button>
         </>
