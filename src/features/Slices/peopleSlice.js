@@ -32,6 +32,7 @@ const peopleSlice = createSlice({
       state.isLoading = true;
       state.searchPeopleValue = searchPeopleValue;
       state.peoplePage = 1;
+      state.error = false;
     },
     nextPeoplePage: (state) => {
       state.peoplePage = state.peoplePage + 1;
