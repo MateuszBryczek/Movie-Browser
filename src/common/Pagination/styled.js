@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { ReactComponent as Arrow } from "../../images/leftVector.svg";
+// import {ReactComponent as RightVector} from "../../images/rightVector.svg";
+import css from "styled-components";
 
 export const StyledPagination = styled.div`
   text-align: center;
@@ -87,4 +90,28 @@ export const Text = styled.p`
     margin-left: 0;
     margin-right: 0;
   }
+`;
+
+export const Arrows= styled.span `
+display:flex;
+margin:0 2px;`
+
+
+export const StyledVector = styled(Arrow)`
+  margin-right: 8px;
+  color: ${({ theme }) => theme.colors.pager.rightVector};
+  width: auto;
+
+  ${({ left }) => left && css`
+      transform: rotate(180deg);
+    `}
+
+  *:disabled & {
+    color: ${({ theme }) => theme.colors.pager.inactiveText};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDevices}px) {
+    margin: 0;
+  }
+
 `;
