@@ -111,7 +111,7 @@ export const StyledVector = styled(Arrow)`
 `;
 
 export const StyledRightVector=styled(RightVector)`
-margin-right: 8px;
+margin-left: 8px;
 color: ${({ theme }) => theme.colors.pager.rightVector};
 width: auto;  
 
