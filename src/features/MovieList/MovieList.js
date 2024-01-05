@@ -6,7 +6,7 @@ import {
   selectMoviesIsLoading,
   selectMovies,
   selectSearchMoviesValue,
-  selectMoviePage,  
+  selectMoviePage,
 } from "../Slices/movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import { MovieHeader, MovieTile, MovieContainer } from "./styled";
@@ -17,6 +17,7 @@ import { useQueryParameter } from "../queryParameter";
 import searchQueryParamName from "../searchQueryParamName";
 import NoResults from "../../common/noResults";
 import ErrorPage from "../../common/ErrorPage";
+import { buildQueryString } from "../../common/buildQueryString";
 
 const MovieList = () => {
   const isLoading = useSelector(selectMoviesIsLoading);
@@ -28,6 +29,11 @@ const MovieList = () => {
   const moviePage = useSelector(selectMoviePage);
 
   const dispatch = useDispatch();
+
+  //tu powinnam sdispachowac bulquery, i wsadzic do useeffect,zeby sie odswiezalo
+  //za kazdym razem jak cos sie zmieni
+
+  // buildQueryString({page:moviePage});
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -53,7 +59,7 @@ const MovieList = () => {
                 : "Popular movies"}
             </MovieHeader>
             <TilesWrapper>
-              {movies.results?.map(movie => (
+              {movies.results?.map((movie) => (
                 <MovieTile key={movie.id}>
                   <MovieCard {...movie} />
                 </MovieTile>
