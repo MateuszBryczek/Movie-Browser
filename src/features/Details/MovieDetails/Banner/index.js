@@ -26,7 +26,7 @@ const Banner = ({ backdrop_path, title, vote_average, vote_count }) => {
               <RatingsWrapper>
                 <StarImg src={star} alt="" />
                 <Rating>{vote_average?.toFixed(1).replace(".", ",")}</Rating>
-                <SmallRating>/10</SmallRating>
+                <SmallRating>/ 10</SmallRating>
               </RatingsWrapper>
               <Votes>{vote_count} votes</Votes>
             </RatingSection>
