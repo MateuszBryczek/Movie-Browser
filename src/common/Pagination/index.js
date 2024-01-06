@@ -29,6 +29,7 @@ import {
   selectTotalPeoplePages,
 } from "../../features/Slices/peopleSlice";
 import { useResize } from "../../features/resize";
+import {useFetchDataOnLocationSearchChange} from "../Pagination/useFetchDataOnQueryChange";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,10 @@ const Pagination = () => {
   const totalPeoplePages = useSelector(selectTotalPeoplePages);
   const displayTotalPeoplePages =
     totalPeoplePages > 500 ? 500 : totalPeoplePages;
+
+
+
+
 
   return (
     <StyledPagination>
