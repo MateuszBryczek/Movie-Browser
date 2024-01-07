@@ -13,14 +13,15 @@ import { MovieHeader, MovieTile, MovieContainer } from "./styled";
 import { TilesWrapper } from "./styled";
 import Pagination from "../../common/Pagination";
 import IconSpiner from "../../common/IconSpinner";
-import { useQueryParameter } from "../queryParameter";
-import searchQueryParamName from "../searchQueryParamName";
+import { useQueryParameter, useReplaceQueryParameter } from "../queryParameter";
+import {searchQueryParamName, pageQueryParamName } from "../queryParamName";
 import NoResults from "../../common/noResults";
 import ErrorPage from "../../common/ErrorPage";
 
 const MovieList = () => {
   const isLoading = useSelector(selectMoviesIsLoading);
   const query = useQueryParameter(searchQueryParamName);
+  const replaceQueryParameter = useReplaceQueryParameter()
 
   const searchValue = useSelector(selectSearchMoviesValue);
   const movies = useSelector(selectMovies);
@@ -31,6 +32,7 @@ const MovieList = () => {
 
   useEffect(() => {
     dispatch(fetchMovies());
+    replaceQueryParameter({key: pageQueryParamName, value: moviePage})
   }, [dispatch, searchValue, moviePage]);
 
   return (

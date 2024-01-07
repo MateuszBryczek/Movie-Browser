@@ -14,10 +14,10 @@ export const useReplaceQueryParameter = () => {
   const replaceQueryParameter = ({ key, value }) => {
     const searchParams = new URLSearchParams(location.search);
 
-    if (value.value.trim() === "") {
+    if (value?.toString().trim() === "") {
       searchParams.delete(key);
     } else {
-      searchParams.set(key, value.value);
+      searchParams.set(key, value);
     }
 
     history.push(`${location.pathname}?${searchParams.toString()}`);

@@ -12,9 +12,9 @@ import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper, PeopleHeader } from "./styled";
 import IconSpiner from "../../common/IconSpinner";
 import Pagination from "../../common/Pagination";
-import {Container} from "../../common/Container";
+import { Container } from "../../common/Container";
 import { useQueryParameter } from "../queryParameter";
-import searchQueryParamName from "../searchQueryParamName";
+import { searchQueryParamName } from "../queryParamName";
 import NoResults from "../../common/noResults";
 import ErrorPage from "../../common/ErrorPage";
 
@@ -51,7 +51,7 @@ const PeopleList = () => {
                 : "Popular people"}
             </PeopleHeader>
             <TilesWrapper>
-              {people.results?.map((person) => (
+              {people.results?.map(person => (
                 <PeopleTile key={person.id}>
                   <PeopleCard {...person} />
                 </PeopleTile>
