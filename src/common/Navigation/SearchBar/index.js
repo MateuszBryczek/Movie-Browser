@@ -22,7 +22,7 @@ const SearchBar = () => {
   const history = useHistory();
 
   useEffect(() => {
-    location.pathname === "/peoplelist"
+    location.pathname === "/people"
       ? dispatch(changeSearchPeopleValue(query))
       : dispatch(changeSearchMoviesValue(query));
   }, [dispatch, location, query]);
@@ -30,12 +30,12 @@ const SearchBar = () => {
   const oninputChange = ({ target }) => {
     replaceQueryParameter({ key: searchQueryParamName, value: target });
     if (
-      location.pathname !== "/peoplelist" &&
-      location.pathname !== "/movieList"
+      location.pathname !== "/people" &&
+      location.pathname !== "/movie"
     ) {
-      location.pathname.slice(0, 14) === "/personDetails"
-        ? history.push(`/peoplelist?query=${target.value}`)
-        : history.push(`/movieList?query=${target.value}`);
+      location.pathname.slice(0, 14) === "/people/details"
+        ? history.push(`/people?query=${target.value}`)
+        : history.push(`/movie?query=${target.value}`);
     }
   };
 
@@ -44,8 +44,8 @@ const SearchBar = () => {
       <SearchImg src={search} alt="" />
       <Search
         placeholder={
-          location.pathname === "/peoplelist" ||
-          location.pathname.slice(0, 14) === "/personDetails"
+          location.pathname === "/people" ||
+          location.pathname.slice(0, 14) === "/people/details"
             ? "Search for people..."
             : "Search for movies..."
         }

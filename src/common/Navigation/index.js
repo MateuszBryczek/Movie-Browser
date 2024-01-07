@@ -14,16 +14,16 @@ import SearchBar from "./SearchBar";
 const Navigation = () => (
   <Wrapper>
     <TitleWrapper>
-      <StyledLogo to="/movielist">
+      <StyledLogo to="/movie">
         <Logo src={logo} alt="Movies Browser" />
         <LogoName>Movie Browser</LogoName>
       </StyledLogo>
       <NavList>
         <StyledListItem>
-          <StyledNavLink to="/movielist">MOVIES</StyledNavLink>
+          <StyledNavLink to="/movie">MOVIES</StyledNavLink>
         </StyledListItem>
         <StyledListItem>
-          <StyledNavLink to="/peoplelist">PEOPLE</StyledNavLink>
+          <StyledNavLink to="/people">PEOPLE</StyledNavLink>
         </StyledListItem>
       </NavList>
     </TitleWrapper>
