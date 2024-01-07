@@ -66,14 +66,15 @@ export const Text = styled.p`
 
 export const Arrows = styled.span`
   display: flex;
-  margin: 0 2px;
   align-items: center;
+  
 `;
 
 export const StyledVector = styled(Arrow)`
   margin-right: 8px;
   color: ${({ theme }) => theme.colors.pager.rightVector};
   width: auto;
+  padding-top:1px; 
 
   *:disabled & {
     color: ${({ theme }) => theme.colors.pager.inactiveText};
@@ -87,6 +88,7 @@ export const StyledRightVector = styled(RightVector)`
   margin-left: 8px;
   color: ${({ theme }) => theme.colors.pager.rightVector};
   width: auto;
+  padding-top:1px;
 
   *:disabled & {
     color: ${({ theme }) => theme.colors.pager.inactiveText};
