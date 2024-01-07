@@ -7,6 +7,8 @@ import {
   selectPersonDetails,
   updatePersonId,
   fetchMoviesForPerson,
+  selectCast,
+  selectCrew,
 } from "../../Slices/peopleSlice";
 import { useEffect } from "react";
 import PersonDetailsCard from "./PersonDetailsCard/PersonDetailsCard";
@@ -22,7 +24,10 @@ const PersonDetails = () => {
 
   const isLoading = useSelector(selectPeopleIsLoading);
   const error = useSelector(selectPeopleError);
+
   const selectedPerson = useSelector(selectPersonDetails);
+  const cast = useSelector(selectCast);
+  const crew = useSelector(selectCrew);
 
     useEffect(() => {
       dispatch(updatePersonId(id));
@@ -47,9 +52,13 @@ const PersonDetails = () => {
           place_of_birth={selectedPerson.place_of_birth}
           biography={selectedPerson.biography}
         />
-        <Cast />
-        <Crew />
-        </>
+          {cast && cast.length > 0 && (
+            <Cast />
+          )}
+          {crew && crew.length > 0 && (
+            <Crew />
+          )}
+      </>
       )}
     </Container>
   );

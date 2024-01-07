@@ -7,6 +7,8 @@ import {
   selectMovieDetails,
   updateMovieId,
   selectMoviesError,
+  selectCast,
+  selectCrew,
 } from "../../Slices/movieSlice";
 import { useEffect } from "react";
 import MovieDetailsCard from "./MovieDetailsCard/MovieDetailsCard";
@@ -25,6 +27,8 @@ const MovieDetails = () => {
   const isLoading = useSelector(selectMoviesIsLoading);
 
   const selectedMovie = useSelector(selectMovieDetails);
+  const cast = useSelector(selectCast);
+  const crew = useSelector(selectCrew);
 
   useEffect(() => {
     dispatch(updateMovieId(id));
@@ -63,8 +67,12 @@ const MovieDetails = () => {
               vote_count={selectedMovie.vote_count}
               overview={selectedMovie.overview}
             />
-            <Cast />
-            <Crew />
+            {cast && cast.length > 0 && (
+              <Cast />
+            )}
+            {crew && crew.length > 0 && (
+              <Crew />
+            )}
           </Container>
         </>
       )}
