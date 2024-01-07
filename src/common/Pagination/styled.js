@@ -64,17 +64,17 @@ export const Text = styled.p`
   }
 `;
 
-export const Arrows = styled.span`
+export const Arrows = styled.div`
   display: flex;
   align-items: center;
-  
+
 `;
 
 export const StyledVector = styled(Arrow)`
   margin-right: 8px;
   color: ${({ theme }) => theme.colors.pager.rightVector};
   width: auto;
-  padding-top:1px; 
+  /* padding-top:1px;  */
 
   *:disabled & {
     color: ${({ theme }) => theme.colors.pager.inactiveText};
@@ -88,7 +88,7 @@ export const StyledRightVector = styled(RightVector)`
   margin-left: 8px;
   color: ${({ theme }) => theme.colors.pager.rightVector};
   width: auto;
-  padding-top:1px;
+  /* padding-top:1px; */
 
   *:disabled & {
     color: ${({ theme }) => theme.colors.pager.inactiveText};
