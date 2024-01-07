@@ -10,6 +10,9 @@ It enables browsing movies, checking people related to movies and movies realted
 ![image](https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/bbb5a074-baed-41ee-bd5d-752c0f49736a)
 
 
+https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/832a5fa9-4fa6-4b14-9dcc-b6326d0b4148
+
+
 ## Authors
 
 - [Paweł Brejnak](https://github.com/mombil)
