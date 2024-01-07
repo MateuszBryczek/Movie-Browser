@@ -3,14 +3,13 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import {
   StyledPagination,
   Button,
-  LeftVector,
-  RightVector,
   SpanPrimary,
   SpanSecondary,
   Text,
+  StyledVector,
+  Arrows,
+  StyledRightVector,
 } from "./styled";
-import rightVector from "./../../images/rightVector.svg";
-import leftVector from "./../../images/leftVector.svg";
 import { selectTotalPages } from "../../features/Slices/movieSlice";
 
 import { selectTotalPeoplePages } from "../../features/Slices/peopleSlice";
@@ -61,12 +60,16 @@ const Pagination = () => {
     <StyledPagination>
       <>
         <Button disabled={page === "1"} onClick={() => firstPage()}>
-          <LeftVector src={leftVector} alt="" />
-          {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
+          <Arrows>
+            <StyledVector />
+            {resize() ? "First" : <StyledVector />}
+          </Arrows>
         </Button>
         <Button disabled={page === "1"} onClick={() => previousPage()}>
-          <LeftVector src={leftVector} alt="" />
-          {resize() ? "Previous" : ""}
+          <Arrows>
+            <StyledVector />
+            {resize() ? "Previous" : ""}
+          </Arrows>
         </Button>
         <Text>
           <SpanSecondary> Page </SpanSecondary>
@@ -78,15 +81,19 @@ const Pagination = () => {
           disabled={+page === checkLocationPathname()}
           onClick={() => nextPage()}
         >
-          {resize() ? "Next" : ""}
-          <RightVector src={rightVector} alt="" />
+          <Arrows>
+            {resize() ? "Next" : ""}
+            <StyledRightVector />
+          </Arrows>
         </Button>
         <Button
           disabled={+page === checkLocationPathname()}
           onClick={() => lastPage(checkLocationPathname())}
         >
-          {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
-          <RightVector src={rightVector} alt="" />
+          <Arrows>
+            {resize() ? "Last" : <StyledRightVector />}
+            <StyledRightVector />
+          </Arrows>
         </Button>
       </>
     </StyledPagination>
