@@ -15,16 +15,16 @@ export const App = () => {
         <HashRouter>
           <Navigation/>
           <Switch>
-            <Route path="/personDetails/:id" component={PersonDetails} />
-            <Route path="/peoplelist">
+            <Route path="/people/details/:id" component={PersonDetails} />
+            <Route path="/people">
               <PeopleList />
             </Route>
-            <Route path="/movieDetails/:id" component={MovieDetails} />
-            <Route path="/movielist">
+            <Route path="/movie/details/:id" component={MovieDetails} />
+            <Route path="/movie">
               <MovieList />
             </Route>
             <Route path="/">
-              <Redirect to="/movielist" />
+              <Redirect to="/movie" />
               <MovieList />
             </Route>
           </Switch>

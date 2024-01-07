@@ -12,7 +12,7 @@ import { changeSearchPeopleValue } from "../../../features/Slices/peopleSlice";
 import { changeSearchMoviesValue } from "../../../features/Slices/movieSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import searchQueryParamName from "../../../features/searchQueryParamName";
+import { searchQueryParamName } from "../../../features/queryParamName";
 
 const SearchBar = () => {
   const replaceQueryParameter = useReplaceQueryParameter();
@@ -22,20 +22,17 @@ const SearchBar = () => {
   const history = useHistory();
 
   useEffect(() => {
-    location.pathname === "/peoplelist"
+    location.pathname === "/people"
       ? dispatch(changeSearchPeopleValue(query))
       : dispatch(changeSearchMoviesValue(query));
-  }, [dispatch, location, query]);
+  }, [dispatch, location.pathname, query]);
 
-  const oninputChange = ({ target }) => {
-    replaceQueryParameter({ key: searchQueryParamName, value: target });
-    if (
-      location.pathname !== "/peoplelist" &&
-      location.pathname !== "/movieList"
-    ) {
-      location.pathname.slice(0, 14) === "/personDetails"
-        ? history.push(`/peoplelist?query=${target.value}`)
-        : history.push(`/movieList?query=${target.value}`);
+  const onInputChange = ({ target }) => {
+    replaceQueryParameter({ key: searchQueryParamName, value: target.value });
+    if (location.pathname !== "/people" && location.pathname !== "/movie") {
+      location.pathname.slice(0, 15) === "/people/details"
+        ? history.push(`/people?query=${target.value}`)
+        : history.push(`/movie?query=${target.value}`);
     }
   };
 
@@ -44,13 +41,13 @@ const SearchBar = () => {
       <SearchImg src={search} alt="" />
       <Search
         placeholder={
-          location.pathname === "/peoplelist" ||
-          location.pathname.slice(0, 14) === "/personDetails"
+          location.pathname === "/people" ||
+          location.pathname.slice(0, 15) === "/people/details"
             ? "Search for people..."
             : "Search for movies..."
         }
         value={query || ""}
-        onChange={oninputChange}
+        onChange={onInputChange}
       />
     </SearchWrapper>
   );

@@ -12,7 +12,7 @@ import noPersonImage from "../../../images/noPersonImage.svg";
 const PeopleCard = ({ id, profile_path, name, personRole }) => {
   return (
     <>
-      <PersonDetailsLink to={`/personDetails/${id}`}>
+      <PersonDetailsLink to={`/people/details/${id}`}>
         <InsideWrapper>
           <Image
             src={profile_path ? IMG_URL_SMALL + profile_path : noPersonImage}
