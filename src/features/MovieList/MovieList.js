@@ -6,7 +6,6 @@ import {
   selectMoviesIsLoading,
   selectMovies,
   selectSearchMoviesValue,
-  selectMoviePage,
   updateMoviePage,
   selectTotalPages,
 } from "../Slices/movieSlice";
@@ -29,19 +28,20 @@ const MovieList = () => {
   const searchValue = useSelector(selectSearchMoviesValue);
   const movies = useSelector(selectMovies);
   const error = useSelector(selectMoviesError);
-  const moviePage = useSelector(selectMoviePage);
-  const totalPages = useSelector(selectTotalPages)
+  const totalPages = useSelector(selectTotalPages);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(updateMoviePage(page))
+    dispatch(updateMoviePage(page));
 
-    replaceQueryParameter({ key: pageQueryParamName, value: page > totalPages || page < 1  ? 1 : page });
+    replaceQueryParameter({
+      key: pageQueryParamName,
+      value: page > totalPages || page < 1 ? 1 : page,
+    });
 
     dispatch(fetchMovies());
   }, [dispatch, page, searchValue, totalPages]);
-
 
   return (
     <>

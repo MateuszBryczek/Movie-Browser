@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import {
   StyledPagination,
@@ -11,23 +11,9 @@ import {
 } from "./styled";
 import rightVector from "./../../images/rightVector.svg";
 import leftVector from "./../../images/leftVector.svg";
-import {
-  nextMoviePage,
-  previousMoviePage,
-  goToFirstMoviePage,
-  goToLastMoviePage,
-  selectMoviePage,
-  selectTotalPages,
-} from "../../features/Slices/movieSlice";
+import { selectTotalPages } from "../../features/Slices/movieSlice";
 
-import {
-  nextPeoplePage,
-  previousPeoplePage,
-  goToFirstPeoplePage,
-  goToLastPeoplePage,
-  selectPeoplePage,
-  selectTotalPeoplePages,
-} from "../../features/Slices/peopleSlice";
+import { selectTotalPeoplePages } from "../../features/Slices/peopleSlice";
 import { useResize } from "../../features/resize";
 import {
   useQueryParameter,
@@ -36,13 +22,10 @@ import {
 import { pageQueryParamName } from "../../features/queryParamName";
 
 const Pagination = () => {
-  const dispatch = useDispatch();
   const location = useLocation();
   const resize = useResize();
   const replaceQueryParameter = useReplaceQueryParameter();
 
-  const moviePage = useSelector(selectMoviePage);
-  const peoplePage = useSelector(selectPeoplePage);
   const totalMoviePages = useSelector(selectTotalPages);
   const displayTotalMoviePages = totalMoviePages > 500 ? 500 : totalMoviePages;
   const totalPeoplePages = useSelector(selectTotalPeoplePages);
@@ -100,54 +83,12 @@ const Pagination = () => {
         </Button>
         <Button
           disabled={+page === checkLocationPathname()}
-          onClick={() =>
-            lastPage(
-              checkLocationPathname()
-            )
-          }
+          onClick={() => lastPage(checkLocationPathname())}
         >
           {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
           <RightVector src={rightVector} alt="" />
         </Button>
       </>
-      {/*
-      <>
-        <Button
-          disabled={peoplePage === 1}
-          onClick={() => dispatch(goToFirstPeoplePage())}
-        >
-          <LeftVector src={leftVector} alt="" />
-          {resize() ? "First" : <LeftVector src={leftVector} alt="" />}
-        </Button>
-        <Button
-          disabled={peoplePage === 1}
-          onClick={() => dispatch(previousPeoplePage())}
-        >
-          <LeftVector src={leftVector} alt="" />
-          {resize() ? "Previous" : ""}
-        </Button>
-        <Text>
-          <SpanSecondary> Page </SpanSecondary>
-          <SpanPrimary> {peoplePage} </SpanPrimary>
-          <SpanSecondary> of </SpanSecondary>
-          <SpanPrimary> {displayTotalPeoplePages}</SpanPrimary>
-        </Text>
-        <Button
-          disabled={peoplePage === displayTotalPeoplePages}
-          onClick={() => dispatch(nextPeoplePage())}
-        >
-          {resize() ? "Next" : ""}
-          <RightVector src={rightVector} alt="" />
-        </Button>
-        <Button
-          disabled={peoplePage === displayTotalPeoplePages}
-          onClick={() => dispatch(goToLastPeoplePage())}
-        >
-          {resize() ? "Last" : <RightVector src={rightVector} alt="" />}
-          <RightVector src={rightVector} alt="" />
-        </Button>
-      </>
-      */}
     </StyledPagination>
   );
 };

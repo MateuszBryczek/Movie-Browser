@@ -6,7 +6,6 @@ import {
   selectPeople,
   selectSearchPeopleValue,
   selectPeopleIsLoading,
-  selectPeoplePage,
   updatePeoplePage,
   selectTotalPeoplePages,
 } from "../Slices/peopleSlice";
@@ -26,7 +25,6 @@ const PeopleList = () => {
   const query = useQueryParameter(searchQueryParamName);
   const people = useSelector(selectPeople);
   const error = useSelector(selectPeopleError);
-  const peoplePage = useSelector(selectPeoplePage);
   const dispatch = useDispatch();
   const replaceQueryParameter = useReplaceQueryParameter();
 
