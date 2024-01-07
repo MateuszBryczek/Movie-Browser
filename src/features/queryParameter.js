@@ -2,6 +2,7 @@ import {
   useHistory,
   useLocation,
 } from "react-router-dom/cjs/react-router-dom.min";
+import { pageQueryParamName, searchQueryParamName } from "./queryParamName";
 
 export const useQueryParameter = key => {
   const location = useLocation();
@@ -18,6 +19,9 @@ export const useReplaceQueryParameter = () => {
       searchParams.delete(key);
     } else {
       searchParams.set(key, value);
+      if (key === searchQueryParamName) {
+        searchParams.set(pageQueryParamName, 1);
+      }
     }
 
     history.push(`${location.pathname}?${searchParams.toString()}`);

@@ -6,7 +6,9 @@ import {
   selectMoviesIsLoading,
   selectMovies,
   selectSearchMoviesValue,
-  selectMoviePage,  
+  selectMoviePage,
+  updateMoviePage,
+  selectTotalPages,
 } from "../Slices/movieSlice";
 import MovieCard from "./MovieCard/MovieCard";
 import { MovieHeader, MovieTile, MovieContainer } from "./styled";
@@ -14,26 +16,32 @@ import { TilesWrapper } from "./styled";
 import Pagination from "../../common/Pagination";
 import IconSpiner from "../../common/IconSpinner";
 import { useQueryParameter, useReplaceQueryParameter } from "../queryParameter";
-import {searchQueryParamName, pageQueryParamName } from "../queryParamName";
+import { searchQueryParamName, pageQueryParamName } from "../queryParamName";
 import NoResults from "../../common/noResults";
 import ErrorPage from "../../common/ErrorPage";
 
 const MovieList = () => {
   const isLoading = useSelector(selectMoviesIsLoading);
+  const page = useQueryParameter(pageQueryParamName);
   const query = useQueryParameter(searchQueryParamName);
-  const replaceQueryParameter = useReplaceQueryParameter()
+  const replaceQueryParameter = useReplaceQueryParameter();
 
   const searchValue = useSelector(selectSearchMoviesValue);
   const movies = useSelector(selectMovies);
   const error = useSelector(selectMoviesError);
   const moviePage = useSelector(selectMoviePage);
+  const totalPages = useSelector(selectTotalPages)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(updateMoviePage(page))
+
+    replaceQueryParameter({ key: pageQueryParamName, value: page > totalPages || page < 1  ? 1 : page });
+
     dispatch(fetchMovies());
-    replaceQueryParameter({key: pageQueryParamName, value: moviePage})
-  }, [dispatch, searchValue, moviePage]);
+  }, [dispatch, page, searchValue, totalPages]);
+
 
   return (
     <>

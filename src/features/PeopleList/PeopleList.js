@@ -7,14 +7,16 @@ import {
   selectSearchPeopleValue,
   selectPeopleIsLoading,
   selectPeoplePage,
+  updatePeoplePage,
+  selectTotalPeoplePages,
 } from "../Slices/peopleSlice";
 import PeopleCard from "./PeopleCard/PeopleCard";
 import { PeopleTile, TilesWrapper, PeopleHeader } from "./styled";
 import IconSpiner from "../../common/IconSpinner";
 import Pagination from "../../common/Pagination";
 import { Container } from "../../common/Container";
-import { useQueryParameter } from "../queryParameter";
-import { searchQueryParamName } from "../queryParamName";
+import { useQueryParameter, useReplaceQueryParameter } from "../queryParameter";
+import { pageQueryParamName, searchQueryParamName } from "../queryParamName";
 import NoResults from "../../common/noResults";
 import ErrorPage from "../../common/ErrorPage";
 
@@ -26,10 +28,21 @@ const PeopleList = () => {
   const error = useSelector(selectPeopleError);
   const peoplePage = useSelector(selectPeoplePage);
   const dispatch = useDispatch();
+  const replaceQueryParameter = useReplaceQueryParameter();
+
+  const page = useQueryParameter(pageQueryParamName);
+  const totalPages = useSelector(selectTotalPeoplePages);
 
   useEffect(() => {
+    dispatch(updatePeoplePage(page));
+
+    replaceQueryParameter({
+      key: pageQueryParamName,
+      value: page > totalPages || page < 1 ? 1 : page,
+    });
+
     dispatch(fetchPeople());
-  }, [dispatch, searchValue, peoplePage]);
+  }, [dispatch, searchValue, page, totalPages]);
 
   return (
     <>

@@ -15,7 +15,7 @@ const peopleSlice = createSlice({
     total_pages: 1,
   },
   reducers: {
-    fetchPeople: (state) => {
+    fetchPeople: state => {
       state.isLoading = true;
       state.error = false;
     },
@@ -34,20 +34,20 @@ const peopleSlice = createSlice({
       state.peoplePage = 1;
       state.error = false;
     },
-    nextPeoplePage: (state) => {
+    nextPeoplePage: state => {
       state.peoplePage = state.peoplePage + 1;
     },
-    previousPeoplePage: (state) => {
+    previousPeoplePage: state => {
       state.peoplePage = state.peoplePage - 1;
     },
-    goToLastPeoplePage: (state) => {
+    goToLastPeoplePage: state => {
       state.peoplePage =
         state.people.total_pages > 500 ? 500 : state.people.total_pages;
     },
-    goToFirstPeoplePage: (state) => {
+    goToFirstPeoplePage: state => {
       state.peoplePage = 1;
     },
-    fetchPersonDetails: (state) => {
+    fetchPersonDetails: state => {
       state.isLoading = true;
     },
     fetchPersonDetailsSucces: (state, { payload: personDetails }) => {
@@ -66,6 +66,9 @@ const peopleSlice = createSlice({
     updatePersonId: (state, { payload: id }) => {
       state.personId = id;
     },
+    updatePeoplePage: (state, { payload: page }) => {
+      state.peoplePage = page;
+    },
   },
 });
 
@@ -83,20 +86,20 @@ export const {
   nextPeoplePage,
   previousPeoplePage,
   goToFirstPeoplePage,
+  updatePeoplePage,
 } = peopleSlice.actions;
-const selectPeopleState = (state) => state.people;
-export const selectPeople = (state) => selectPeopleState(state).people;
-export const selectPeopleError = (state) => selectPeopleState(state).error;
-export const selectSearchPeopleValue = (state) =>
+const selectPeopleState = state => state.people;
+export const selectPeople = state => selectPeopleState(state).people;
+export const selectPeopleError = state => selectPeopleState(state).error;
+export const selectSearchPeopleValue = state =>
   selectPeopleState(state).searchPeopleValue;
-export const selectPeopleIsLoading = (state) =>
+export const selectPeopleIsLoading = state =>
   selectPeopleState(state).isLoading;
-export const selectPersonDetails = (state) =>
+export const selectPersonDetails = state =>
   selectPeopleState(state).personDetails;
-export const selectPersonId = (state) => selectPeopleState(state).personId;
-export const selectTotalPeoplePages = (state) =>
-  selectPeople(state).total_pages;
-export const selectPeoplePage = (state) => selectPeopleState(state).peoplePage;
+export const selectPersonId = state => selectPeopleState(state).personId;
+export const selectTotalPeoplePages = state => selectPeople(state).total_pages;
+export const selectPeoplePage = state => selectPeopleState(state).peoplePage;
 export const selectCrew = state => selectPeopleState(state).crew;
 export const selectCast = state => selectPeopleState(state).cast;
 

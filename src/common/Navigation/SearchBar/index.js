@@ -9,10 +9,10 @@ import {
   useQueryParameter,
 } from "../../../features/queryParameter";
 import { changeSearchPeopleValue } from "../../../features/Slices/peopleSlice";
-import { changeSearchMoviesValue } from "../../../features/Slices/movieSlice";
+import { changeSearchMoviesValue, fetchMovies, updateMoviePage } from "../../../features/Slices/movieSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { searchQueryParamName } from "../../../features/queryParamName";
+import { pageQueryParamName, searchQueryParamName } from "../../../features/queryParamName";
 
 const SearchBar = () => {
   const replaceQueryParameter = useReplaceQueryParameter();
@@ -21,13 +21,16 @@ const SearchBar = () => {
   const location = useLocation();
   const history = useHistory();
 
+  const page = useQueryParameter(pageQueryParamName)
+
   useEffect(() => {
     location.pathname === "/people"
       ? dispatch(changeSearchPeopleValue(query))
       : dispatch(changeSearchMoviesValue(query));
-  }, [dispatch, location, query]);
+  }, [dispatch, location.pathname, query]);
 
-  const oninputChange = ({ target }) => {
+  const onInputChange = ({ target }) => {
+
     replaceQueryParameter({ key: searchQueryParamName, value: target.value });
     if (location.pathname !== "/people" && location.pathname !== "/movie") {
       location.pathname.slice(0, 15) === "/people/details"
@@ -47,7 +50,7 @@ const SearchBar = () => {
             : "Search for movies..."
         }
         value={query || ""}
-        onChange={oninputChange}
+        onChange={onInputChange}
       />
     </SearchWrapper>
   );

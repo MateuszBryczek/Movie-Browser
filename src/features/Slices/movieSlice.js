@@ -12,7 +12,6 @@ const movieSlice = createSlice({
     crew: [],
     movieId: false,
     moviePage: 1,
-    total_pages: 1,
   },
   reducers: {
     fetchMovies: state => {
@@ -35,7 +34,7 @@ const movieSlice = createSlice({
     changeSearchMoviesValue: (state, { payload: searchMoviesValue }) => {
       state.isLoading = true;
       state.searchMoviesValue = searchMoviesValue;
-      state.moviePage = 1;
+      state.moviePage = 1
       state.error = false;
     },
     fetchMovieDetails: state => {
@@ -71,6 +70,9 @@ const movieSlice = createSlice({
     goToFirstMoviePage: state => {
       state.moviePage = 1;
     },
+    updateMoviePage: (state, {payload: page}) => {
+      state.moviePage = page
+    }
   },
 });
 
@@ -90,6 +92,7 @@ export const {
   fetchMovieDetailsError,
   fetchPeopleForMovie,
   updateMovieId,
+  updateMoviePage,
 } = movieSlice.actions;
 const selectMoviesState = state => state.movies;
 export const selectMovies = state => selectMoviesState(state).movies;
