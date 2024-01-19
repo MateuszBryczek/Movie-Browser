@@ -1,17 +1,8 @@
 
 # Movies Browser
 
-
 This is a Movie Browser App.
 It enables browsing movies, checking people related to movies and movies realted to the cast and the crew.
-
-[demo](https://mateuszbryczek.github.io/Movie-Browser/)
-
-![image](https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/bbb5a074-baed-41ee-bd5d-752c0f49736a)
-
-
-https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/832a5fa9-4fa6-4b14-9dcc-b6326d0b4148
-
 
 ## Authors
 
@@ -22,6 +13,16 @@ https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/832a5fa9-4fa6-4
 
 
 - [Małgorzata Gajlusz](https://github.com/gosiagajlusz)
+
+
+[demo](https://mateuszbryczek.github.io/Movie-Browser/)
+
+![image](https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/bbb5a074-baed-41ee-bd5d-752c0f49736a)
+
+
+https://github.com/MateuszBryczek/Movie-Browser/assets/105000058/832a5fa9-4fa6-4b14-9dcc-b6326d0b4148
+
+
 
 
 ## Api source
